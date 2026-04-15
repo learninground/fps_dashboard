@@ -4,75 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026 FPS 경쟁 타이틀 대시보드</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0a0e1a;
-  --card: #131a2e;
-  --navy-light: #1a2540;
-  --navy-mid: #0f1626;
+  --bg: #ffffff;
+  --card: #f3f4f6;
+  --card2: #f9fafb;
+  --navy-light: #e5e7eb;
+  --navy-mid: #f9fafb;
   --orange: #ff6b2b;
   --orange-glow: #ff8c4c;
-  --text: #e8eaf0;
-  --text-muted: #8a92a6;
-  --cyan: #38bdf8;
-  --green: #34d399;
-  --red: #f87171;
-  --border: rgba(255,255,255,0.07);
-  --purple: #a78bfa;
-  --yellow: #facc15;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --cyan: #3b82f6;
+  --green: #16a34a;
+  --red: #ef4444;
+  --border: #e5e7eb;
+  --purple: #7c3aed;
+  --yellow: #d97706;
+  --accent: #4f46e5;
+  --shadow: 0 1px 4px rgba(0,0,0,.08);
+  --radius: 12px;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 /* ─── HEADER ─── */
 .header {
-  background: linear-gradient(180deg, #0d1220 0%, transparent 100%);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  padding: 20px 40px 16px;
+  padding: 0 40px;
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  width: 100%;
 }
 
 .logo {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo-badge {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.65em;
-  font-weight: 600;
-  color: var(--orange);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.logo-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .logo-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.25em;
+  font-size: 14px;
   font-weight: 800;
   color: var(--text);
+  line-height: 1.2;
+}
+
+.logo-sub {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ─── EXCHANGE RATE ─── */
+.rate-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.rate-box label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.rate-input {
+  width: 72px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 12px;
+  text-align: right;
+  outline: none;
+  color: var(--text);
+  background: #fff;
+}
+
+.rate-input:focus {
+  border-color: var(--accent);
+}
+
+.rate-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rate-btn:hover {
+  background: #4338ca;
 }
 
 .header-stats {
@@ -85,14 +163,14 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.75em;
+  font-size: 12px;
   color: var(--text-muted);
 }
 
 .stat-pill strong {
-  font-size: 1.1em;
+  font-size: 13px;
   color: var(--text);
+  font-weight: 700;
 }
 
 .stat-pill .dot {
@@ -112,10 +190,9 @@ body {
 }
 
 .filter-label {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.65em;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 8px;
@@ -130,7 +207,7 @@ body {
 }
 
 .filter-btn {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.78em;
   font-weight: 600;
   padding: 6px 18px;
@@ -145,7 +222,8 @@ body {
 
 .filter-btn:hover {
   color: var(--text);
-  border-color: rgba(255,255,255,0.2);
+  border-color: #d1d5db;
+  background: var(--card);
 }
 
 .filter-btn.active {
@@ -157,19 +235,19 @@ body {
 .filter-btn.active.f-aa {
   background: var(--cyan);
   border-color: var(--cyan);
-  color: #0a0e1a;
+  color: #fff;
 }
 
 .filter-btn.active.f-a {
   background: var(--green);
   border-color: var(--green);
-  color: #0a0e1a;
+  color: #fff;
 }
 
 .filter-btn.active.f-indie {
   background: var(--text-muted);
   border-color: var(--text-muted);
-  color: #0a0e1a;
+  color: #fff;
 }
 
 .filter-btn.active.f-stage {
@@ -177,7 +255,6 @@ body {
   border-color: var(--purple);
   color: #fff;
 }
-
 .filter-divider {
   width: 1px;
   height: 18px;
@@ -187,13 +264,12 @@ body {
 
 .search-input {
   margin-left: auto;
-  background: var(--card);
+  background: #fff;
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 6px 16px;
   color: var(--text);
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 0.78em;
+  font-size: 12px;
   outline: none;
   width: 200px;
   transition: border-color 0.18s;
@@ -204,7 +280,7 @@ body {
 }
 
 .search-input:focus {
-  border-color: var(--orange);
+  border-color: var(--accent);
 }
 
 /* ─── MAIN LAYOUT ─── */
@@ -218,7 +294,7 @@ body {
 }
 
 .section-label {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.7em;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -256,11 +332,12 @@ body {
 .game-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   cursor: pointer;
   transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 .card-thumbnail {
@@ -310,7 +387,7 @@ body {
 
 .game-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .game-card:hover::before {
@@ -326,7 +403,7 @@ body {
 }
 
 .card-tier {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.6em;
   font-weight: 700;
   padding: 2px 8px;
@@ -336,13 +413,13 @@ body {
   letter-spacing: 0.06em;
 }
 
-.tier-aaa { background: rgba(255,107,43,0.15); color: var(--orange); }
-.tier-aa { background: rgba(56,189,248,0.12); color: var(--cyan); }
-.tier-a { background: rgba(52,211,153,0.12); color: var(--green); }
-.tier-indie { background: rgba(138,146,166,0.12); color: var(--text-muted); }
+.tier-aaa { background: rgba(255,107,43,0.12); color: #ea580c; }
+.tier-aa { background: rgba(59,130,246,0.1); color: #2563eb; }
+.tier-a { background: rgba(22,163,74,0.1); color: #15803d; }
+.tier-indie { background: rgba(107,114,128,0.1); color: var(--text-muted); }
 
 .card-name {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 1.0em;
   font-weight: 700;
   color: var(--text);
@@ -363,11 +440,11 @@ body {
 }
 
 .meta-chip {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.62em;
   padding: 3px 8px;
   border-radius: 6px;
-  background: var(--navy-light);
+  background: #e5e7eb;
   color: var(--text-muted);
   display: flex;
   align-items: center;
@@ -398,13 +475,13 @@ body {
 
 /* ─── FOLLOWERS CHIP ─── */
 .chip-followers {
-  color: var(--cyan);
-  background: rgba(56,189,248,0.1);
+  color: #2563eb;
+  background: rgba(59,130,246,0.08);
 }
 
 /* ─── STAGE BADGE ─── */
 .stage-badge {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.58em;
   font-weight: 600;
   padding: 2px 8px;
@@ -412,13 +489,13 @@ body {
   display: inline-block;
   letter-spacing: 0.04em;
 }
-.stage-launched { background: rgba(52,211,153,0.15); color: var(--green); }
-.stage-alpha { background: rgba(255,107,43,0.12); color: var(--orange); }
-.stage-beta { background: rgba(250,204,21,0.12); color: var(--yellow); }
-.stage-demo { background: rgba(56,189,248,0.12); color: var(--cyan); }
-.stage-dev { background: rgba(138,146,166,0.12); color: var(--text-muted); }
-.stage-delayed { background: rgba(248,113,113,0.12); color: var(--red); }
-.stage-unannounced { background: rgba(167,139,250,0.12); color: var(--purple); }
+.stage-launched { background: rgba(22,163,74,0.1); color: #15803d; }
+.stage-alpha { background: rgba(255,107,43,0.1); color: #ea580c; }
+.stage-beta { background: rgba(217,119,6,0.1); color: #b45309; }
+.stage-demo { background: rgba(59,130,246,0.1); color: #2563eb; }
+.stage-dev { background: rgba(107,114,128,0.1); color: var(--text-muted); }
+.stage-delayed { background: rgba(239,68,68,0.1); color: #dc2626; }
+.stage-unannounced { background: rgba(124,58,237,0.1); color: #7c3aed; }
 
 .card-genre {
   font-size: 0.67em;
@@ -445,13 +522,14 @@ body {
   right: -500px;
   width: 500px;
   height: 100vh;
-  background: var(--navy-mid);
+  background: #fff;
   border-left: 1px solid var(--border);
   z-index: 200;
   transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.08);
 }
 
 .detail-panel.open {
@@ -505,7 +583,7 @@ body {
 }
 
 .gallery-dot.active {
-  background: var(--orange);
+  background: var(--accent);
 }
 
 .gallery-nav {
@@ -552,8 +630,8 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--navy-light);
-  border: none;
+  background: var(--card);
+  border: 1px solid var(--border);
   color: var(--text-muted);
   cursor: pointer;
   display: flex;
@@ -565,7 +643,8 @@ body {
 }
 
 .panel-close:hover {
-  background: var(--orange);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
@@ -574,7 +653,7 @@ body {
 }
 
 .panel-title {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 1.4em;
   font-weight: 800;
   color: var(--text);
@@ -623,7 +702,7 @@ body {
 }
 
 .panel-meta-label {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.58em;
   font-weight: 700;
   text-transform: uppercase;
@@ -659,14 +738,14 @@ body {
   position: absolute;
   top: calc(100% + 12px);
   left: 0;
-  background: var(--navy-mid);
-  border: 1px solid var(--cyan);
+  background: #fff;
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px 14px;
   width: max-content;
   max-width: 280px;
   z-index: 9999;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   color: var(--text);
   font-size: 0.9em;
   font-weight: 400;
@@ -682,7 +761,7 @@ body {
 }
 
 .dp-prev-title {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.75em;
   color: var(--cyan);
   text-transform: uppercase;
@@ -697,12 +776,12 @@ body {
 }
 
 .panel-section-title {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.62em;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--orange);
+  color: var(--accent);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -713,7 +792,7 @@ body {
   content: '';
   flex: 1;
   height: 1px;
-  background: rgba(255,107,43,0.2);
+  background: rgba(79,70,229,0.2);
 }
 
 .panel-section-title.dev-response {
@@ -740,7 +819,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--accent);
   margin-top: 5px;
   flex-shrink: 0;
 }
@@ -752,7 +831,7 @@ body {
 }
 
 .milestone-text.current {
-  color: var(--orange);
+  color: var(--accent);
   font-weight: 500;
 }
 
@@ -770,8 +849,8 @@ body {
 }
 
 .feedback-positive {
-  background: rgba(52,211,153,0.08);
-  color: #a7f3d0;
+  background: rgba(22,163,74,0.06);
+  color: #166534;
   border-left: 3px solid var(--green);
 }
 
@@ -783,8 +862,8 @@ body {
 }
 
 .feedback-concern {
-  background: rgba(248,113,113,0.08);
-  color: #fecaca;
+  background: rgba(239,68,68,0.06);
+  color: #991b1b;
   border-left: 3px solid var(--red);
 }
 
@@ -796,14 +875,14 @@ body {
 }
 
 .dev-box {
-  background: rgba(56,189,248,0.07);
+  background: rgba(59,130,246,0.05);
   border-left: 3px solid var(--cyan);
   border-radius: 0 8px 8px 0;
   padding: 10px 14px;
 }
 
 .dev-label {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.58em;
   font-weight: 700;
   text-transform: uppercase;
@@ -825,13 +904,13 @@ body {
   gap: 8px;
 }
 .steam-stat {
-  background: rgba(56,189,248,0.06);
-  border: 1px solid rgba(56,189,248,0.1);
+  background: rgba(59,130,246,0.05);
+  border: 1px solid rgba(59,130,246,0.12);
   border-radius: 8px;
   padding: 8px 10px;
 }
 .steam-stat-label {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.55em;
   font-weight: 700;
   text-transform: uppercase;
@@ -840,13 +919,13 @@ body {
   margin-bottom: 3px;
 }
 .steam-stat-value {
-  font-family: 'Outfit', sans-serif;
+  
   font-size: 0.78em;
   font-weight: 700;
   color: var(--cyan);
 }
 .steam-stat-value.stat-green { color: var(--green); }
-.steam-stat-value.stat-yellow { color: #facc15; }
+.steam-stat-value.stat-yellow { color: #b45309; }
 .steam-stat-value.stat-muted { color: var(--text-muted); }
 .panel-section-title svg { flex-shrink: 0; }
 
@@ -870,7 +949,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.2);
   z-index: 190;
   opacity: 0;
   pointer-events: none;
@@ -904,51 +983,61 @@ body {
   transition: all 0.15s;
 }
 .view-btn:hover { color: var(--text); }
-.view-btn.active { background: var(--orange); color: #fff; }
+.view-btn.active { background: var(--accent); color: #fff; }
 
 /* ─── CALENDAR ─── */
 .cal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px; }
 .cal-nav { display:flex; align-items:center; gap:12px; }
 .cal-nav-btn { background:var(--card); border:1px solid var(--border); border-radius:8px; color:var(--text); width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.15s; font-size:1em; }
-.cal-nav-btn:hover { border-color:var(--orange); color:var(--orange); }
-.cal-month-label { font-family:'Outfit',sans-serif; font-size:1.2em; font-weight:700; color:var(--text); min-width:160px; text-align:center; }
+.cal-nav-btn:hover { border-color:var(--accent); color:var(--accent); }
+.cal-month-label { font-size:1.2em; font-weight:700; color:var(--text); min-width:160px; text-align:center; }
 .cal-legend { display:flex; gap:14px; flex-wrap:wrap; }
-.cal-legend-item { display:flex; align-items:center; gap:5px; font-family:'Outfit',sans-serif; font-size:0.65em; color:var(--text-muted); }
+.cal-legend-item { display:flex; align-items:center; gap:5px; font-size:0.65em; color:var(--text-muted); }
 .cal-legend-dot { width:8px; height:8px; border-radius:2px; }
 .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
-.cal-day-header { font-family:'Outfit',sans-serif; font-size:0.65em; font-weight:700; color:var(--text-muted); text-align:center; padding:8px 0; text-transform:uppercase; letter-spacing:0.1em; }
-.cal-cell { background:var(--card); border:1px solid var(--border); border-radius:8px; min-height:90px; padding:6px; position:relative; transition:border-color 0.15s; }
-.cal-cell:hover { border-color:rgba(255,255,255,0.15); }
-.cal-cell.empty { background:transparent; border-color:transparent; }
-.cal-cell.today { border-color:var(--orange); box-shadow:0 0 8px rgba(255,107,43,0.2); }
-.cal-date { font-family:'Outfit',sans-serif; font-size:0.7em; font-weight:600; color:var(--text-muted); margin-bottom:4px; }
-.cal-cell.today .cal-date { color:var(--orange); }
+.cal-day-header { font-size:0.65em; font-weight:700; color:var(--text-muted); text-align:center; padding:8px 0; text-transform:uppercase; letter-spacing:0.1em; }
+.cal-cell { background:var(--card); border:1px solid var(--border); border-radius:8px; min-height:90px; padding:6px; position:relative; transition:border-color 0.15s; box-shadow:var(--shadow); }
+.cal-cell:hover { border-color:#d1d5db; }
+.cal-cell.empty { background:transparent; border-color:transparent; box-shadow:none; }
+.cal-cell.today { border-color:var(--accent); box-shadow:0 0 8px rgba(79,70,229,0.15); }
+.cal-date { font-size:0.7em; font-weight:600; color:var(--text-muted); margin-bottom:4px; }
+.cal-cell.today .cal-date { color:var(--accent); }
 .cal-games { display:flex; flex-direction:column; gap:3px; }
-.cal-game-chip { font-family:'Outfit',sans-serif; font-size:0.6em; font-weight:600; padding:3px 6px; border-radius:4px; cursor:pointer; transition:all 0.15s; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.cal-game-chip:hover { filter:brightness(1.3); transform:translateX(2px); }
-.cal-game-chip.t-aaa { background:rgba(255,107,43,0.18); color:var(--orange); }
-.cal-game-chip.t-aa { background:rgba(56,189,248,0.15); color:var(--cyan); }
-.cal-game-chip.t-a { background:rgba(52,211,153,0.15); color:var(--green); }
-.cal-game-chip.t-indie { background:rgba(138,146,166,0.12); color:var(--text-muted); }
+.cal-game-chip { font-size:0.6em; font-weight:600; padding:3px 6px; border-radius:4px; cursor:pointer; transition:all 0.15s; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cal-game-chip:hover { filter:brightness(0.9); transform:translateX(2px); }
+.cal-game-chip.t-aaa { background:rgba(255,107,43,0.12); color:#ea580c; }
+.cal-game-chip.t-aa { background:rgba(59,130,246,0.1); color:#2563eb; }
+.cal-game-chip.t-a { background:rgba(22,163,74,0.1); color:#15803d; }
+.cal-game-chip.t-indie { background:rgba(107,114,128,0.1); color:var(--text-muted); }
 .cal-game-chip.released { opacity:0.6; }
 .cal-quarter-row { margin-bottom:28px; }
-.cal-quarter-label { font-family:'Outfit',sans-serif; font-size:0.68em; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; }
-.cal-quarter-label .q-count { font-size:0.85em; color:var(--orange); background:rgba(255,107,43,0.1); padding:1px 8px; border-radius:10px; }
-.timeline-row { display:flex; align-items:center; gap:12px; padding:8px 12px; border-radius:8px; background:var(--card); border:1px solid var(--border); margin-bottom:4px; cursor:pointer; transition:all 0.15s; }
-.timeline-row:hover { border-color:rgba(255,255,255,0.15); transform:translateX(3px); }
+.cal-quarter-label { font-size:0.68em; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; }
+.cal-quarter-label .q-count { font-size:0.85em; color:var(--accent); background:rgba(79,70,229,0.08); padding:1px 8px; border-radius:10px; }
+.timeline-row { display:flex; align-items:center; gap:12px; padding:8px 12px; border-radius:8px; background:var(--card); border:1px solid var(--border); margin-bottom:4px; cursor:pointer; transition:all 0.15s; box-shadow:var(--shadow); }
+.timeline-row:hover { border-color:#d1d5db; transform:translateX(3px); }
 .timeline-row.past { opacity:0.55; }
-.timeline-date-col { font-family:'Outfit',sans-serif; font-size:0.72em; font-weight:700; color:var(--text-muted); min-width:90px; flex-shrink:0; }
+.timeline-date-col { font-size:0.72em; font-weight:700; color:var(--text-muted); min-width:90px; flex-shrink:0; }
 .timeline-tier-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-.timeline-name { font-family:'Outfit',sans-serif; font-size:0.82em; font-weight:700; color:var(--text); flex:1; min-width:0; }
+.timeline-name { font-size:0.82em; font-weight:700; color:var(--text); flex:1; min-width:0; }
 .timeline-meta { display:flex; gap:6px; flex-shrink:0; }
-.timeline-badge { font-family:'Outfit',sans-serif; font-size:0.58em; font-weight:600; padding:2px 8px; border-radius:6px; background:var(--navy-light); color:var(--text-muted); }
-.timeline-badge.released { background:rgba(52,211,153,0.12); color:var(--green); }
-.timeline-badge.delayed { background:rgba(248,113,113,0.12); color:var(--red); }
+.timeline-badge { font-size:0.58em; font-weight:600; padding:2px 8px; border-radius:6px; background:var(--card); border:1px solid var(--border); color:var(--text-muted); }
+.timeline-badge.released { background:rgba(22,163,74,0.08); color:#15803d; border-color:rgba(22,163,74,0.2); }
+.timeline-badge.delayed { background:rgba(239,68,68,0.08); color:#dc2626; border-color:rgba(239,68,68,0.2); }
+
+/* ─── FILTER STRIP ─── */
+.filter-strip {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 40px 12px;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .header {
-    padding: 16px 20px 12px;
+    padding: 10px 16px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .main {
     padding: 16px 20px;
@@ -963,9 +1052,15 @@ body {
   .header-stats {
     display: none;
   }
+  .header-right {
+    display: none;
+  }
   .search-input {
     margin-left: 0;
     width: 100%;
+  }
+  .filter-bar {
+    gap: 6px;
   }
 }
 </style>
@@ -975,10 +1070,18 @@ body {
 <div class="overlay" id="overlay"></div>
 
 <header class="header">
-  <div class="header-top">
-    <div class="logo">
-      <div class="logo-badge">Lionheart Studio · Global Business</div>
-      <div class="logo-title">2026 FPS 경쟁 타이틀 대시보드</div>
+  <div class="logo">
+    <span class="logo-badge">PROJECT S</span>
+    <div class="logo-titles">
+      <div class="logo-title">Project S 스팀 론칭 대시보드</div>
+      <div class="logo-sub">🎮 2026 FPS 경쟁 타이틀 대시보드</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="rate-box">
+      <label for="rateInput">💱 환율 (₩/$)</label>
+      <input id="rateInput" class="rate-input" type="number" value="1450" min="500" max="3000" step="10"/>
+      <button class="rate-btn" onclick="applyRate()">적용</button>
     </div>
     <div class="header-stats">
       <div class="stat-pill"><span class="dot dot-aaa"></span><strong>7</strong> AAA</div>
@@ -987,7 +1090,9 @@ body {
       <div class="stat-pill"><span class="dot dot-indie"></span><strong>2</strong> Indie</div>
     </div>
   </div>
+</header>
 
+<div class="filter-strip">
   <div class="filter-group">
     <label class="filter-label">분류</label>
     <div class="filter-bar">
@@ -1035,7 +1140,7 @@ body {
       <input class="search-input" type="text" id="searchInput" placeholder="게임명 검색...">
     </div>
   </div>
-</header>
+</div>
 
 <main class="main" id="main">
   <div id="gridContainer"></div>
@@ -1081,15 +1186,17 @@ const GAMES = [
     pros:["Call of Duty 프랜차이즈 파워","Infinity Ward 최고 역량 스튜디오"],
     concerns:["미발표 단계, 공식 정보 없음"]
   },
-  { id:3, name:"Halo: Campaign Evolved", tier:"AAA", genre:"순수 PvP", dev:"Halo Studios", pub:"Xbox Game Studios (Microsoft)", platform:"PC · Xbox · PS5", release:"2026.07.28", bm:"B2P", status:"데모 공개", followers:20196, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"Halo 4 (2012), Halo 5 (2015), Halo Infinite (2021), Halo: MCC",
+  { id:3, name:"Halo: Campaign Evolved", tier:"AAA", genre:"Co-op", dev:"Halo Studios", pub:"Xbox Game Studios (Microsoft)", platform:"PC · Xbox · PS5", release:"2026.07.28", bm:"B2P", status:"데모 공개", followers:20196, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"Halo 4 (2012), Halo 5 (2015), Halo Infinite (2021), Halo: MCC",
+    isRemake: true,
+    remakeNote: "⚠️ 리메이크 (캠페인 전용, PvP 없음) — Halo: CE (2001) UE5 ground-up 리메이크. 신규 프리퀄 미션 3개, 무기 9종 추가, 4인 온라인 코옵. 2011년 Anniversary(리마스터)와 달리 레벨 디자인·컷신·음성 전면 재제작. 최초 PS 동시 출시.",
     milestones:[{text:"티저: Halo World Championships (2024.10)"},{text:"티저: Xbox Showcase (2025.06)"},{text:"공개+게임플레이 데모: Halo World Championships (2025.10)",current:true}],
-    pros:["Halo: CE UE5 완전 리메이크","MS 1st party 플래그십","최초 PS 동시 출시 — 시장 확대"],
-    concerns:["25주년 기념작 부담","UE5 전환 리스크"]
+    pros:["Halo: CE UE5 완전 리메이크 (단순 리마스터 X)","프리퀄 미션 3개 + 무기 9종 + 차량 탈취 추가","MS 1st party 플래그십 · 최초 PS 동시 출시","4인 온라인 코옵 + 크로스플레이/크로스프로그레션"],
+    concerns:["캠페인 전용 — PvP 멀티 없음 (Project S와 직접경쟁 아님)","25주년 기념작 부담","UE5 전환 리스크","GTA VI (2026.05) 회피 위해 Summer 출시 목표"]
   },
-  { id:4, name:"Cinder City", tier:"AAA", genre:"순수 PvP", dev:"빅파이어게임즈 (BigFire)", pub:"NCSoft", platform:"PC", release:"2026 H2", bm:"TBD", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (Project LLL → Cinder City가 첫 타이틀)",
+  { id:4, name:"Cinder City", tier:"AAA", genre:"Co-op", dev:"빅파이어게임즈 (BigFire)", pub:"NCSoft", platform:"PC · PS5 · Xbox", release:"2026 H2", bm:"TBD", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (Project LLL → Cinder City가 첫 타이틀)",
     milestones:[{text:"공개: Gamescom ONL (2025.08)"},{text:"GDC 부스 데모 (2026.03)",current:true}],
-    pros:["NCSoft 산하 MMO 택티컬 슈터","UE5, 포스트아포칼립스 서울 배경","NVIDIA DLSS 4 파트너십"],
-    concerns:["신설 스튜디오 첫 타이틀","MMO FPS 장르 검증 필요"]
+    pros:["NCSoft 산하 오픈월드 MMO 택티컬 슈터","UE5, 포스트아포칼립스 서울 배경 (삼성동·논현동)","NVIDIA DLSS 4 파트너십","7x7km 오픈월드, 수백 명 동시 접속","PvE 중심: 보스전·인스턴스 던전·메카 전투"],
+    concerns:["신설 스튜디오 첫 타이틀","MMO 슈터 장르 검증 필요","PvP 미확인 — 현재 PvE 포커스"]
   },
   { id:5, name:"Exoborne", tier:"AAA", genre:"익스트랙션", dev:"Sharkmob AB", pub:"Level Infinite (Tencent)", platform:"PC", release:"2026 TBD", bm:"TBD", status:"PT 완료", followers:37797, stage:"플레이테스트 완료", stageGroup:"알파/베타", devPrevWorks:"Vampire: The Masquerade – Bloodhunt (2022, 1년 만에 개발 중단)",
     milestones:[{text:"최초 공개: TGA (2023.12)"},{text:"게임플레이 예고편 (2024)"},{text:"플레이테스트 (2025.02)"},{text:"비공개 플레이테스트 (2025.09~10)",current:true}],
@@ -1112,10 +1219,11 @@ const GAMES = [
     concerns:["건플레이 심각한 비판 — 반동 제어 불가","움직임 clunky","PUBG 정체성 제로 — identity crisis","AI 적 부재, 추출 포인트 캠핑"],
     devResponse:"Week 2 매치메이킹/안티치트 강화. combat perception, situational clarity 이슈 인지."
   },
-  { id:8, name:"No Law", tier:"AA", genre:"Co-op", dev:"Neon Giant", pub:"Krafton", platform:"PC", release:"2026 TBD", bm:"TBD", status:"개발 중 (공개)", followers:22902, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"The Ascent (2021, 사이버펑크 트윈스틱 슈터)",
+  { id:8, name:"No Law", tier:"AA", genre:"Co-op", dev:"Neon Giant", pub:"Krafton", platform:"PC · PS5 · Xbox", release:"2026 TBD", bm:"B2P", status:"개발 중 (공개)", followers:22902, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"The Ascent (2021, 사이버펑크 트윈스틱 슈터)",
+    isSinglePlayer: true,
     milestones:[{text:"최초 공개: TGA (2025.12.11)",current:true}],
-    pros:["ex-Wolfenstein/DOOM/Gears 인력","Krafton 퍼블리싱","사이버펑크 오픈월드 코옵 FPS"],
-    concerns:["개발 초기 단계","The Ascent 이후 장르 전환"]
+    pros:["ex-Wolfenstein/DOOM/Gears 인력","Krafton 퍼블리싱","사이버펑크 오픈월드 싱글플레이어 FPS RPG","플레이어 에이전시 + 스토리 분기"],
+    concerns:["싱글플레이어 전용 — 멀티 없음 (Project S와 직접경쟁 아님)","개발 초기 단계","The Ascent 이후 장르 전환"]
   },
   { id:9, name:"4 LOOP", tier:"AA", genre:"Co-op", dev:"Bad Robot Games", pub:"PlayStation Publishing", platform:"PC · PS5", release:"2026 TBD", bm:"TBD", status:"PT 예정", followers:8993, stage:"PT 예정", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (J.J. 에이브럼스 Bad Robot 산하, 첫 타이틀)",
     milestones:[{text:"최초 공개: TGA (2025.12.11)"},{text:"게임플레이 영상: State of Play (2026.02)"},{text:"플레이테스트 예고",current:true}],
@@ -1140,10 +1248,10 @@ const GAMES = [
     pros:["NCSoft 슈터 다각화 전략","PvP 히어로 슈터 F2P"],
     concerns:["신설 스튜디오 첫 타이틀","팔로워 수 낮음"]
   },
-  { id:13, name:"Project Spectrum", tier:"AA", genre:"Co-op", dev:"Team Jade", pub:"Tencent", platform:"PC", release:"2026 TBD", bm:"F2P", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (텐센트 내부, 첫 타이틀)",
+  { id:13, name:"Project Spectrum", tier:"AA", genre:"Co-op", dev:"Team Jade (TiMi/Tencent)", pub:"Tencent", platform:"PC", release:"2026 TBD", bm:"F2P", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"Delta Force, Call of Duty: Mobile",
     milestones:[{text:"최초 공개: Gamescom ONL (2025.08)"},{text:"GDC 부스 (2026.03)",current:true}],
-    pros:["텐센트 직계 개발","비대칭 PvPvE 슈터"],
-    concerns:["신설 스튜디오","Steam 페이지 없음"]
+    pros:["비대칭 PvPvE 호러 슈터 — Hunt: Showdown + Dead by Daylight 조합","UE5, Ember Zone 초자연 호러 세계관","Executioner(보스) = 다른 플레이어가 조종","Team Jade (Delta Force) 개발력"],
+    concerns:["Steam 페이지 없음","장르 혼합 (택티컬+호러+비대칭) 밸런스 난이도","Evolve 실패 선례"]
   },
   { id:14, name:"Special Force Remastered", tier:"AA", genre:"순수 PvP", dev:"Dragonfly", pub:"Dragonfly", platform:"PC", release:"출시 연기 (원 26.03)", bm:"F2P", status:"출시완료", followers:765, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"스페셜포스 (2004, 1억+ 유저), SF2, SF Legion of Monsters (2024)",
     milestones:[{text:"개발 영상 (2025.05)"},{text:"홍보영상+사전예약 (2026.02)"},{text:"한국 출시 (2026.03.18)",current:true}],
@@ -1182,10 +1290,10 @@ const GAMES = [
     pros:["100인 3팀 택티컬 FPS","256km² 맵, 파괴+건설"],
     concerns:["전작 Battalion 1944 혼합 평가","텐센트 독립 후 첫 작"]
   },
-  { id:19, name:"DEFECT", tier:"AA", genre:"순수 PvP", dev:"emptyvessel / NC America", pub:"NCSoft", platform:"PC", release:"2026 TBD", bm:"TBD", status:"개발 중", followers:20413, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (NC America 산하, 첫 타이틀)",
+  { id:19, name:"DEFECT", tier:"AA", genre:"Co-op", dev:"emptyvessel / NC America", pub:"NCSoft", platform:"PC", release:"2026 TBD", bm:"TBD", status:"개발 중", followers:20413, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (ex-DOOM/Quake/COD/The Last of Us 베테랑, 첫 타이틀)",
     milestones:[{text:"공개 예고편 (2024.08, 190만 조회)"},{text:"NCSoft 전략투자 (2025.05)"},{text:"시리즈A $11M (2025.06)"},{text:"게임플레이 공개 (2025.10)"},{text:"NC America 퍼블리싱 계약 (2026.03)",current:true}],
-    pros:["4v4v4v4 PvP+PvE 멀티","NC America 산하"],
-    concerns:["신설 스튜디오 첫 타이틀"]
+    pros:["4v4v4v4 PvP + PvE 코옵 + 싱글플레이어 모드","사이버펑크 SWAT Sim — 'Dredd meets Ready or Not'","NC America 퍼블리싱","Mick Gordon (DOOM) 사운드트랙"],
+    concerns:["신설 스튜디오 첫 타이틀","콘솔 미확정"]
   },
   { id:20, name:"'83", tier:"AA", genre:"밀리터리", dev:"Blue Dot Games", pub:"Blue Dot Games", platform:"PC", release:"2026 TBD", bm:"B2P", status:"EA 연기", followers:23471, stage:"EA 연기", stageGroup:"연기/미정", devPrevWorks:"Rising Storm 시리즈 핵심 인력 (구 Antimatter Games)",
     milestones:[{text:"발표 (2019)"},{text:"개발 중단/부활 (2023)"},{text:"Steam Next Fest 데모 (2025)"},{text:"얼리 액세스 연기 (2025.11)",current:true}],
@@ -1197,8 +1305,8 @@ const GAMES = [
     pros:["Verdun/Tannenberg 시리즈 개발사","WW1 니치 밀심 FPS 전문"],
     concerns:["니치 장르 한계"]
   },
-  { id:22, name:"Last Flag", tier:"A", genre:"히어로", dev:"Night Street Games", pub:"Night Street Games", platform:"PC · PS5 · Xbox", release:"2026.04.14", bm:"F2P", status:"출시 임박 (OBT 완료)", followers:6199, stage:"OBT 완료", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오 (Imagine Dragons 창업, 디렉터 ex-Blizzard Diablo 3)",
-    milestones:[{text:"데모: Steam Next Fest (2025.12)"},{text:"오픈 베타 (2026.02~03)"},{text:"출시 예정 (2026.04.14)",current:true}],
+  { id:22, name:"Last Flag", tier:"A", genre:"히어로", dev:"Night Street Games", pub:"Night Street Games", platform:"PC · PS5 · Xbox", release:"2026.04.14", bm:"F2P", status:"출시완료", followers:6199, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"신설 스튜디오 (Imagine Dragons 창업, 디렉터 ex-Blizzard Diablo 3)",
+    milestones:[{text:"데모: Steam Next Fest (2025.12)"},{text:"오픈 베타 (2026.02~03)"},{text:"출시 (2026.04.14)",current:true}],
     steamData:{followers:"6,199",peak:"825 (데모 CCU)",testData:"OBT (2026.02~03): Steam Next Fest · 데모 피크 825 CCU · OBT 피드백 기반 대량 밸런스 패치 적용"},
     pros:["Imagine Dragons 형제 공동 설립","5v5 CTF 슈터","게임디렉터 ex-Blizzard (Diablo 3)"],
     concerns:["인디 규모","팔로워 수 낮음"]
@@ -1262,7 +1370,7 @@ const GAMES = [
     pros:["Valve 개발력","MOBA + TPS Hero Shooter 혁신","커뮤니티 반응 매우 긍정적","초대 전용에도 Steam 상위권"],
     concerns:["정식 출시 시점 미정","초대 전용 접근 제한"]
   },
-  { id:34, name:"Disney Extraction Shooter", tier:"AAA", genre:"익스트랙션", dev:"Epic Games", pub:"Epic Games / Disney", platform:"PC", release:"2026.11 (비공식)", bm:"TBD", status:"개발 중 (미발표)", followers:null, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"Fortnite, Unreal Tournament",
+  { id:34, name:"디즈니 익스트랙션 슈터 (미발표)", tier:"AAA", genre:"익스트랙션", dev:"Epic Games", pub:"Epic Games / Disney", platform:"PC", release:"2026.11 (비공식)", bm:"TBD", status:"개발 중 (미발표)", followers:null, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"Fortnite, Unreal Tournament",
     milestones:[{text:"Bloomberg 보도 (2026.04.11)",current:true}],
     pros:["Disney $1.5B 투자 기반","Epic Games 개발력","Arc Raiders 스타일 익스트랙션"],
     concerns:["미발표 단계","게임 메카닉 독창성 내부 우려 보도","Disney의 Epic 인수 관심설"]
@@ -1290,6 +1398,8 @@ const GAME_IMAGES = {
   "The Bornless": ["The Bornless.png"],
   "Time Takers": ["Time Takers.png"],
   "Wardogs": ["Wardogs.png"],
+  "Deadlock": ["Deadlock.png"],
+  "Halo: Campaign Evolved": ["HALO.png"],
 };
 
 // 이미지 매핑 초기화
@@ -1401,6 +1511,8 @@ function createGameCardHTML(game, tierConfig) {
       <div class="card-content">
         <span class="card-tier ${tierConfig.cls}">${game.tier}</span>
         ${stageBadge}
+        ${game.isRemake ? '<span class="stage-badge" style="background:rgba(217,119,6,0.1);color:#b45309;margin-left:4px">리메이크</span>' : ''}
+        ${game.isSinglePlayer ? '<span class="stage-badge" style="background:rgba(124,58,237,0.1);color:#7c3aed;margin-left:4px">싱글플레이어</span>' : ''}
         <div class="card-name">${game.name}</div>
         <div class="card-dev">${game.dev} · ${game.pub}</div>
         <div class="card-meta">
@@ -1538,6 +1650,26 @@ function openDetailPanel(gameId) {
     </div>
   `;
 
+  // 리메이크 안내 배너
+  if (game.remakeNote) {
+    bodyHTML += `
+      <div style="margin:12px 0;padding:12px 14px;background:rgba(217,119,6,0.08);border:1px solid rgba(217,119,6,0.2);border-radius:8px;">
+        <div style="font-size:0.78em;font-weight:700;color:#b45309;margin-bottom:4px;">리메이크 타이틀</div>
+        <div style="font-size:0.72em;color:var(--text);line-height:1.6;">${game.remakeNote}</div>
+      </div>
+    `;
+  }
+
+  // 싱글플레이어 전용 안내 배너
+  if (game.isSinglePlayer) {
+    bodyHTML += `
+      <div style="margin:12px 0;padding:12px 14px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:8px;">
+        <div style="font-size:0.78em;font-weight:700;color:#7c3aed;margin-bottom:4px;">싱글플레이어 전용</div>
+        <div style="font-size:0.72em;color:var(--text);line-height:1.6;">멀티플레이어 없음 — Project S와 직접 경쟁 아님</div>
+      </div>
+    `;
+  }
+
   // Steam 실적 데이터
   if (game.steamData) {
     const sd = game.steamData;
@@ -1594,11 +1726,11 @@ function openDetailPanel(gameId) {
     `;
   }
 
-  // 기대 포인트
+  // 커뮤니티 긍정 평가
   if (game.pros && game.pros.length) {
     bodyHTML += `
       <div class="panel-section">
-        <div class="panel-section-title">기대 포인트</div>
+        <div class="panel-section-title">커뮤니티 긍정 평가</div>
         <div class="feedback-list">
           ${game.pros.map(p => `<div class="feedback-item feedback-positive">${p}</div>`).join('')}
         </div>
@@ -1606,12 +1738,12 @@ function openDetailPanel(gameId) {
     `;
   }
 
-  // 리스크 요인
+  // 커뮤니티 부정 평가
   const concerns = game.concerns || game.cons;
   if (concerns && concerns.length) {
     bodyHTML += `
       <div class="panel-section">
-        <div class="panel-section-title">리스크 요인</div>
+        <div class="panel-section-title">커뮤니티 부정 평가</div>
         <div class="feedback-list">
           ${concerns.map(c => `<div class="feedback-item feedback-concern">${c}</div>`).join('')}
         </div>
@@ -1914,6 +2046,15 @@ document.addEventListener('keydown', e => {
 
 // 초기 렌더링
 renderCurrentView();
+
+// ═══════════════════════════════════════════
+//  EXCHANGE RATE FUNCTION
+// ═══════════════════════════════════════════
+function applyRate() {
+  const rate = parseInt(document.getElementById('rateInput').value) || 1450;
+  // Placeholder - will be used when KRW conversion is needed across pages
+  alert(`환율이 1$ = ${rate.toLocaleString()}원으로 설정되었습니다.\n통합 대시보드에서 전체 페이지에 적용됩니다.`);
+}
 </script>
 </body>
 </html>
