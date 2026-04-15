@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 FPS 경쟁 타이틀 대시보드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0e1a;
+  --card: #131a2e;
+  --navy-light: #1a2540;
+  --navy-mid: #0f1626;
+  --orange: #ff6b2b;
+  --orange-glow: #ff8c4c;
+  --text: #e8eaf0;
+  --text-muted: #8a92a6;
+  --cyan: #38bdf8;
+  --green: #34d399;
+  --red: #f87171;
+  --border: rgba(255,255,255,0.07);
+  --purple: #a78bfa;
+  --yellow: #facc15;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(180deg, #0d1220 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 40px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65em;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.logo-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25em;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.header-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75em;
+  color: var(--text-muted);
+}
+
+.stat-pill strong {
+  font-size: 1.1em;
+  color: var(--text);
+}
+
+.stat-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-aaa { background: var(--orange); }
+.dot-aa { background: var(--cyan); }
+.dot-a { background: var(--green); }
+.dot-indie { background: var(--text-muted); }
+
+/* ─── FILTER GROUPS ─── */
+.filter-group {
+  margin-bottom: 12px;
+}
+
+.filter-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78em;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: 0.03em;
+}
+
+.filter-btn:hover {
+  color: var(--text);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.filter-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.filter-btn.active.f-aa {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #0a0e1a;
+}
+
+.filter-btn.active.f-a {
+  background: var(--green);
+  border-color: var(--green);
+  color: #0a0e1a;
+}
+
+.filter-btn.active.f-indie {
+  background: var(--text-muted);
+  border-color: var(--text-muted);
+  color: #0a0e1a;
+}
+
+.filter-btn.active.f-stage {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+}
+
+.filter-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.search-input {
+  margin-left: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 16px;
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.78em;
+  outline: none;
+  width: 200px;
+  transition: border-color 0.18s;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  border-color: var(--orange);
+}
+
+/* ─── MAIN LAYOUT ─── */
+.main {
+  padding: 24px 40px;
+  transition: margin-right 0.3s;
+}
+
+.main.panel-open {
+  margin-right: 500px;
+}
+
+.section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-count {
+  font-size: 0.85em;
+  color: var(--orange);
+  background: rgba(255,107,43,0.1);
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+
+/* ─── CARD GRID ─── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.game-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-thumbnail {
+  width: 100%;
+  height: 160px;
+  background: var(--navy-light);
+  overflow: hidden;
+  position: relative;
+}
+
+.card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.game-card:hover .card-thumbnail img {
+  transform: scale(1.05);
+}
+
+.card-thumbnail .no-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.7em;
+  opacity: 0.5;
+}
+
+.card-content {
+  padding: 14px 18px 16px;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.18s;
+}
+
+.game-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.game-card:hover::before {
+  background: var(--card-accent, var(--orange));
+}
+
+.game-card.active {
+  border-color: var(--card-accent, var(--orange));
+}
+
+.game-card.active::before {
+  background: var(--card-accent, var(--orange));
+}
+
+.card-tier {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  letter-spacing: 0.06em;
+}
+
+.tier-aaa { background: rgba(255,107,43,0.15); color: var(--orange); }
+.tier-aa { background: rgba(56,189,248,0.12); color: var(--cyan); }
+.tier-a { background: rgba(52,211,153,0.12); color: var(--green); }
+.tier-indie { background: rgba(138,146,166,0.12); color: var(--text-muted); }
+
+.card-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.0em;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.card-dev {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.dev-tooltip-wrap {
+  position: relative;
+  display: inline;
+  cursor: help;
+  border-bottom: 1px dotted var(--text-muted);
+}
+
+.dev-tooltip-wrap .dev-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 220px;
+  max-width: 320px;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: var(--text);
+  white-space: normal;
+  pointer-events: none;
+}
+
+/* 메인 카드의 꼬리표도 삭제 처리했습니다 */
+
+.dev-tooltip-wrap:hover .dev-tooltip {
+  display: block;
+}
+
+.dev-tooltip strong {
+  color: var(--cyan);
+  font-size: 1.05em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dev-tooltip .prev-label {
+  color: var(--orange);
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meta-chip {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.62em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--navy-light);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta-chip svg {
+  flex-shrink: 0;
+}
+
+.chip-release {
+  color: var(--text);
+}
+
+.chip-bm-f2p {
+  color: var(--green);
+  background: rgba(52,211,153,0.1);
+}
+
+.chip-bm-b2p {
+  color: var(--orange);
+  background: rgba(255,107,43,0.1);
+}
+
+.chip-status-live {
+  color: var(--green);
+}
+
+/* ─── FOLLOWERS CHIP ─── */
+.chip-followers {
+  color: var(--cyan);
+  background: rgba(56,189,248,0.1);
+}
+
+/* ─── STAGE BADGE ─── */
+.stage-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.58em;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  letter-spacing: 0.04em;
+}
+.stage-launched { background: rgba(52,211,153,0.15); color: var(--green); }
+.stage-alpha { background: rgba(255,107,43,0.12); color: var(--orange); }
+.stage-beta { background: rgba(250,204,21,0.12); color: var(--yellow); }
+.stage-demo { background: rgba(56,189,248,0.12); color: var(--cyan); }
+.stage-dev { background: rgba(138,146,166,0.12); color: var(--text-muted); }
+.stage-delayed { background: rgba(248,113,113,0.12); color: var(--red); }
+.stage-unannounced { background: rgba(167,139,250,0.12); color: var(--purple); }
+
+.card-genre {
+  font-size: 0.67em;
+  color: var(--text-muted);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── CARD EXTRA ROW (followers + stage) ─── */
+.card-extra-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── DETAIL PANEL ─── */
+.detail-panel {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 500px;
+  height: 100vh;
+  background: var(--navy-mid);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.detail-panel.open {
+  right: 0;
+}
+
+.panel-gallery {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: var(--navy-light);
+  overflow: hidden;
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-image.active {
+  opacity: 1;
+}
+
+.gallery-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gallery-dot.active {
+  background: var(--orange);
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.2s;
+  z-index: 9;
+}
+
+.gallery-nav:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.gallery-nav.prev {
+  left: 10px;
+}
+
+.gallery-nav.next {
+  right: 10px;
+}
+
+.panel-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  flex-shrink: 0;
+}
+
+.panel-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background 0.15s, color 0.15s;
+  z-index: 11;
+}
+
+.panel-close:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+.panel-tier {
+  margin-bottom: 8px;
+}
+
+.panel-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4em;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+  padding-right: 36px;
+  line-height: 1.25;
+}
+
+.panel-genre-tag {
+  font-size: 0.72em;
+  color: var(--text-muted);
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--navy-light) transparent;
+}
+
+.panel-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.panel-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-body::-webkit-scrollbar-thumb {
+  background: var(--navy-light);
+  border-radius: 2px;
+}
+
+.panel-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.panel-meta-item {
+  background: var(--card);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.panel-meta-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.58em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.panel-meta-value {
+  font-size: 0.78em;
+  color: var(--text);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+/* ─── DETAIL PANEL DEV TOOLTIP (UPDATED: NO ARROW) ─── */
+.dp-dev-wrap {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: var(--cyan);
+  border-bottom: 1px dashed var(--cyan);
+  transition: all 0.2s ease;
+  font-weight: 700;
+}
+.dp-dev-wrap:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+.dp-dev-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  background: var(--navy-mid);
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  padding: 12px 14px;
+  width: max-content;
+  max-width: 280px;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  color: var(--text);
+  font-size: 0.9em;
+  font-weight: 400;
+  white-space: normal;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dp-dev-wrap:hover .dp-dev-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 꼬리표 삭제 완료 */
+
+.dp-prev-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 700;
+}
+
+.panel-section {
+  margin-bottom: 18px;
+}
+
+.panel-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--orange);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.panel-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,107,43,0.2);
+}
+
+.panel-section-title.dev-response {
+  color: var(--cyan);
+}
+
+.panel-section-title.dev-response::after {
+  background: rgba(56,189,248,0.2);
+}
+
+.milestone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.milestone-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.milestone-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.milestone-text {
+  font-size: 0.75em;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.milestone-text.current {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feedback-item {
+  font-size: 0.75em;
+  line-height: 1.45;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.feedback-positive {
+  background: rgba(52,211,153,0.08);
+  color: #a7f3d0;
+  border-left: 3px solid var(--green);
+}
+
+.feedback-positive::before {
+  content: "▲ ";
+  color: var(--green);
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.feedback-concern {
+  background: rgba(248,113,113,0.08);
+  color: #fecaca;
+  border-left: 3px solid var(--red);
+}
+
+.feedback-concern::before {
+  content: "▼ ";
+  color: var(--red);
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.dev-box {
+  background: rgba(56,189,248,0.07);
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+}
+
+.dev-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.58em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  margin-bottom: 4px;
+}
+
+.dev-text {
+  font-size: 0.73em;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ─── STEAM DATA ─── */
+.steam-data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.steam-stat {
+  background: rgba(56,189,248,0.06);
+  border: 1px solid rgba(56,189,248,0.1);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.steam-stat-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.55em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.steam-stat-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78em;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.steam-stat-value.stat-green { color: var(--green); }
+.steam-stat-value.stat-yellow { color: #facc15; }
+.steam-stat-value.stat-muted { color: var(--text-muted); }
+.panel-section-title svg { flex-shrink: 0; }
+
+/* ─── EMPTY STATE ─── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state svg {
+  opacity: 0.3;
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  font-size: 0.85em;
+}
+
+/* ─── OVERLAY ─── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 190;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ─── VIEW TOGGLE ─── */
+.view-toggle {
+  display: flex;
+  gap: 2px;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid var(--border);
+}
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.view-btn:hover { color: var(--text); }
+.view-btn.active { background: var(--orange); color: #fff; }
+
+/* ─── CALENDAR ─── */
+.cal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px; }
+.cal-nav { display:flex; align-items:center; gap:12px; }
+.cal-nav-btn { background:var(--card); border:1px solid var(--border); border-radius:8px; color:var(--text); width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.15s; font-size:1em; }
+.cal-nav-btn:hover { border-color:var(--orange); color:var(--orange); }
+.cal-month-label { font-family:'Outfit',sans-serif; font-size:1.2em; font-weight:700; color:var(--text); min-width:160px; text-align:center; }
+.cal-legend { display:flex; gap:14px; flex-wrap:wrap; }
+.cal-legend-item { display:flex; align-items:center; gap:5px; font-family:'Outfit',sans-serif; font-size:0.65em; color:var(--text-muted); }
+.cal-legend-dot { width:8px; height:8px; border-radius:2px; }
+.cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+.cal-day-header { font-family:'Outfit',sans-serif; font-size:0.65em; font-weight:700; color:var(--text-muted); text-align:center; padding:8px 0; text-transform:uppercase; letter-spacing:0.1em; }
+.cal-cell { background:var(--card); border:1px solid var(--border); border-radius:8px; min-height:90px; padding:6px; position:relative; transition:border-color 0.15s; }
+.cal-cell:hover { border-color:rgba(255,255,255,0.15); }
+.cal-cell.empty { background:transparent; border-color:transparent; }
+.cal-cell.today { border-color:var(--orange); box-shadow:0 0 8px rgba(255,107,43,0.2); }
+.cal-date { font-family:'Outfit',sans-serif; font-size:0.7em; font-weight:600; color:var(--text-muted); margin-bottom:4px; }
+.cal-cell.today .cal-date { color:var(--orange); }
+.cal-games { display:flex; flex-direction:column; gap:3px; }
+.cal-game-chip { font-family:'Outfit',sans-serif; font-size:0.6em; font-weight:600; padding:3px 6px; border-radius:4px; cursor:pointer; transition:all 0.15s; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cal-game-chip:hover { filter:brightness(1.3); transform:translateX(2px); }
+.cal-game-chip.t-aaa { background:rgba(255,107,43,0.18); color:var(--orange); }
+.cal-game-chip.t-aa { background:rgba(56,189,248,0.15); color:var(--cyan); }
+.cal-game-chip.t-a { background:rgba(52,211,153,0.15); color:var(--green); }
+.cal-game-chip.t-indie { background:rgba(138,146,166,0.12); color:var(--text-muted); }
+.cal-game-chip.released { opacity:0.6; }
+.cal-quarter-row { margin-bottom:28px; }
+.cal-quarter-label { font-family:'Outfit',sans-serif; font-size:0.68em; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; }
+.cal-quarter-label .q-count { font-size:0.85em; color:var(--orange); background:rgba(255,107,43,0.1); padding:1px 8px; border-radius:10px; }
+.timeline-row { display:flex; align-items:center; gap:12px; padding:8px 12px; border-radius:8px; background:var(--card); border:1px solid var(--border); margin-bottom:4px; cursor:pointer; transition:all 0.15s; }
+.timeline-row:hover { border-color:rgba(255,255,255,0.15); transform:translateX(3px); }
+.timeline-row.past { opacity:0.55; }
+.timeline-date-col { font-family:'Outfit',sans-serif; font-size:0.72em; font-weight:700; color:var(--text-muted); min-width:90px; flex-shrink:0; }
+.timeline-tier-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.timeline-name { font-family:'Outfit',sans-serif; font-size:0.82em; font-weight:700; color:var(--text); flex:1; min-width:0; }
+.timeline-meta { display:flex; gap:6px; flex-shrink:0; }
+.timeline-badge { font-family:'Outfit',sans-serif; font-size:0.58em; font-weight:600; padding:2px 8px; border-radius:6px; background:var(--navy-light); color:var(--text-muted); }
+.timeline-badge.released { background:rgba(52,211,153,0.12); color:var(--green); }
+.timeline-badge.delayed { background:rgba(248,113,113,0.12); color:var(--red); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 20px 12px;
+  }
+  .main {
+    padding: 16px 20px;
+  }
+  .main.panel-open {
+    margin-right: 0;
+  }
+  .detail-panel {
+    width: 100%;
+    right: -100%;
+  }
+  .header-stats {
+    display: none;
+  }
+  .search-input {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<header class="header">
+  <div class="header-top">
+    <div class="logo">
+      <div class="logo-badge">Lionheart Studio · Global Business</div>
+      <div class="logo-title">2026 FPS 경쟁 타이틀 대시보드</div>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill"><span class="dot dot-aaa"></span><strong>7</strong> AAA</div>
+      <div class="stat-pill"><span class="dot dot-aa"></span><strong>14</strong> AA</div>
+      <div class="stat-pill"><span class="dot dot-a"></span><strong>7</strong> A</div>
+      <div class="stat-pill"><span class="dot dot-indie"></span><strong>2</strong> Indie</div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">분류</label>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all" data-filter-type="tier">전체</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" data-filter="AAA" data-filter-type="tier">AAA</button>
+      <button class="filter-btn f-aa" data-filter="AA" data-filter-type="tier">AA</button>
+      <button class="filter-btn f-a" data-filter="A" data-filter-type="tier">A</button>
+      <button class="filter-btn f-indie" data-filter="Indie" data-filter-type="tier">Indie</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">단계</label>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all" data-filter-type="stage">전체</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn f-stage" data-filter="출시 완료" data-filter-type="stage">출시 완료</button>
+      <button class="filter-btn f-stage" data-filter="알파/베타" data-filter-type="stage">알파/베타</button>
+      <button class="filter-btn f-stage" data-filter="데모/PT" data-filter-type="stage">데모/PT</button>
+      <button class="filter-btn f-stage" data-filter="개발 중" data-filter-type="stage">개발 중</button>
+      <button class="filter-btn f-stage" data-filter="연기/미정" data-filter-type="stage">연기/미정</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="filter-label">장르</label>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all" data-filter-type="genre">전체</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" data-filter="익스트랙션" data-filter-type="genre">익스트랙션</button>
+      <button class="filter-btn" data-filter="순수 PvP" data-filter-type="genre">순수 PvP</button>
+      <button class="filter-btn" data-filter="Co-op" data-filter-type="genre">Co-op</button>
+      <button class="filter-btn" data-filter="배틀 로얄" data-filter-type="genre">배틀 로얄</button>
+      <button class="filter-btn" data-filter="히어로" data-filter-type="genre">히어로</button>
+      <button class="filter-btn" data-filter="밀리터리" data-filter-type="genre">밀리터리</button>
+      <div class="view-toggle" style="margin-left:auto;">
+        <button class="view-btn active" data-view="grid" title="카드 뷰">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="view-btn" data-view="calendar" title="캘린더 뷰">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </button>
+      </div>
+      <input class="search-input" type="text" id="searchInput" placeholder="게임명 검색...">
+    </div>
+  </div>
+</header>
+
+<main class="main" id="main">
+  <div id="gridContainer"></div>
+  <div id="calendarContainer" style="display:none;"></div>
+</main>
+
+<aside class="detail-panel" id="detailPanel">
+  <div class="panel-gallery" id="panelGallery"></div>
+  <div class="panel-header">
+    <button class="panel-close" id="panelClose">✕</button>
+    <div class="panel-tier" id="panelTier"></div>
+    <div class="panel-title" id="panelTitle"></div>
+    <div class="panel-genre-tag" id="panelGenreTag"></div>
+  </div>
+  <div class="panel-body" id="panelBody"></div>
+</aside>
+
+<script>
+// ═══════════════════════════════════════════
+//  GAME DATA
+// ═══════════════════════════════════════════
+
+const GAMES = [
+  { id:1, name:"Marathon", tier:"AAA", genre:"익스트랙션", dev:"Bungie", pub:"Sony IE (PlayStation)", platform:"PC · PS5", release:"2026.03.05", bm:"B2P $40", status:"출시완료", followers:114443, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"Halo 시리즈 (2001~2010), Destiny 시리즈 (2014~현재)",
+    milestones:[{text:"PlayStation Showcase 최초 공개 (2023.05)"},{text:"ARG + 게임플레이 공개 (2025.04)"},{text:"비공개 알파 테스트 (2025.04~05)"},{text:"비공개 플레이테스트 (2025.06~)"},{text:"The Game Awards 출시일 발표 (2025.12)"},{text:"서버 슬램 (2026.02)"},{text:"출시 (2026.03.05)",current:true}],
+    steamData:{rating:"Very Positive (85.9%, 44,845건)",peak:"88,337 (런칭) / 143K (서버슬램)",followers:"114,443",reviews:"44,845",currentCCU:"27,895 (2026.4.13)"},
+    pros:["번지 DNA 건플레이 — 묵직하고 만족스러운 총기감","독보적 아트 디렉션","사운드 디자인 극찬","추출 루프 깊이 — 팩션, 바터링, 스폰서드 킷","최적화 우수 (18GB 설치)"],
+    concerns:["UI/UX 난해 — 아이콘 구분 불가","뉴비 온보딩 실패 — 2시간 내 이해 불가 → 환불","솔로 플레이 열악 (트리오 중심)","수익화 논란 — 스킨 가격 차액 의도적","플레이어 수 급락 — 런칭 24시간 내 50% 하락"],
+    devResponse:"런칭 직후 긴급 패치. 시즌 1 로드맵: 랭크 모드, 엔드게임 존, 새 무기/임플란트 예고."
+  },
+  { id:2, name:"Call of Duty 2026 (MW4)", tier:"AAA", genre:"순수 PvP", dev:"Infinity Ward", pub:"Activision (Microsoft)", platform:"PC · PS5 · Xbox", release:"2026 Q4 추정", bm:"B2P $70", status:"미발표/루머", followers:null, stage:"미발표", stageGroup:"연기/미정", devPrevWorks:"CoD4, MW2, MW3, MW 2019, MW2 2022, MW3 2023",
+    milestones:[{text:"미발표. 루머/리크만 존재",current:true}],
+    pros:["Call of Duty 프랜차이즈 파워","Infinity Ward 최고 역량 스튜디오"],
+    concerns:["미발표 단계, 공식 정보 없음"]
+  },
+  { id:3, name:"Halo: Campaign Evolved", tier:"AAA", genre:"순수 PvP", dev:"Halo Studios", pub:"Xbox Game Studios (Microsoft)", platform:"PC · Xbox · PS5", release:"2026.07.28", bm:"B2P", status:"데모 공개", followers:20196, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"Halo 4 (2012), Halo 5 (2015), Halo Infinite (2021), Halo: MCC",
+    milestones:[{text:"티저: Halo World Championships (2024.10)"},{text:"티저: Xbox Showcase (2025.06)"},{text:"공개+게임플레이 데모: Halo World Championships (2025.10)",current:true}],
+    pros:["Halo: CE UE5 완전 리메이크","MS 1st party 플래그십","최초 PS 동시 출시 — 시장 확대"],
+    concerns:["25주년 기념작 부담","UE5 전환 리스크"]
+  },
+  { id:4, name:"Cinder City", tier:"AAA", genre:"순수 PvP", dev:"빅파이어게임즈 (BigFire)", pub:"NCSoft", platform:"PC", release:"2026 H2", bm:"TBD", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (Project LLL → Cinder City가 첫 타이틀)",
+    milestones:[{text:"공개: Gamescom ONL (2025.08)"},{text:"GDC 부스 데모 (2026.03)",current:true}],
+    pros:["NCSoft 산하 MMO 택티컬 슈터","UE5, 포스트아포칼립스 서울 배경","NVIDIA DLSS 4 파트너십"],
+    concerns:["신설 스튜디오 첫 타이틀","MMO FPS 장르 검증 필요"]
+  },
+  { id:5, name:"Exoborne", tier:"AAA", genre:"익스트랙션", dev:"Sharkmob AB", pub:"Level Infinite (Tencent)", platform:"PC", release:"2026 TBD", bm:"TBD", status:"PT 완료", followers:37797, stage:"플레이테스트 완료", stageGroup:"알파/베타", devPrevWorks:"Vampire: The Masquerade – Bloodhunt (2022, 1년 만에 개발 중단)",
+    milestones:[{text:"최초 공개: TGA (2023.12)"},{text:"게임플레이 예고편 (2024)"},{text:"플레이테스트 (2025.02)"},{text:"비공개 플레이테스트 (2025.09~10)",current:true}],
+    steamData:{followers:"37,797",peak:"4,288 (PT1 CCU)",testData:"PT1 (2025.02): 540K+ 매치 · PT2 (2025.09~10): NDA 비공개 · 62% 긍정 (Mixed)"},
+    pros:["건플레이 만족","날씨 시스템 독보적 차별화","Exo-Rig 다양성","오픈월드 수직성"],
+    concerns:["Clunky 조작감 다수 지적","62% 긍정 = 위험 수치","NDA 불신","개발사 전작 실패 (Bloodhunt)"],
+    devResponse:"PT1 후 루팅/인벤토리/프로그레션 대폭 개편. PT2 후 라디오 사일런스."
+  },
+  { id:6, name:"Nakwon: Last Paradise", tier:"AAA", genre:"익스트랙션", dev:"넥슨코리아 빅게임 본부", pub:"Nexon", platform:"PC", release:"2027", bm:"TBD", status:"알파 테스트 완료", followers:82239, stage:"알파 테스트 완료", stageGroup:"알파/베타", devPrevWorks:"데이브 더 다이버 (2023, 1,000만+ 판매)",
+    milestones:[{text:"사전 알파 테스트"},{text:"비공개 알파 테스트 (2026.03.11~16)",current:true}],
+    steamData:{followers:"82,239",peak:"37,468 (CAT CCU)",testData:"CAT (2026.03): 참여자 279,484명 · Pre-Alpha 복귀율 15.5% (43,311명) · 추출 180만건"},
+    pros:["ARC Raiders with Zombies — 첫 반응 긍정적","서울 재현도 + 한국적 디테일 호평","콘텐츠 규모 — 110 스킬 트레잇, 160+ 퀘스트","디렉터 직접 소통"],
+    concerns:["알파 직후 상세 리뷰 부족","치터/트레이너 이미 등장","3인칭 호불호 + 한국 배경 총기 다양성 제한","대규모 방향 전환 이력"],
+    devResponse:"알파 종료 후 데이터/피드백 면밀 검토 중. 설문 조사 진행."
+  },
+  { id:7, name:"PUBG: Black Budget", tier:"AAA", genre:"익스트랙션", dev:"PUBG Studios", pub:"Krafton", platform:"PC", release:"2026 TBD", bm:"TBD", status:"알파 테스트 완료", followers:113034, stage:"알파 테스트 완료", stageGroup:"알파/베타", devPrevWorks:"PUBG: Battlegrounds (2017, 7,500만+ 판매)",
+    milestones:[{text:"실적보고서 첫 언급 (2022)"},{text:"컨셉아트 리크 (2025.02)"},{text:"공개+Steam 페이지 오픈 (2025.11.21)"},{text:"비공개 알파 테스트 (2025.12)",current:true}],
+    steamData:{followers:"113,034",peak:"9,916 (알파 CCU)",testData:"CAT (2025.12): 2주간 진행 · 크래프톤 '예상 초과 관심과 참여' · Week 2 안티치트 강화"},
+    pros:["맵 밀도, 튜토리얼, 비주얼","인필 위치 선택, 베이스빌딩","아케이드 스타일 접근성"],
+    concerns:["건플레이 심각한 비판 — 반동 제어 불가","움직임 clunky","PUBG 정체성 제로 — identity crisis","AI 적 부재, 추출 포인트 캠핑"],
+    devResponse:"Week 2 매치메이킹/안티치트 강화. combat perception, situational clarity 이슈 인지."
+  },
+  { id:8, name:"No Law", tier:"AA", genre:"Co-op", dev:"Neon Giant", pub:"Krafton", platform:"PC", release:"2026 TBD", bm:"TBD", status:"개발 중 (공개)", followers:22902, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"The Ascent (2021, 사이버펑크 트윈스틱 슈터)",
+    milestones:[{text:"최초 공개: TGA (2025.12.11)",current:true}],
+    pros:["ex-Wolfenstein/DOOM/Gears 인력","Krafton 퍼블리싱","사이버펑크 오픈월드 코옵 FPS"],
+    concerns:["개발 초기 단계","The Ascent 이후 장르 전환"]
+  },
+  { id:9, name:"4 LOOP", tier:"AA", genre:"Co-op", dev:"Bad Robot Games", pub:"PlayStation Publishing", platform:"PC · PS5", release:"2026 TBD", bm:"TBD", status:"PT 예정", followers:8993, stage:"PT 예정", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (J.J. 에이브럼스 Bad Robot 산하, 첫 타이틀)",
+    milestones:[{text:"최초 공개: TGA (2025.12.11)"},{text:"게임플레이 영상: State of Play (2026.02)"},{text:"플레이테스트 예고",current:true}],
+    pros:["J.J. 에이브럼스 Bad Robot Games","PlayStation 직접 퍼블리싱 시그널"],
+    concerns:["게임 업계 신생 스튜디오","첫 타이틀"]
+  },
+  { id:10, name:"Fate Trigger", tier:"AA", genre:"배틀 로얄", dev:"Saroasis Studios", pub:"Saroasis (Tencent)", platform:"PC · PS5 · Xbox", release:"무기한 연기", bm:"F2P", status:"무기한 연기", followers:52388, stage:"무기한 연기", stageGroup:"연기/미정", devPrevWorks:"신설 스튜디오 (텐센트 자회사, 슈터 15년+ 경험 팀, 첫 타이틀)",
+    milestones:[{text:"공개: Gamescom ONL (2025.08)"},{text:"비공개 베타 (2025.07)"},{text:"State of Play (2025.11)"},{text:"Steam Next Fest 플레이테스트 (2026.02)"},{text:"EA 무기한 연기 (2026.04 공지)",current:true}],
+    steamData:{followers:"52,388",peak:"8,797 (Next Fest)"},
+    pros:["애니메 비주얼 독보적 (UE5)","히어로별 능력 차별화","게임 모드 다양성"],
+    concerns:["최적화 미완","아머 무의미 + 힐 부족","맵 과대 + 봇 비율","장르 혁신 부족","Steam 피크 8,797 — 낮은 수치"],
+    devResponse:"EA 무기한 연기 (2026.04 공지). 콘텐츠 볼륨 부족 인정, 신규 모드 개발 착수."
+  },
+  { id:11, name:"Rules of Engagement: The Grey State", tier:"AA", genre:"익스트랙션", dev:"Grey State Studio", pub:"Tencent", platform:"PC", release:"2026 TBD", bm:"F2P", status:"개발 중 (공개)", followers:40133, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (구 Aurora Studio, 텐센트 자회사, 첫 타이틀)",
+    milestones:[{text:"공개+예고편 (2025.10)",current:true}],
+    pros:["러브크래프트 호러 + Extraction 조합","Horrorverse 컨셉"],
+    concerns:["텐센트 자회사 신설 스튜디오","첫 타이틀"]
+  },
+  { id:12, name:"Time Takers", tier:"AA", genre:"히어로", dev:"Mistil Games", pub:"NCSoft", platform:"PC", release:"2026 TBD", bm:"F2P", status:"CBT 완료", followers:5422, stage:"CBT 완료", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오 (NCSoft 산하, 첫 타이틀)",
+    milestones:[{text:"G-CON (G-Star 2023)"},{text:"최초 공개: Gamescom ONL (2025.08)"},{text:"비공개 베타 테스트 (2026.03.13~21)",current:true}],
+    steamData:{followers:"5,422",testData:"CBT (2026.03.13~21): 매일 8시간 운영 · 북미/남미 대상 · 12캐릭터·3맵·트리오 모드 · 글로벌 베타 후속 예정"},
+    pros:["NCSoft 슈터 다각화 전략","PvP 히어로 슈터 F2P"],
+    concerns:["신설 스튜디오 첫 타이틀","팔로워 수 낮음"]
+  },
+  { id:13, name:"Project Spectrum", tier:"AA", genre:"Co-op", dev:"Team Jade", pub:"Tencent", platform:"PC", release:"2026 TBD", bm:"F2P", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (텐센트 내부, 첫 타이틀)",
+    milestones:[{text:"최초 공개: Gamescom ONL (2025.08)"},{text:"GDC 부스 (2026.03)",current:true}],
+    pros:["텐센트 직계 개발","비대칭 PvPvE 슈터"],
+    concerns:["신설 스튜디오","Steam 페이지 없음"]
+  },
+  { id:14, name:"Special Force Remastered", tier:"AA", genre:"순수 PvP", dev:"Dragonfly", pub:"Dragonfly", platform:"PC", release:"출시 연기 (원 26.03)", bm:"F2P", status:"출시완료", followers:765, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"스페셜포스 (2004, 1억+ 유저), SF2, SF Legion of Monsters (2024)",
+    milestones:[{text:"개발 영상 (2025.05)"},{text:"홍보영상+사전예약 (2026.02)"},{text:"한국 출시 (2026.03.18)",current:true}],
+    pros:["22년 IP, 90개국·1억 유저","원작 메인PD 총괄","UE 리마스터"],
+    concerns:["전작 SF Legion of Monsters 부정적 평가","플랫폼 검수 문제"]
+  },
+  { id:15, name:"John Carpenter's Toxic Commando", tier:"AA", genre:"Co-op", dev:"Saber Interactive", pub:"Focus Entertainment", platform:"PC · PS5 · Xbox", release:"2026.03.12", bm:"B2P", status:"출시완료", followers:48319, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"World War Z, Warhammer 40K: Space Marine 2",
+    milestones:[{text:"최초 공개: Summer Game Fest (2023)"},{text:"게임플레이: Gamescom ONL (2025.08)"},{text:"출시일 발표: TGA (2025.12)"},{text:"데모 (2026.02)"},{text:"출시 (2026.03.12)",current:true}],
+    steamData:{rating:"Mostly Positive (75.2%, 5,927건)",followers:"48,319",peak:"17,158 (런칭)",currentCCU:"1,548 (2026.4.13)"},
+    pros:["Saber Swarm Engine 활용 4인 코옵","Focus 대표적 AA 퍼블리셔"],
+    concerns:["76% 긍정 — 높지 않은 수치"]
+  },
+  { id:16, name:"Hell Let Loose: Vietnam", tier:"AA", genre:"밀리터리", dev:"Expression Games", pub:"Team17", platform:"PC", release:"2026 TBD", bm:"B2P", status:"개발 중 (공개)", followers:32098, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (Team17 산하, 첫 타이틀)",
+    milestones:[{text:"공개: Gamescom (2025.08)"},{text:"게임플레이 예고편 (2026.02)",current:true}],
+    pros:["UE5 기반 50v50 택티컬","원작 HLL 성공 기반"],
+    concerns:["신설 스튜디오 첫 타이틀"]
+  },
+  { id:17, name:"Active Matter", tier:"AA", genre:"익스트랙션", dev:"Matter Team", pub:"Gaijin Entertainment", platform:"PC", release:"2026 TBD", bm:"TBD", status:"데모 공개", followers:27801, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (Gaijin 산하, 첫 타이틀)",
+    milestones:[{text:"공개: Gamescom (2025.08)"},{text:"얼리 버전 출시 (Gaijin Store, 2025.10)"},{text:"Steam Next Fest 데모 (2026)",current:true}],
+    pros:["PvP 전투 재미","SCP 아노말리 독특","무기 60종+","PvP 전용 Nexus 모드"],
+    concerns:["솔로 PvE 과도","최적화 미완","$80 에디션 구매 후 Steam 잠금 불만"],
+    devResponse:"정기 업데이트 (쿼드바이크, 신규 맵, 보스), 개발자 Q&A 시리즈."
+  },
+  { id:18, name:"Wardogs", tier:"AA", genre:"밀리터리", dev:"BULKHEAD", pub:"Team17", platform:"PC", release:"2026 EA", bm:"B2P", status:"EA 예정", followers:32780, stage:"EA 예정", stageGroup:"개발 중", devPrevWorks:"The Turing Test (2016), Battalion 1944 (2019, 혼합 평가)",
+    milestones:[{text:"공개+예고편 (2026.02)",current:true}],
+    pros:["100인 3팀 택티컬 FPS","256km² 맵, 파괴+건설"],
+    concerns:["전작 Battalion 1944 혼합 평가","텐센트 독립 후 첫 작"]
+  },
+  { id:19, name:"DEFECT", tier:"AA", genre:"순수 PvP", dev:"emptyvessel / NC America", pub:"NCSoft", platform:"PC", release:"2026 TBD", bm:"TBD", status:"개발 중", followers:20413, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (NC America 산하, 첫 타이틀)",
+    milestones:[{text:"공개 예고편 (2024.08, 190만 조회)"},{text:"NCSoft 전략투자 (2025.05)"},{text:"시리즈A $11M (2025.06)"},{text:"게임플레이 공개 (2025.10)"},{text:"NC America 퍼블리싱 계약 (2026.03)",current:true}],
+    pros:["4v4v4v4 PvP+PvE 멀티","NC America 산하"],
+    concerns:["신설 스튜디오 첫 타이틀"]
+  },
+  { id:20, name:"'83", tier:"AA", genre:"밀리터리", dev:"Blue Dot Games", pub:"Blue Dot Games", platform:"PC", release:"2026 TBD", bm:"B2P", status:"EA 연기", followers:23471, stage:"EA 연기", stageGroup:"연기/미정", devPrevWorks:"Rising Storm 시리즈 핵심 인력 (구 Antimatter Games)",
+    milestones:[{text:"발표 (2019)"},{text:"개발 중단/부활 (2023)"},{text:"Steam Next Fest 데모 (2025)"},{text:"얼리 액세스 연기 (2025.11)",current:true}],
+    pros:["ex-Antimatter (Rising Storm) 핵심 인력","40v40 냉전 대체역사","UE5 리빌드"],
+    concerns:["개발 중단/부활 이력","EA 연기"]
+  },
+  { id:21, name:"Gallipoli", tier:"AA", genre:"밀리터리", dev:"BlackMill Games", pub:"BlackMill Games", platform:"PC", release:"2026 TBD", bm:"B2P", status:"개발 중", followers:7177, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"Verdun (2015), Tannenberg (2019), Isonzo (2022)",
+    milestones:[{text:"개발 중",current:true}],
+    pros:["Verdun/Tannenberg 시리즈 개발사","WW1 니치 밀심 FPS 전문"],
+    concerns:["니치 장르 한계"]
+  },
+  { id:22, name:"Last Flag", tier:"A", genre:"히어로", dev:"Night Street Games", pub:"Night Street Games", platform:"PC · PS5 · Xbox", release:"2026.04.14", bm:"F2P", status:"출시 임박 (OBT 완료)", followers:6199, stage:"OBT 완료", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오 (Imagine Dragons 창업, 디렉터 ex-Blizzard Diablo 3)",
+    milestones:[{text:"데모: Steam Next Fest (2025.12)"},{text:"오픈 베타 (2026.02~03)"},{text:"출시 예정 (2026.04.14)",current:true}],
+    steamData:{followers:"6,199",peak:"825 (데모 CCU)",testData:"OBT (2026.02~03): Steam Next Fest · 데모 피크 825 CCU · OBT 피드백 기반 대량 밸런스 패치 적용"},
+    pros:["Imagine Dragons 형제 공동 설립","5v5 CTF 슈터","게임디렉터 ex-Blizzard (Diablo 3)"],
+    concerns:["인디 규모","팔로워 수 낮음"]
+  },
+  { id:23, name:"The Bornless", tier:"A", genre:"익스트랙션", dev:"Cathedral Studios", pub:"Cathedral Studios", platform:"PC · Xbox", release:"2026 TBD", bm:"B2P", status:"데모 공개", followers:23181, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (UK 인디 Web3, 첫 타이틀)",
+    milestones:[{text:"비공개 플레이테스트 (2021~)"},{text:"Steam Scream Fest 데모 (2025.10)"},{text:"Fractured Souls PT (2025.06)"},{text:"Steam Next Fest 데모 (2025.06)",current:true}],
+    pros:["호러+익스트랙션 조합 독보적","데몬 플레이, Black Magick","레이트레이싱+Nanite"],
+    concerns:["Web3/블록체인 불신","소규모 스튜디오 (~20명)","플레이어 베이스 부족"],
+    devResponse:"블록체인 완전 옵션 분리. 게임 먼저, Web3는 검증 후."
+  },
+  { id:24, name:"Starship Troopers: Ultimate Bug War!", tier:"A", genre:"Co-op", dev:"Auroch Digital", pub:"DotEmu", platform:"PC · PS5 · Xbox · Switch", release:"2026.03.16", bm:"B2P", status:"출시완료", followers:null, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"Warhammer 40K: Boltgun (2023, Metacritic 76)",
+    milestones:[{text:"프리뷰: Gamescom (2025)"},{text:"데모"},{text:"출시 (2026.03.15)",current:true}],
+    steamData:{rating:"Overwhelmingly Positive (94%)"},
+    pros:["Steam 94% 긍정","레트로 부머 슈터 완성도"],
+    concerns:["소규모 인디"]
+  },
+  { id:25, name:"Warhammer 40K: Boltgun 2", tier:"A", genre:"Co-op", dev:"Auroch Digital", pub:"Big Fan Games (Devolver)", platform:"PC · PS5 · Xbox", release:"2026 TBD", bm:"B2P", status:"개발 중 (공개)", followers:8607, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"Warhammer 40K: Boltgun (2023, Metacritic 76)",
+    milestones:[{text:"공개: Warhammer Skulls (2025.05)"},{text:"키 아트 공개 (2026.02)",current:true}],
+    pros:["Boltgun 후속작","브랜칭 캠페인, 2캐릭터","Devolver 퍼블리싱"],
+    concerns:["전작 Metacritic 76 — 양호하나 높지 않음"]
+  },
+  { id:26, name:"SiN: Reloaded", tier:"A", genre:"Co-op", dev:"Nightdive Studios", pub:"Atari", platform:"PC · PS5 · Xbox · Switch", release:"2026 TBD", bm:"B2P", status:"개발 중 (공개)", followers:4561, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"System Shock Remake (2023), Quake 리마스터, Turok 리마스터",
+    milestones:[{text:"발표 (2020)"},{text:"재발표+예고편 (2026.03)",current:true}],
+    pros:["1998 클래식 FPS 리마스터","Nightdive 리마스터 전문 (Atari 자회사)"],
+    concerns:["팔로워 수 낮음","오래된 IP"]
+  },
+  { id:27, name:"ALARA Prime", tier:"A", genre:"순수 PvP", dev:"Fall Damage", pub:"Level Infinite (Tencent)", platform:"PC", release:"2026 TBD", bm:"F2P", status:"알파 테스트 완료", followers:3833, stage:"알파 테스트 완료", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오 (첫 타이틀)",
+    milestones:[{text:"사전 알파 플레이테스트 (2024~2025)",current:true}],
+    steamData:{followers:"3,833",testData:"Pre-Alpha (2022.07): EU 기술 테스트 · CAT (2025.01~02): 10일간 초대 방식 · 2025 하반기 이후 업데이트 공백 — 개발 정체 우려"},
+    pros:["F2P 4v4v4 택티컬 FPS"],
+    concerns:["개발 정체 우려","팔로워 수 낮음"]
+  },
+  { id:28, name:"Brass Rain", tier:"A", genre:"Co-op", dev:"Yarnhub Animation Studios", pub:"Yarnhub Animation Studios", platform:"PC", release:"2026.12 EA", bm:"F2P", status:"EA 예정", followers:12602, stage:"EA 예정", stageGroup:"개발 중", devPrevWorks:"유튜브 밀리터리 채널 (270만+ 구독자, 게임 데뷔작)",
+    milestones:[{text:"게임플레이 예고편 (2025.11)",current:true}],
+    pros:["유튜브 270만 구독 스튜디오","$2.9M 크라우드펀딩","F2P WW2 코옵 슈터"],
+    concerns:["게임 개발 신생","유튜브→게임 전환 리스크"]
+  },
+  { id:29, name:"METACRAFT: Arena", tier:"Indie", genre:"순수 PvP", dev:"Solar Pixel", pub:"Solar Pixel", platform:"PC", release:"2026 TBD", bm:"F2P", status:"PT 완료", followers:377, stage:"PT 완료", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (첫 타이틀)",
+    milestones:[{text:"예고편 (2025.10)"},{text:"플레이테스트 (2025.12)",current:true}],
+    pros:["소비에트 레트로퓨처리즘 픽셀아트"],
+    concerns:["소규모 인디","위시리스트 ~2.2K"]
+  },
+  { id:30, name:"GLORY TO THE HEROES", tier:"Indie", genre:"밀리터리", dev:"Deaf Tone Games", pub:"Deaf Tone Games", platform:"PC", release:"2026 EA", bm:"B2P", status:"데모 공개 (EA 예정)", followers:32284, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (인디, 첫 타이틀)",
+    milestones:[{text:"데모 (Steam)",current:true}],
+    pros:["열정 프로젝트","현대전 배경 밀심"],
+    concerns:["소규모 인디","러시아-우크라이나 전쟁 소재 민감성"]
+  },
+  { id:31, name:"Beautiful Light", tier:"Indie", genre:"익스트랙션", dev:"Deep Worlds SA", pub:"Deep Worlds SA", platform:"PC", release:"2026.12 EA", bm:"TBD", status:"PT 진행 중", followers:65860, stage:"PT 진행 중", stageGroup:"데모/PT", devPrevWorks:"신생 소규모 스튜디오 (첫 타이틀)",
+    milestones:[{text:"Discord 커뮤니티 플레이테스트 진행 중",current:true}],
+    pros:["6개 3인 분대 PvPvPvE 익스트랙션","플레이어 조작 이상현상 차별화"],
+    concerns:["신생 소규모 스튜디오","EA 스펙 제한적"]
+  },
+  { id:32, name:"블리자드 신작", tier:"AAA", genre:"FPS", dev:"Blizzard Entertainment", pub:"Blizzard Entertainment", platform:"PC", release:"TBD", bm:"TBD", status:"개발 초기 (채용 단계)", followers:null, stage:"개발 초기", stageGroup:"연기/미정", devPrevWorks:"스타크래프트, 오버워치, 디아블로",
+    milestones:[{text:"개발 초기 (채용 단계)",current:true}],
+    pros:["블리자드 개발력","스타크래프트 IP 가능성","언리얼 엔진 기반"],
+    concerns:["개발 초기 — 출시 수년 후","공식 발표 없음"]
+  },
+  { id:33, name:"Deadlock", tier:"AAA", genre:"히어로", dev:"Valve", pub:"Valve", platform:"PC", release:"EA 진행중", bm:"F2P", status:"EA 진행중", followers:389818, stage:"EA 진행중", stageGroup:"출시 완료", devPrevWorks:"CS2, Dota 2, Half-Life, Portal, TF2",
+    milestones:[{text:"Early Access 초대 기반 (2024.08~)",current:true}],
+    steamData:{followers:"389,818",peak:"171,490 (2024.9.2)"},
+    pros:["Valve 개발력","MOBA + TPS Hero Shooter 혁신","커뮤니티 반응 매우 긍정적","초대 전용에도 Steam 상위권"],
+    concerns:["정식 출시 시점 미정","초대 전용 접근 제한"]
+  },
+  { id:34, name:"Disney Extraction Shooter", tier:"AAA", genre:"익스트랙션", dev:"Epic Games", pub:"Epic Games / Disney", platform:"PC", release:"2026.11 (비공식)", bm:"TBD", status:"개발 중 (미발표)", followers:null, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"Fortnite, Unreal Tournament",
+    milestones:[{text:"Bloomberg 보도 (2026.04.11)",current:true}],
+    pros:["Disney $1.5B 투자 기반","Epic Games 개발력","Arc Raiders 스타일 익스트랙션"],
+    concerns:["미발표 단계","게임 메카닉 독창성 내부 우려 보도","Disney의 Epic 인수 관심설"]
+  }
+];
+
+// ═══════════════════════════════════════════
+//  IMAGE MAPPING (preserving original)
+// ═══════════════════════════════════════════
+const GAME_IMAGES = {
+  "4 LOOP": ["4 LOOP.png"],
+  "Active Matter": ["Active Matter.png"],
+  "ALARA Prime": ["ALARA PRIME.png"],
+  "PUBG: Black Budget": ["Black Budget.png"],
+  "Cinder City": ["Cinder City.png"],
+  "DEFECT": ["DEFECT.png"],
+  "Exoborne": ["Exoborne.png"],
+  "Fate Trigger": ["Fate Trigger.png"],
+  "John Carpenter's Toxic Commando": ["John Carpenter's Toxic Commando.png"],
+  "Last Flag": ["Last Flag.png"],
+  "Marathon": ["Marathon.png"],
+  "Nakwon: Last Paradise": ["Nakwon.png"],
+  "No Law": ["No Law.png"],
+  "Rules of Engagement: The Grey State": ["Rules of Engagement.png"],
+  "The Bornless": ["The Bornless.png"],
+  "Time Takers": ["Time Takers.png"],
+  "Wardogs": ["Wardogs.png"],
+};
+
+// 이미지 매핑 초기화
+GAMES.forEach(game => {
+  if (GAME_IMAGES[game.name]) {
+    game.images = GAME_IMAGES[game.name];
+  }
+});
+
+// ═══════════════════════════════════════════
+//  STATE & CONFIGURATION
+// ═══════════════════════════════════════════
+let currentTierFilter = 'all';
+let currentGenreFilter = 'all';
+let currentStageFilter = 'all';
+let currentSearch = '';
+let activeCardId = null;
+let currentImageIndex = 0;
+
+const TIER_CONFIG = {
+  AAA:   { color: 'var(--orange)', cls: 'tier-aaa', accent: 'var(--orange)' },
+  AA:    { color: 'var(--cyan)',   cls: 'tier-aa',  accent: 'var(--cyan)' },
+  A:     { color: 'var(--green)', cls: 'tier-a',   accent: 'var(--green)' },
+  Indie: { color: 'var(--text-muted)', cls: 'tier-indie', accent: 'var(--text-muted)' },
+};
+
+const STAGE_STYLE = {
+  '출시 완료': 'stage-launched',
+  '알파/베타': 'stage-alpha',
+  '데모/PT': 'stage-demo',
+  '개발 중': 'stage-dev',
+  '연기/미정': 'stage-delayed',
+};
+
+// ═══════════════════════════════════════════
+//  HELPER FUNCTIONS
+// ═══════════════════════════════════════════
+
+function getFilteredGames() {
+  return GAMES.filter(game => {
+    const tierMatch = currentTierFilter === 'all' || game.tier === currentTierFilter;
+    const genreMatch = currentGenreFilter === 'all' || game.genre === currentGenreFilter;
+    const stageMatch = currentStageFilter === 'all' || game.stageGroup === currentStageFilter;
+    const searchMatch = !currentSearch || 
+      game.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+      game.dev.toLowerCase().includes(currentSearch.toLowerCase());
+    
+    return tierMatch && genreMatch && stageMatch && searchMatch;
+  });
+}
+
+function groupGamesByTier(games) {
+  const tierOrder = ['AAA', 'AA', 'A', 'Indie'];
+  const grouped = {};
+  
+  tierOrder.forEach(tier => {
+    grouped[tier] = games.filter(g => g.tier === tier);
+  });
+  
+  return tierOrder
+    .map(tier => ({
+      tier,
+      games: grouped[tier]
+    }))
+    .filter(group => group.games.length > 0);
+}
+
+function getBusinessModelClass(bm) {
+  if (!bm) return '';
+  const lower = bm.toLowerCase();
+  if (lower.includes('f2p')) return 'chip-bm-f2p';
+  if (lower.includes('b2p') || lower.includes('$')) return 'chip-bm-b2p';
+  return '';
+}
+
+function formatFollowers(n) {
+  if (!n) return null;
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  return String(n);
+}
+
+function getStageClass(stageGroup) {
+  return STAGE_STYLE[stageGroup] || 'stage-dev';
+}
+
+function createGameCardHTML(game, tierConfig) {
+  const isActive = game.id === activeCardId ? 'active' : '';
+  const statusBadge = game.status === '출시완료' 
+    ? '<span class="meta-chip chip-status-live">✓ 출시완료</span>' 
+    : '';
+  
+  const hasImage = game.images && game.images.length > 0 && !game.images[0].startsWith('data:image/svg');
+  const thumbnailHTML = hasImage
+    ? `<div class="card-thumbnail"><img src="images/${game.images[0]}" alt="${game.name}" loading="lazy" onerror="this.onerror=null;this.src='${game.images[0]}';"></div>`
+    : `<div class="card-thumbnail"><div class="no-img">스크린샷 준비 중</div></div>`;
+
+  const followersChip = game.followers 
+    ? `<span class="meta-chip chip-followers">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        ${formatFollowers(game.followers)}
+       </span>` 
+    : '';
+
+  const stageBadge = `<span class="stage-badge ${getStageClass(game.stageGroup)}">${game.stage}</span>`;
+  
+  return `
+    <div class="game-card ${isActive}" data-id="${game.id}" style="--card-accent:${tierConfig.accent}">
+      ${thumbnailHTML}
+      <div class="card-content">
+        <span class="card-tier ${tierConfig.cls}">${game.tier}</span>
+        ${stageBadge}
+        <div class="card-name">${game.name}</div>
+        <div class="card-dev"><span class="dev-tooltip-wrap">${game.dev}${game.devPrevWorks ? `<span class="dev-tooltip"><strong>${game.dev}</strong><span class="prev-label">전작</span>${game.devPrevWorks}</span>` : ''}</span> · ${game.pub}</div>
+        <div class="card-meta">
+          <span class="meta-chip">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            ${game.platform}
+          </span>
+          <span class="meta-chip chip-release">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            ${game.release}
+          </span>
+          <span class="meta-chip ${getBusinessModelClass(game.bm)}">${game.bm}</span>
+          ${followersChip}
+          ${statusBadge}
+        </div>
+        <div class="card-genre">${game.genre}</div>
+      </div>
+    </div>
+  `;
+}
+
+function createGalleryHTML(game) {
+  if (!game.images || game.images.length === 0) {
+    return `
+      <div class="gallery-container">
+        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.85em;">
+          스크린샷 준비 중
+        </div>
+      </div>
+    `;
+  }
+
+  const images = game.images.map((img, idx) => `
+    <img src="images/${img}" onerror="this.onerror=null;this.src='${img}';" alt="Screenshot ${idx + 1}" class="gallery-image ${idx === 0 ? 'active' : ''}" />
+  `).join('');
+
+  const dots = game.images.length > 1 ? `
+    <div class="gallery-controls">
+      ${game.images.map((_, idx) => `<div class="gallery-dot ${idx === 0 ? 'active' : ''}" data-index="${idx}"></div>`).join('')}
+    </div>
+  ` : '';
+
+  const navButtons = game.images.length > 1 ? `
+    <button class="gallery-nav prev">‹</button>
+    <button class="gallery-nav next">›</button>
+  ` : '';
+
+  return `
+    <div class="gallery-container">
+      ${images}
+      ${dots}
+      ${navButtons}
+    </div>
+  `;
+}
+
+function renderGrid() {
+  const container = document.getElementById('gridContainer');
+  const games = getFilteredGames();
+  
+  if (games.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <p>검색 결과가 없습니다.</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const groups = groupGamesByTier(games);
+  container.innerHTML = groups.map(({ tier, games: tierGames }) => {
+    const cfg = TIER_CONFIG[tier];
+    const cards = tierGames.map(g => createGameCardHTML(g, cfg)).join('');
+    return `
+      <div class="section-label" style="color:${cfg.color}">
+        ${tier} <span class="section-count" style="background:${cfg.color}22;color:${cfg.color}">${tierGames.length}</span>
+      </div>
+      <div class="card-grid">${cards}</div>
+    `;
+  }).join('');
+
+  container.querySelectorAll('.game-card').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = parseInt(el.dataset.id);
+      openDetailPanel(id);
+    });
+  });
+}
+
+function openDetailPanel(gameId) {
+  const game = GAMES.find(x => x.id === gameId);
+  if (!game) return;
+  
+  activeCardId = gameId;
+  currentImageIndex = 0;
+  renderGrid();
+
+  const cfg = TIER_CONFIG[game.tier];
+  
+  // 갤러리
+  document.getElementById('panelGallery').innerHTML = createGalleryHTML(game);
+  setupGalleryControls(game);
+  
+  document.getElementById('panelTier').innerHTML = `<span class="card-tier ${cfg.cls}">${game.tier}</span> <span class="stage-badge ${getStageClass(game.stageGroup)}" style="margin-left:6px">${game.stage}</span>`;
+  document.getElementById('panelTitle').textContent = game.name;
+  document.getElementById('panelGenreTag').textContent = game.genre;
+
+  let bodyHTML = '';
+
+  // ─── NEW: 세부 패널용 개발사 툴팁 생성 ───
+  const devDisplay = game.devPrevWorks
+    ? `<span class="dp-dev-wrap">${game.dev}
+         <span class="dp-dev-tooltip">
+           <span class="dp-prev-title">개발사 전작</span>
+           ${game.devPrevWorks}
+         </span>
+       </span>`
+    : game.dev;
+
+  // 메타 정보
+  const followersDisplay = game.followers ? game.followers.toLocaleString() : 'N/A';
+  bodyHTML += `
+    <div class="panel-meta-grid">
+      <div class="panel-meta-item"><div class="panel-meta-label">개발사</div><div class="panel-meta-value">${devDisplay}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">퍼블리셔</div><div class="panel-meta-value">${game.pub}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">플랫폼</div><div class="panel-meta-value">${game.platform}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">출시 일정</div><div class="panel-meta-value">${game.release}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">BM 모델</div><div class="panel-meta-value">${game.bm}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">현재 상태</div><div class="panel-meta-value">${game.status}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">Steam 팔로워</div><div class="panel-meta-value" style="color:var(--cyan)">${followersDisplay}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">개발 단계</div><div class="panel-meta-value">${game.stage}</div></div>
+    </div>
+  `;
+
+  // Steam 실적 데이터
+  if (game.steamData) {
+    const sd = game.steamData;
+    bodyHTML += `
+      <div class="panel-section">
+        <div class="panel-section-title" style="color:var(--cyan)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          Steam 실적 데이터
+        </div>
+        <div class="steam-data-grid">
+          ${sd.rating ? `<div class="steam-stat"><div class="steam-stat-label">Steam 평가</div><div class="steam-stat-value ${sd.rating.includes('Very') || sd.rating.includes('Overwhelmingly') ? 'stat-green' : sd.rating.includes('Mostly') ? 'stat-yellow' : 'stat-muted'}">${sd.rating}</div></div>` : ''}
+          ${sd.peak ? `<div class="steam-stat"><div class="steam-stat-label">동시접속 피크</div><div class="steam-stat-value">${sd.peak}</div></div>` : ''}
+          ${sd.followers ? `<div class="steam-stat"><div class="steam-stat-label">Steam 팔로워</div><div class="steam-stat-value">${sd.followers}</div></div>` : ''}
+          ${sd.reviews ? `<div class="steam-stat"><div class="steam-stat-label">리뷰 수</div><div class="steam-stat-value">${sd.reviews}</div></div>` : ''}
+          ${sd.owners ? `<div class="steam-stat"><div class="steam-stat-label">보유자 추정</div><div class="steam-stat-value">${sd.owners}</div></div>` : ''}
+        </div>
+        ${sd.testData ? `<div style="margin-top:10px;padding:10px 12px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.15);border-radius:8px;">
+          <div class="steam-stat-label" style="color:var(--purple);margin-bottom:4px;">테스트 실적</div>
+          <div style="font-size:0.75em;color:var(--text);line-height:1.5;">${sd.testData}</div>
+        </div>` : ''}
+      </div>
+    `;
+  }
+
+  // 마일스톤
+  if (game.milestones && game.milestones.length) {
+    bodyHTML += `
+      <div class="panel-section">
+        <div class="panel-section-title">개발 로드맵</div>
+        <div class="milestone-list">
+          ${game.milestones.map(m => `
+            <div class="milestone-item">
+              <div class="milestone-dot" style="${m.current ? 'background:var(--orange);box-shadow:0 0 6px var(--orange)' : ''}"></div>
+              <div class="milestone-text ${m.current ? 'current' : ''}">${m.text}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // 기대 포인트
+  if (game.pros && game.pros.length) {
+    bodyHTML += `
+      <div class="panel-section">
+        <div class="panel-section-title">기대 포인트</div>
+        <div class="feedback-list">
+          ${game.pros.map(p => `<div class="feedback-item feedback-positive">${p}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // 리스크 요인
+  const concerns = game.concerns || game.cons;
+  if (concerns && concerns.length) {
+    bodyHTML += `
+      <div class="panel-section">
+        <div class="panel-section-title">리스크 요인</div>
+        <div class="feedback-list">
+          ${concerns.map(c => `<div class="feedback-item feedback-concern">${c}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // 개발사 응답
+  if (game.devResponse) {
+    bodyHTML += `
+      <div class="panel-section">
+        <div class="panel-section-title dev-response">개발팀 응답</div>
+        <div class="dev-box">
+          <div class="dev-text">${game.devResponse}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('panelBody').innerHTML = bodyHTML;
+  document.getElementById('panelBody').scrollTop = 0;
+  document.getElementById('detailPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('visible');
+  document.getElementById('main').classList.add('panel-open');
+}
+
+function setupGalleryControls(game) {
+  if (!game.images || game.images.length <= 1) return;
+
+  const dots = document.querySelectorAll('.gallery-dot');
+  const images = document.querySelectorAll('.gallery-image');
+  const prevBtn = document.querySelector('.gallery-nav.prev');
+  const nextBtn = document.querySelector('.gallery-nav.next');
+
+  const showImage = (index) => {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    currentImageIndex = index;
+  };
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const newIndex = (currentImageIndex - 1 + game.images.length) % game.images.length;
+      showImage(newIndex);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const newIndex = (currentImageIndex + 1) % game.images.length;
+      showImage(newIndex);
+    });
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => showImage(index));
+  });
+}
+
+function closeDetailPanel() {
+  activeCardId = null;
+  document.getElementById('detailPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('visible');
+  document.getElementById('main').classList.remove('panel-open');
+  renderGrid();
+}
+
+// ═══════════════════════════════════════════
+//  RELEASE DATES (for Calendar)
+// ═══════════════════════════════════════════
+const RELEASE_DATES = {
+  1:  { date: "2026-03-05", label: "출시완료", exact: true },
+  2:  { date: "2026-Q4",    label: "2026 Q4 추정", exact: false },
+  3:  { date: "2026-Q3",    label: "2026 여름 추정", exact: false },
+  4:  { date: "2026-H2",    label: "2026 H2", exact: false },
+  5:  { date: "2026",       label: "2026 TBD", exact: false },
+  6:  { date: "2027",       label: "2027", exact: false },
+  7:  { date: "2026",       label: "2026 TBD", exact: false },
+  8:  { date: "2026",       label: "2026 TBD", exact: false },
+  9:  { date: "2026",       label: "2026 TBD", exact: false },
+  10: { date: "2026-Q2",    label: "2026 Q2-Q3", exact: false },
+  11: { date: "2026",       label: "2026 TBD", exact: false },
+  12: { date: "2026",       label: "2026 TBD", exact: false },
+  13: { date: "2026",       label: "2026 TBD", exact: false },
+  14: { date: "2026-Q2",    label: "출시 연기 (원 26.03)", exact: false },
+  15: { date: "2026-03-12", label: "출시완료", exact: true },
+  16: { date: "2026",       label: "2026 TBD", exact: false },
+  17: { date: "2026",       label: "2026 TBD", exact: false },
+  18: { date: "2026",       label: "2026 EA", exact: false },
+  19: { date: "2026",       label: "2026 TBD", exact: false },
+  20: { date: "2026",       label: "2026 TBD", exact: false },
+  21: { date: "2026",       label: "2026 TBD", exact: false },
+  22: { date: "2026-04-14", label: "2026.04.14", exact: true },
+  23: { date: "2026",       label: "2026 TBD", exact: false },
+  24: { date: "2026-03-15", label: "출시완료", exact: true },
+  25: { date: "2026",       label: "2026 TBD", exact: false },
+  26: { date: "2026",       label: "2026 TBD", exact: false },
+  27: { date: "2026",       label: "2026 TBD", exact: false },
+  28: { date: "2026-12",    label: "2026.12 EA", exact: false },
+  29: { date: "2026",       label: "2026 TBD", exact: false },
+  30: { date: "2026",       label: "2026 EA", exact: false },
+  31: { date: "2026-12",    label: "2026.12 EA", exact: false },
+  32: { date: null,         label: "TBD", exact: false },
+};
+
+// ═══════════════════════════════════════════
+//  VIEW TOGGLE
+// ═══════════════════════════════════════════
+let currentView = 'grid';
+
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentView = btn.dataset.view;
+    renderCurrentView();
+  });
+});
+
+function renderCurrentView() {
+  if (currentView === 'grid') {
+    document.getElementById('gridContainer').style.display = '';
+    document.getElementById('calendarContainer').style.display = 'none';
+    renderGrid();
+  } else {
+    document.getElementById('gridContainer').style.display = 'none';
+    document.getElementById('calendarContainer').style.display = '';
+    renderCalendar();
+  }
+}
+
+// ═══════════════════════════════════════════
+//  CALENDAR RENDERING
+// ═══════════════════════════════════════════
+let calYear = new Date().getFullYear();
+let calMonth = new Date().getMonth() + 1;
+
+function renderCalendar() {
+  const container = document.getElementById('calendarContainer');
+  const games = getFilteredGames();
+  const today = new Date();
+  let html = '';
+  html += `<div class="cal-header">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" onclick="calPrev()">◀</button>
+      <div class="cal-month-label">${calYear}년 ${calMonth}월</div>
+      <button class="cal-nav-btn" onclick="calNext()">▶</button>
+      <button class="cal-nav-btn" onclick="calToday()" style="font-size:0.7em;width:auto;padding:0 10px;">Today</button>
+    </div>
+    <div class="cal-legend">
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--orange)"></div> AAA</div>
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--cyan)"></div> AA</div>
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--green)"></div> A</div>
+      <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--text-muted)"></div> Indie</div>
+    </div>
+  </div>`;
+  const firstDay = new Date(calYear, calMonth - 1, 1);
+  const lastDay = new Date(calYear, calMonth, 0);
+  const startDow = firstDay.getDay();
+  const daysInMonth = lastDay.getDate();
+  const dayNames = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  html += `<div class="cal-grid">`;
+  dayNames.forEach(d => { html += `<div class="cal-day-header">${d}</div>`; });
+  for (let i = 0; i < startDow; i++) { html += `<div class="cal-cell empty"></div>`; }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${calYear}-${String(calMonth).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday = today.getFullYear() === calYear && (today.getMonth()+1) === calMonth && today.getDate() === d;
+    const dayGames = games.filter(g => { const rd = RELEASE_DATES[g.id]; return rd && rd.exact && rd.date === dateStr; });
+    html += `<div class="cal-cell ${isToday ? 'today' : ''}"><div class="cal-date">${d}</div><div class="cal-games">
+      ${dayGames.map(g => { const tcls = g.tier==='AAA'?'t-aaa':g.tier==='AA'?'t-aa':g.tier==='A'?'t-a':'t-indie'; const isPast = new Date(dateStr)<today; return `<div class="cal-game-chip ${tcls} ${isPast?'released':''}" onclick="openDetailPanel(${g.id})" title="${g.name}">${g.name}</div>`; }).join('')}
+    </div></div>`;
+  }
+  const endDow = lastDay.getDay();
+  for (let i = endDow + 1; i < 7; i++) { html += `<div class="cal-cell empty"></div>`; }
+  html += `</div>`;
+
+  // Timeline
+  html += `<div style="margin-top:32px;"><div class="section-label" style="color:var(--orange)">
+    ${calYear}년 ${calMonth}월 출시 일정</div>`;
+  const prefix = `${calYear}-${String(calMonth).padStart(2,'0')}`;
+  const monthGames = games.filter(g => { const rd = RELEASE_DATES[g.id]; return rd && rd.date && rd.date.startsWith(prefix); });
+  if (monthGames.length === 0) {
+    html += `<div style="text-align:center;padding:24px;color:var(--text-muted);font-size:0.85em;">이 달에 예정된 출시 일정이 없습니다.</div>`;
+  } else {
+    monthGames.forEach(g => {
+      const rd = RELEASE_DATES[g.id]; const cfg = TIER_CONFIG[g.tier]; const isPast = rd && rd.exact && new Date(rd.date) < today;
+      html += `<div class="timeline-row ${isPast?'past':''}" onclick="openDetailPanel(${g.id})">
+        <div class="timeline-date-col">${rd.exact ? rd.date.split('-').slice(1).join('/') : rd.label}</div>
+        <div class="timeline-tier-dot" style="background:${cfg.color}"></div>
+        <div class="timeline-name">${g.name}</div>
+        <div class="timeline-meta"><span class="timeline-badge">${g.tier}</span>
+        ${isPast ? '<span class="timeline-badge released">출시완료</span>' : ''}</div></div>`;
+    });
+  }
+  html += `</div>`;
+
+  // Full timeline
+  html += renderFullTimeline(games, today);
+  container.innerHTML = html;
+}
+
+function renderFullTimeline(games, today) {
+  let html = `<div style="margin-top:32px;"><div class="section-label" style="color:var(--cyan)">전체 출시 타임라인 (2025~2027)</div>`;
+  const buckets = {
+    'released': { label:'출시완료', games:[], color:'var(--green)' },
+    '2026-Q1': { label:'2026 Q1 (1~3월)', games:[], color:'var(--orange)' },
+    '2026-Q2': { label:'2026 Q2 (4~6월)', games:[], color:'var(--orange)' },
+    '2026-H2': { label:'2026 H2 (7~12월)', games:[], color:'var(--cyan)' },
+    '2026-TBD': { label:'2026 TBD', games:[], color:'var(--text-muted)' },
+    '2027': { label:'2027', games:[], color:'var(--text-muted)' },
+    'delayed': { label:'연기 / 미정', games:[], color:'var(--red)' },
+  };
+  games.forEach(g => {
+    const rd = RELEASE_DATES[g.id];
+    if (!rd) { buckets['2026-TBD'].games.push(g); return; }
+    if (!rd.date) { buckets['delayed'].games.push(g); return; }
+    const d = rd.date;
+    if (d === '2027') { buckets['2027'].games.push(g); return; }
+    if (rd.exact && new Date(d) < today) { buckets['released'].games.push(g); return; }
+    if (d.includes('Q1') || (rd.exact && d.startsWith('2026-0') && parseInt(d.split('-')[1]) <= 3)) { buckets['2026-Q1'].games.push(g); }
+    else if (d.includes('Q2') || (rd.exact && d.startsWith('2026-0') && parseInt(d.split('-')[1]) <= 6 && parseInt(d.split('-')[1]) > 3)) { buckets['2026-Q2'].games.push(g); }
+    else if (d.includes('Q3') || d.includes('Q4') || d.includes('H2') || (rd.exact && d.startsWith('2026-') && parseInt(d.split('-')[1]) > 6) || d === '2026-12') { buckets['2026-H2'].games.push(g); }
+    else if (d === '2026') { buckets['2026-TBD'].games.push(g); }
+    else if (rd.exact) { const m=parseInt(d.split('-')[1]); if(m<=3) buckets['2026-Q1'].games.push(g); else if(m<=6) buckets['2026-Q2'].games.push(g); else buckets['2026-H2'].games.push(g); }
+    else { buckets['2026-TBD'].games.push(g); }
+  });
+  Object.entries(buckets).forEach(([key, bucket]) => {
+    if (bucket.games.length === 0) return;
+    html += `<div class="cal-quarter-row"><div class="cal-quarter-label" style="color:${bucket.color}">
+      ${bucket.label} <span class="q-count" style="background:${bucket.color}22;color:${bucket.color}">${bucket.games.length}</span></div>`;
+    bucket.games.forEach(g => {
+      const rd = RELEASE_DATES[g.id]; const cfg = TIER_CONFIG[g.tier]; const isPast = rd && rd.exact && new Date(rd.date) < today;
+      html += `<div class="timeline-row ${isPast?'past':''}" onclick="openDetailPanel(${g.id})">
+        <div class="timeline-date-col">${rd ? (rd.exact ? rd.date : rd.label) : 'TBD'}</div>
+        <div class="timeline-tier-dot" style="background:${cfg.color}"></div>
+        <div class="timeline-name">${g.name}</div>
+        <div class="timeline-meta"><span class="timeline-badge">${g.tier}</span><span class="timeline-badge">${g.bm}</span>
+        ${isPast ? '<span class="timeline-badge released">출시완료</span>' : ''}
+        ${key === 'delayed' ? '<span class="timeline-badge delayed">연기</span>' : ''}</div></div>`;
+    });
+    html += `</div>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+function calPrev() { calMonth--; if(calMonth<1){calMonth=12;calYear--;} renderCalendar(); }
+function calNext() { calMonth++; if(calMonth>12){calMonth=1;calYear++;} renderCalendar(); }
+function calToday() { const t=new Date(); calYear=t.getFullYear(); calMonth=t.getMonth()+1; renderCalendar(); }
+
+// ═══════════════════════════════════════════
+//  EVENT LISTENERS
+// ═══════════════════════════════════════════
+
+document.querySelectorAll('[data-filter-type="tier"]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter-type="tier"]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentTierFilter = btn.dataset.filter;
+    closeDetailPanel();
+    renderCurrentView();
+  });
+});
+
+document.querySelectorAll('[data-filter-type="genre"]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter-type="genre"]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentGenreFilter = btn.dataset.filter;
+    closeDetailPanel();
+    renderCurrentView();
+  });
+});
+
+document.querySelectorAll('[data-filter-type="stage"]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter-type="stage"]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentStageFilter = btn.dataset.filter;
+    closeDetailPanel();
+    renderCurrentView();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  currentSearch = e.target.value;
+  renderCurrentView();
+});
+
+document.getElementById('panelClose').addEventListener('click', closeDetailPanel);
+document.getElementById('overlay').addEventListener('click', closeDetailPanel);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeDetailPanel();
+});
+
+// 초기 렌더링
+renderCurrentView();
+</script>
+</body>
+</html>
