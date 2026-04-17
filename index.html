@@ -947,8 +947,33 @@ body {
 }
 .steam-stat-value.stat-green { color: var(--green); }
 .steam-stat-value.stat-yellow { color: #b45309; }
+.steam-stat-value.stat-red { color: var(--red); }
 .steam-stat-value.stat-muted { color: var(--text-muted); }
 .panel-section-title svg { flex-shrink: 0; }
+
+/* ─── STEAM LINK BUTTON ─── */
+.steam-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 8px;
+  color: var(--cyan);
+  font-size: 0.78em;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.steam-link-btn:hover {
+  background: rgba(59,130,246,0.12);
+  border-color: var(--cyan);
+}
 
 /* ─── EMPTY STATE ─── */
 .empty-state {
@@ -1092,18 +1117,12 @@ body {
 
 <header class="header">
   <div class="logo">
-    <span class="logo-badge">PROJECT S</span>
     <div class="logo-titles">
       <div class="logo-title">Project S 스팀 론칭 대시보드</div>
-      <div class="logo-sub">🎮 2026 FPS 경쟁 타이틀 대시보드</div>
+      <div class="logo-sub">🎮 경쟁작 캘린더</div>
     </div>
   </div>
   <div class="header-right">
-    <div class="rate-box">
-      <label for="rateInput">💱 환율 (₩/$)</label>
-      <input id="rateInput" class="rate-input" type="number" value="1450" min="500" max="3000" step="10"/>
-      <button class="rate-btn" onclick="applyRate()">적용</button>
-    </div>
     <div class="header-stats">
       <div class="stat-pill"><span class="dot dot-aaa"></span><strong id="stat-aaa">7</strong> AAA</div>
       <div class="stat-pill"><span class="dot dot-aa"></span><strong id="stat-aa">14</strong> AA</div>
@@ -1185,17 +1204,17 @@ body {
 // ═══════════════════════════════════════════
 
 const GAMES = [
-  { id:1, name:"Marathon", tier:"AAA", genre:"익스트랙션", dev:"Bungie", pub:"Sony IE (PlayStation)", platform:"PC · PS5", release:"2026.03.05", bm:"B2P $40", status:"출시완료", followers:114443, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"Halo 시리즈 (2001~2010), Destiny 시리즈 (2014~현재)",
+  { id:1, name:"Marathon", tier:"AAA", genre:"익스트랙션", dev:"Bungie", pub:"Sony IE (PlayStation)", platform:"PC · PS5", release:"2026.03.05", bm:"B2P $40", status:"출시완료", followers:114443, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"Halo 시리즈 (2001~2010), Destiny 시리즈 (2014~현재)", steamUrl:"https://store.steampowered.com/app/3065800",
     milestones:[{text:"PlayStation Showcase 최초 공개 (2023.05)"},{text:"ARG + 게임플레이 공개 (2025.04)"},{text:"비공개 알파 테스트 (2025.04~05)"},{text:"비공개 플레이테스트 (2025.06~)"},{text:"The Game Awards 출시일 발표 (2025.12)"},{text:"서버 슬램 (2026.02)"},{text:"출시 (2026.03.05)",current:true}],
     steamData:{
       followers:"114,443",
       launchMetrics: [
-        { label: "PCCU (26.03.06)", value: "88,337" },
-        { label: "PCCU (26.03.12)", value: "60,649" },
-        { label: "현재 CCU (26.04.13)", value: "27,895" },
-        { label: "초기 긍정률 (1.5만건)", value: "90.0%", color: "stat-green" },
-        { label: "중기 긍정률 (4.3만건)", value: "86.3%", color: "stat-green" },
-        { label: "현재 긍정률 (26.04.13)", value: "85.9%", color: "stat-green" }
+        { label: "ATH PCCU", value: "88,337", color: "" },
+        { label: "론칭 +1W Avg.CCU", value: "60,649", color: "" },
+        { label: "최근 1W Avg.CCU (26.04.13)", value: "27,895", color: "" },
+        { label: "론칭+1W 리뷰 (1.5만건)", value: "90.0%", color: "stat-green" },
+        { label: "론칭+1M 리뷰 (4.3만건)", value: "86.3%", color: "stat-green" },
+        { label: "현재 리뷰 (26.04.13)", value: "85.9%", color: "stat-green" }
       ]
     },
     pros:["번지 DNA 건플레이 — 묵직하고 만족스러운 총기감","독보적 아트 디렉션","사운드 디자인 극찬","추출 루프 깊이 — 팩션, 바터링, 스폰서드 킷","최적화 우수 (18GB 설치)"],
@@ -1212,7 +1231,7 @@ const GAMES = [
     remakeNote: "⚠️ 리메이크 (캠페인 전용, PvP 없음) — Halo: CE (2001) UE5 ground-up 리메이크. 신규 프리퀄 미션 3개, 무기 9종 추가, 4인 온라인 코옵. 2011년 Anniversary(리마스터)와 달리 레벨 디자인·컷신·음성 전면 재제작. 최초 PS 동시 출시.",
     milestones:[{text:"티저: Halo World Championships (2024.10)"},{text:"티저: Xbox Showcase (2025.06)"},{text:"공개+게임플레이 데모: Halo World Championships (2025.10)",current:true}],
     pros:["Halo: CE UE5 완전 리메이크 (단순 리마스터 X)","프리퀄 미션 3개 + 무기 9종 + 차량 탈취 추가","MS 1st party 플래그십 · 최초 PS 동시 출시","4인 온라인 코옵 + 크로스플레이/크로스프로그레션"],
-    concerns:["캠페인 전용 — PvP 멀티 없음 (Project S와 직접경쟁 아님)","25주년 기념작 부담","UE5 전환 리스크","GTA VI (2026.05) 회피 위해 Summer 출시 목표"]
+    concerns:["캠페인 전용 — PvP 멀티 없음","25주년 기념작 부담","UE5 전환 리스크","GTA VI (2026.05) 회피 위해 Summer 출시 목표"]
   },
   { id:4, name:"Cinder City", tier:"AAA", genre:"Co-op", dev:"빅파이어게임즈 (BigFire)", pub:"NCSoft", platform:"PC · PS5 · Xbox", release:"2026 H2", bm:"TBD", status:"데모 공개", followers:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오 (Project LLL → Cinder City가 첫 타이틀)",
     milestones:[{text:"공개: Gamescom ONL (2025.08)"},{text:"GDC 부스 데모 (2026.03)",current:true}],
@@ -1244,7 +1263,7 @@ const GAMES = [
     isSinglePlayer: true,
     milestones:[{text:"최초 공개: TGA (2025.12.11)",current:true}],
     pros:["ex-Wolfenstein/DOOM/Gears 인력","Krafton 퍼블리싱","사이버펑크 오픈월드 싱글플레이어 FPS RPG","플레이어 에이전시 + 스토리 분기"],
-    concerns:["싱글플레이어 전용 — 멀티 없음 (Project S와 직접경쟁 아님)","개발 초기 단계","The Ascent 이후 장르 전환"]
+    concerns:["싱글플레이어 전용 — 멀티 없음","개발 초기 단계","The Ascent 이후 장르 전환"]
   },
   { id:9, name:"4 LOOP", tier:"AA", genre:"Co-op", dev:"Bad Robot Games", pub:"PlayStation Publishing", platform:"PC · PS5", release:"2026 TBD", bm:"TBD", status:"PT 예정", followers:8993, stage:"PT 예정", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (J.J. 에이브럼스 Bad Robot 산하, 첫 타이틀)",
     milestones:[{text:"최초 공개: TGA (2025.12.11)"},{text:"게임플레이 영상: State of Play (2026.02)"},{text:"플레이테스트 예고",current:true}],
@@ -1274,8 +1293,19 @@ const GAMES = [
     pros:["비대칭 PvPvE 호러 슈터 — Hunt: Showdown + Dead by Daylight 조합","UE5, Ember Zone 초자연 호러 세계관","Executioner(보스) = 다른 플레이어가 조종","Team Jade (Delta Force) 개발력"],
     concerns:["Steam 페이지 없음","장르 혼합 (택티컬+호러+비대칭) 밸런스 난이도","Evolve 실패 선례"]
   },
-  { id:14, name:"Special Force Remastered", tier:"AA", genre:"순수 PvP", dev:"Dragonfly", pub:"Dragonfly", platform:"PC", release:"출시 연기 (원 26.03)", bm:"F2P", status:"출시완료", followers:765, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"스페셜포스 (2004, 1억+ 유저), SF2, SF Legion of Monsters (2024)",
+  { id:14, name:"Special Force Remastered", tier:"AA", genre:"순수 PvP", dev:"Dragonfly", pub:"Dragonfly", platform:"PC", release:"2026.03.24", bm:"F2P", status:"출시완료", followers:765, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"스페셜포스 (2004, 1억+ 유저), SF2, SF Legion of Monsters (2024)", steamUrl:"https://store.steampowered.com/app/4261320",
     milestones:[{text:"개발 영상 (2025.05)"},{text:"홍보영상+사전예약 (2026.02)"},{text:"한국 출시 (2026.03.18)",current:true}],
+    steamData:{
+      followers:"765",
+      launchMetrics: [
+        { label: "ATH PCCU", value: "753", color: "" },
+        { label: "론칭 +1W Avg.CCU", value: "290", color: "" },
+        { label: "최근 1W Avg.CCU (26.04.17)", value: "145", color: "" },
+        { label: "론칭+1W 리뷰 (273건)", value: "23.0%", color: "stat-red" },
+        { label: "론칭+1M 리뷰", value: "—", color: "stat-muted" },
+        { label: "현재 리뷰 (319건)", value: "24.1%", color: "stat-red" }
+      ]
+    },
     pros:["22년 IP, 90개국·1억 유저","원작 메인PD 총괄","UE 리마스터"],
     concerns:["전작 SF Legion of Monsters 부정적 평가","플랫폼 검수 문제"]
   },
@@ -1284,12 +1314,12 @@ const GAMES = [
     steamData:{
       followers:"48,319",
       launchMetrics: [
-        { label: "PCCU (26.03.14)", value: "17,158" },
-        { label: "PCCU (26.03.19)", value: "6,702" },
-        { label: "현재 CCU (26.04.13)", value: "1,548" },
-        { label: "초기 긍정률 (4.2K건)", value: "77.9%", color: "stat-yellow" },
-        { label: "중기 긍정률 (5.9K건)", value: "77.2%", color: "stat-yellow" },
-        { label: "현재 긍정률 (26.04.13)", value: "75.2%", color: "stat-yellow" }
+        { label: "ATH PCCU", value: "17,158", color: "" },
+        { label: "론칭 +1W Avg.CCU", value: "6,702", color: "" },
+        { label: "최근 1W Avg.CCU (26.04.13)", value: "1,548", color: "" },
+        { label: "론칭+1W 리뷰 (4.2K건)", value: "77.9%", color: "stat-yellow" },
+        { label: "론칭+1M 리뷰 (5.9K건)", value: "77.2%", color: "stat-yellow" },
+        { label: "현재 리뷰 (26.04.13)", value: "75.2%", color: "stat-yellow" }
       ]
     },
     pros:["Saber Swarm Engine 활용 4인 코옵","Focus 대표적 AA 퍼블리셔"],
@@ -1326,9 +1356,20 @@ const GAMES = [
     pros:["Verdun/Tannenberg 시리즈 개발사","WW1 니치 밀심 FPS 전문"],
     concerns:["니치 장르 한계"]
   },
-  { id:22, name:"Last Flag", tier:"A", genre:"히어로", dev:"Night Street Games", pub:"Night Street Games", platform:"PC · PS5 · Xbox", release:"2026.04.14", bm:"F2P", status:"출시완료", followers:6199, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"신설 스튜디오 (Imagine Dragons 창업, 디렉터 ex-Blizzard Diablo 3)",
+  { id:22, name:"Last Flag", tier:"A", genre:"히어로", dev:"Night Street Games", pub:"Night Street Games", platform:"PC · PS5 · Xbox", release:"2026.04.14", bm:"F2P", status:"출시완료", followers:6199, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"신설 스튜디오 (Imagine Dragons 창업, 디렉터 ex-Blizzard Diablo 3)", steamUrl:"https://store.steampowered.com/app/2721340",
     milestones:[{text:"데모: Steam Next Fest (2025.12)"},{text:"오픈 베타 (2026.02~03)"},{text:"출시 (2026.04.14)",current:true}],
-    steamData:{followers:"6,199",peak:"825 (데모 CCU)",testData:"OBT (2026.02~03): Steam Next Fest · 데모 피크 825 CCU · OBT 피드백 기반 대량 밸런스 패치 적용"},
+    steamData:{
+      followers:"6,199",
+      launchMetrics: [
+        { label: "ATH PCCU", value: "558", color: "" },
+        { label: "론칭 +1W Avg.CCU", value: "—", color: "stat-muted" },
+        { label: "최근 1W Avg.CCU", value: "—", color: "stat-muted" },
+        { label: "론칭+1W 리뷰", value: "—", color: "stat-muted" },
+        { label: "론칭+1M 리뷰", value: "—", color: "stat-muted" },
+        { label: "현재 리뷰 (255건)", value: "78.9%", color: "stat-green" }
+      ],
+      testData:"OBT (2026.02~03): Steam Next Fest · 데모 피크 825 CCU · OBT 피드백 기반 대량 밸런스 패치 적용"
+    },
     pros:["Imagine Dragons 형제 공동 설립","5v5 CTF 슈터","게임디렉터 ex-Blizzard (Diablo 3)"],
     concerns:["인디 규모","팔로워 수 낮음"]
   },
@@ -1422,6 +1463,46 @@ const GAME_IMAGES = {
 GAMES.forEach(game => {
   if (GAME_IMAGES[game.name]) {
     game.images = GAME_IMAGES[game.name];
+  }
+});
+
+// ═══════════════════════════════════════════
+//  STEAM URL MAPPING
+// ═══════════════════════════════════════════
+const STEAM_URLS = {
+  1: "https://store.steampowered.com/app/3065800",
+  3: "https://store.steampowered.com/app/2806050",
+  5: "https://store.steampowered.com/app/2705130",
+  6: "https://store.steampowered.com/app/2582960",
+  7: "https://store.steampowered.com/app/4077740",
+  8: "https://store.steampowered.com/app/2161710",
+  9: "https://store.steampowered.com/app/3355360",
+  10: "https://store.steampowered.com/app/3092530",
+  11: "https://store.steampowered.com/app/3978820",
+  12: "https://store.steampowered.com/app/3596040",
+  14: "https://store.steampowered.com/app/4261320",
+  15: "https://store.steampowered.com/app/2157830",
+  16: "https://store.steampowered.com/app/3079210",
+  17: "https://store.steampowered.com/app/2887580",
+  18: "https://store.steampowered.com/app/1867240",
+  19: "https://store.steampowered.com/app/2470010",
+  20: "https://store.steampowered.com/app/1059220",
+  21: "https://store.steampowered.com/app/3065940",
+  22: "https://store.steampowered.com/app/2721340",
+  23: "https://store.steampowered.com/app/2411280",
+  25: "https://store.steampowered.com/app/3115160",
+  26: "https://store.steampowered.com/app/632950",
+  27: "https://store.steampowered.com/app/971700",
+  28: "https://store.steampowered.com/app/3606970",
+  29: "https://store.steampowered.com/app/3187960",
+  30: "https://store.steampowered.com/app/2239670",
+  31: "https://store.steampowered.com/app/1313230",
+  33: "https://store.steampowered.com/app/1422450",
+};
+
+GAMES.forEach(game => {
+  if (STEAM_URLS[game.id]) {
+    game.steamUrl = STEAM_URLS[game.id];
   }
 });
 
@@ -1666,6 +1747,16 @@ function openDetailPanel(gameId) {
     </div>
   `;
 
+  // Steam 링크
+  if (game.steamUrl) {
+    bodyHTML += `
+      <a href="${game.steamUrl}" target="_blank" rel="noopener" class="steam-link-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Steam 페이지 바로가기
+      </a>
+    `;
+  }
+
   // 리메이크 안내 배너
   if (game.remakeNote) {
     bodyHTML += `
@@ -1681,7 +1772,7 @@ function openDetailPanel(gameId) {
     bodyHTML += `
       <div style="margin:12px 0;padding:12px 14px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:8px;">
         <div style="font-size:0.78em;font-weight:700;color:#7c3aed;margin-bottom:4px;">싱글플레이어 전용</div>
-        <div style="font-size:0.72em;color:var(--text);line-height:1.6;">멀티플레이어 없음 — Project S와 직접 경쟁 아님</div>
+        <div style="font-size:0.72em;color:var(--text);line-height:1.6;">멀티플레이어 없음 — 직접 경쟁 대상 아님</div>
       </div>
     `;
   }
@@ -1844,11 +1935,11 @@ const RELEASE_DATES = {
   7:  { date: "2026",       label: "2026 TBD", exact: false },
   8:  { date: "2026",       label: "2026 TBD", exact: false },
   9:  { date: "2026",       label: "2026 TBD", exact: false },
-  10: { date: "2026-Q2",    label: "2026 Q2-Q3", exact: false },
+  10: { date: null,         label: "무기한 연기", exact: false },
   11: { date: "2026",       label: "2026 TBD", exact: false },
   12: { date: "2026",       label: "2026 TBD", exact: false },
   13: { date: "2026",       label: "2026 TBD", exact: false },
-  14: { date: "2026-Q2",    label: "출시 연기 (원 26.03)", exact: false },
+  14: { date: "2026-03-24", label: "출시완료", exact: true },
   15: { date: "2026-03-12", label: "출시완료", exact: true },
   16: { date: "2026",       label: "2026 TBD", exact: false },
   17: { date: "2026",       label: "2026 TBD", exact: false },
@@ -1866,6 +1957,8 @@ const RELEASE_DATES = {
   30: { date: "2026",       label: "2026 EA", exact: false },
   31: { date: "2026-12",    label: "2026.12 EA", exact: false },
   32: { date: null,         label: "TBD", exact: false },
+  33: { date: "2024-08",    label: "EA 진행중", exact: false },
+  34: { date: "2026-11",    label: "2026.11 (비공식)", exact: false },
 };
 
 // ═══════════════════════════════════════════
@@ -2105,14 +2198,6 @@ document.addEventListener('keydown', e => {
 // 초기 렌더링
 renderCurrentView();
 
-// ═══════════════════════════════════════════
-//  EXCHANGE RATE FUNCTION
-// ═══════════════════════════════════════════
-function applyRate() {
-  const rate = parseInt(document.getElementById('rateInput').value) || 1450;
-  // Placeholder - will be used when KRW conversion is needed across pages
-  alert(`환율이 1$ = ${rate.toLocaleString()}원으로 설정되었습니다.\n통합 대시보드에서 전체 페이지에 적용됩니다.`);
-}
 </script>
 </body>
 </html>
