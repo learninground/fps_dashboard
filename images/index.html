@@ -983,7 +983,7 @@ body {
 <header class="header">
   <div class="header-top">
     <div class="logo">
-      <div class="logo-badge">Lionheart Studio · Global Business · 데이터 기준 2026.08.03</div>
+      <div class="logo-badge">Lionheart Studio · Global Business · 데이터 기준 2026.08.10</div>
       <div class="logo-title">2026 FPS 경쟁 타이틀 대시보드</div>
     </div>
     <div class="header-stats">
@@ -1074,342 +1074,2067 @@ body {
 // ═══════════════════════════════════════════
 
 const GAMES = [
-  { id:1, name:"Marathon", tier:"AAA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (PvPvE)", dev:"Bungie", pub:"Sony IE (PlayStation)", platform:"PC · PS5", release:"2026.03.05", bm:"B2P $40", status:"출시 완료", followers:124314, wishlist:570858, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"Halo 시리즈 (2001~2010), Destiny 시리즈 (2014~현재)",
-    tags:"Extraction Shooter, PvP, Multiplayer, Sci-fi, Shooter, FPS, Futuristic, Action, First-Person, PvE, Cyberpunk",
-    milestones:[{text:"최초 공개: PlayStation Showcase (2023.05)"},{text:"ARG + 게임플레이 공개 (2025.04)"},{text:"비공개 알파 테스트 (2025.04~05)"},{text:"비공개 플레이테스트 (2025.06~)"},{text:"출시일 발표: The Game Awards (2025.12)"},{text:"서버 슬램 (2026.02)"},{text:"출시 (2026.03.05)"},{text:"시즌1 종료 → 시즌2 + Open Play Week (2026.06)"},{text:"Update 1.1.5 · Vault Breaker (2026.07.21)",current:true},{text:"시즌3 예정 (2026.09.22)"}],
-    steamData:{rating:"78% (60,714건, 2026.06.22)", launch1w:"60,649 (2026.03.12)", ath:"88,337 (2026.03.06) · 서버슬램 143K", peak24h:"11,279 (2026.06.01) → 약 7,092 (7.11)", review1w:"90% (15,000건)", review1m:"86.3% (43,021건)", wishlist:"570,858", followers:"124,314", extra:"raijin 추정 누적 판매 약 193만 장 · 매출 약 $54M (high confidence)"},
-    evaluation:"런칭 피크 88K에서 24시간 내 50% 하락, 5월 말 약 11K까지 하락. 시즌2 + Open Play Week로 6월 반등(평균 13,580 / 피크 40,510, 전월비 +72%)했으나 7월 초 오픈위크 부스트 소멸로 재하락(7/3 피크 8,630, 7/11 약 7,092). 리뷰도 90% → 78%(60,714건)로 지속 하락. 위시리스트는 3월 1.15M에서 월 -15%대로 자연 소진되어 674K 수준.",
-    pros:["번지 DNA 건플레이 — 묵직하고 만족스러운 총기감 (Halo와 Destiny 사이)","독보적 아트 디렉션 — 현 시장에 없는 비주얼","사운드 디자인 극찬","추출 루프 깊이 — 팩션 프로그레션, 바터링, 스폰서드 킷 경제 설계","최적화 우수 (18GB 설치, 기술적 안정)"],
-    concerns:["UI/UX 런칭 시점에도 난해, 뉴비 온보딩 실패","솔로 플레이 열악, 수익화 논란","런칭 24시간 내 동접 50% 하락 — ARC Raiders(460K 피크) 대비 큰 격차","Metacritic 유저 스코어 4.4/10, OpenCritic 추천 65%","모회사 리스크 — Sony 번지 관련 약 7.65억 달러 손실 보고, 랭크 치트 이슈 지속"],
-    devResponse:"긴급 패치(목표 내비 10m→20m, 초보 지역 메드/탄약 스폰 증가, AI 적 HP 감소). 7.21 Update 1.1.5에서 첫 실험적 PvE 활동 Vault Breaker 도입. 시즌3(9.22)에서 초반 플레이 경험 개편과 Perimeter 확장 예고.",
-    note:"개발 6~7년, 추정 예산 $250M+. 시즌2 무료 체험 반등 이후 장기 회복 여부는 아직 미확인.",
-    sources:["https://www.bungie.net/7/en/News/Article/marathon_update_1_1_5","https://www.bungie.net/7/en/News/Article/season_2_key_dates"]
+  {
+    "id": 1,
+    "name": "Marathon",
+    "tier": "AAA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (PvPvE)",
+    "dev": "Bungie",
+    "pub": "Sony IE (PlayStation)",
+    "platform": "PC · PS5",
+    "release": "2026.03.05",
+    "bm": "B2P $40",
+    "status": "출시 완료",
+    "followers": 124361,
+    "wishlist": 571015,
+    "stage": "출시 완료",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "Halo 시리즈 (2001~2010), Destiny 시리즈 (2014~현재)",
+    "tags": "Extraction Shooter, PvP, Multiplayer, Sci-fi, Shooter, FPS, Futuristic, Action, First-Person, PvE, Cyberpunk",
+    "milestones": [
+      {
+        "text": "최초 공개: PlayStation Showcase (2023.05)"
+      },
+      {
+        "text": "ARG + 게임플레이 공개 (2025.04)"
+      },
+      {
+        "text": "비공개 알파 테스트 (2025.04~05)"
+      },
+      {
+        "text": "비공개 플레이테스트 (2025.06~)"
+      },
+      {
+        "text": "출시일 발표: The Game Awards (2025.12)"
+      },
+      {
+        "text": "서버 슬램 (2026.02)"
+      },
+      {
+        "text": "출시 (2026.03.05)"
+      },
+      {
+        "text": "시즌1 종료 → 시즌2 + Open Play Week (2026.06)"
+      },
+      {
+        "text": "Update 1.1.5 · Vault Breaker (2026.07.21~08.04)"
+      },
+      {
+        "text": "Vault Breaker 종료 (2026.08.04)",
+        "current": true
+      },
+      {
+        "text": "시즌3 예정 (2026.09.22)"
+      }
+    ],
+    "steamData": {
+      "rating": "77.1% (63,589건, 2026.08.10)",
+      "launch1w": "60,649 (2026.03.12)",
+      "ath": "88,337 (2026.03.06) · 서버슬램 143K",
+      "peak24h": "4,450 (2026.08.10)",
+      "review1w": "90% (15,000건)",
+      "review1m": "86.3% (43,021건)",
+      "wishlist": "571,015",
+      "followers": "124,361",
+      "extra": "raijin 추정 누적 판매 약 193만 장 · 매출 약 $54M (high confidence)"
+    },
+    "evaluation": "번지 특유의 건플레이 · 아트 디렉션 · 사운드와 익스트랙션 루프는 강점으로 평가되지만, UI/UX · 뉴비 온보딩 · 솔로 플레이 · 수익화 · 치트 이슈가 장기 리텐션을 압박. 시즌2 무료 체험으로 일시 반등했으나 지속적인 회복은 확인되지 않았고, 한시 PvE 활동 Vault Breaker는 8.04 종료. 8.10 기준 24시간 피크 4,450명, 누적 리뷰 63,589건 · 긍정률 77.1%로 하향 추세 지속. 시즌3(9.22)의 초반 플레이 경험 개편과 Perimeter 확장이 핵심 관찰 포인트.",
+    "pros": [
+      "번지 DNA 건플레이 — 묵직하고 만족스러운 총기감 (Halo와 Destiny 사이)",
+      "독보적 아트 디렉션 — 현 시장에 없는 비주얼",
+      "사운드 디자인 극찬",
+      "추출 루프 깊이 — 팩션 프로그레션, 바터링, 스폰서드 킷 경제 설계",
+      "최적화 우수 (18GB 설치, 기술적 안정)"
+    ],
+    "concerns": [
+      "UI/UX 런칭 시점에도 난해, 뉴비 온보딩 실패",
+      "솔로 플레이 열악, 수익화 논란",
+      "런칭 24시간 내 동접 50% 하락 — ARC Raiders(460K 피크) 대비 큰 격차",
+      "Metacritic 유저 스코어 4.4/10, OpenCritic 추천 65%",
+      "모회사 리스크 — Sony 번지 관련 약 7.65억 달러 손실 보고, 랭크 치트 이슈 지속"
+    ],
+    "devResponse": "긴급 패치(목표 내비 10m→20m, 초보 지역 메드/탄약 스폰 증가, AI 적 HP 감소). 7.21 Update 1.1.5에서 첫 실험적 PvE 활동 Vault Breaker 도입. 시즌3(9.22)에서 초반 플레이 경험 개편과 Perimeter 확장 예고.",
+    "note": "Bungie 개발 · Sony 퍼블리싱 PvPvE 추출 슈터. 시즌2 + Open Play Week 이후 반등은 일시적이었고 장기 리텐션은 여전히 핵심 리스크. [7.21~8.04] 첫 실험적 PvE 활동 Vault Breaker 운영 후 종료. [9.22 예정] 시즌3에서 초반 플레이 경험 개편 · Perimeter 확장 예고. 개발 6~7년, 추정 예산 $250M+.",
+    "sources": [
+      "https://www.bungie.net/7/en/News/Article/marathon_update_1_1_5",
+      "https://www.bungie.net/7/en/News/Article/season_2_key_dates"
+    ]
   },
-  { id:2, name:"Call of Duty: Modern Warfare 4", tier:"AAA", genre:"순수 PvP", genreDetail:"아레나 슈터 / 밀리터리 FPS", dev:"Infinity Ward", pub:"Activision (Microsoft)", platform:"PC · PS5 · Xbox · Switch 2", release:"2026.10.23", bm:"B2P $70", status:"정식 공개 / 프리오더 중 / 오픈 베타 일정 확정", followers:null, wishlist:null, stage:"오픈 베타 예정", stageGroup:"알파/베타", devPrevWorks:"Call of Duty 시리즈 (CoD4, MW2, MW3, MW 2019, MW2 2022, MW3 2023)",
-    tags:"FPS, Multiplayer, Shooter, Singleplayer, Action, Military, First-Person, War, Modern, Tactical",
-    milestones:[{text:"공식 발표 (2025)"},{text:"리빌 트레일러 + 캠페인 상세 공개 · 프리오더 오픈 (2026.05.28)"},{text:"오픈 베타 Early Access (2026.08.21~25)",current:true},{text:"전 플랫폼 Open Beta (2026.08.28~09.01)"},{text:"캠페인 Early Access (2026.10.16)"},{text:"출시 (2026.10.23)"}],
-    evaluation:"2026년 FPS 시장 최대 기준점. 8.03 기준 베타 일정이 공식 확정되며 8월 말 대규모 유저 검증 단계에 진입. 한반도 전면전(북한 남침) 3막 캠페인, 구세대 콘솔 제외, DMZ 복귀, Switch 2 출시 예정.",
-    pros:["캠페인 3막 · 한반도 전면전 — Price · Valeria · Shadow Company + 신규 한국군 캐릭터","DMZ가 단순 복귀 아님 — 결정판 익스트랙션 슈터 지향(Arc Raiders형), Hajin Exclusion Zone · 내러티브 미션 + 동적 오퍼레이션","신규 건플레이 엔진 기반 무기 · 로드아웃 전면 재설계","프리오더 = 얼리 액세스 구조로 베타 참여 유도"],
-    concerns:["직전작 Black Ops 7(2025)이 시리즈 2008년 이래 최악의 연간 판매 순위 기록","GTA 6(11.19) 약 한 달 전 출시 — 소비 지출 경합","Game Pass 데이원 제외(약 1년 후 합류) — 마케팅 포인트화","구세대 콘솔 제외"],
-    note:"익스트랙션 직접 경쟁축(DMZ) 추가로 Project S 관점 관찰 우선순위 상향.",
-    sources:["https://support.activision.com/modern-warfare-4/articles/modern-warfare-4-open-beta","https://www.callofduty.com/blog/2026/05/modernwarfare4-fob"]
+  {
+    "id": 2,
+    "name": "Call of Duty: Modern Warfare 4",
+    "tier": "AAA",
+    "genre": "순수 PvP",
+    "genreDetail": "아레나 슈터 / 밀리터리 FPS",
+    "dev": "Infinity Ward",
+    "pub": "Activision (Microsoft)",
+    "platform": "PC · PS5 · Xbox · Switch 2",
+    "release": "2026.10.23",
+    "bm": "B2P $70",
+    "status": "정식 공개 / 프리오더 중 / CoD NEXT · 오픈 베타 일정 확정",
+    "followers": null,
+    "wishlist": null,
+    "stage": "CoD NEXT · 베타 예정",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "Call of Duty 시리즈 (CoD4, MW2, MW3, MW 2019, MW2 2022, MW3 2023)",
+    "tags": "FPS, Multiplayer, Shooter, Singleplayer, Action, Military, First-Person, War, Modern, Tactical",
+    "milestones": [
+      {
+        "text": "공식 발표 (2025)"
+      },
+      {
+        "text": "리빌 트레일러 + 캠페인 상세 공개 · 프리오더 오픈 (2026.05.28)"
+      },
+      {
+        "text": "Call of Duty: NEXT (2026.08.21)",
+        "current": true
+      },
+      {
+        "text": "Early Access Beta (2026.08.21~25)"
+      },
+      {
+        "text": "전 플랫폼 Open Beta (2026.08.28~09.01)"
+      },
+      {
+        "text": "캠페인 Early Access (2026.10.16)"
+      },
+      {
+        "text": "출시 (2026.10.23)"
+      }
+    ],
+    "evaluation": "2026년 FPS 시장 최대 기준점. 한반도 전면전 캠페인, 구세대 콘솔 제외, DMZ 계열 익스트랙션 경험 복귀가 핵심. 8.21 Call of Duty: NEXT에서 멀티플레이 실게임플레이와 추가 정보를 공개한 뒤 베타가 이어질 예정이라, 8월 말이 실제 유저 반응을 검증하는 첫 대규모 분기점.",
+    "pros": [
+      "캠페인 3막 · 한반도 전면전 — Price · Valeria · Shadow Company + 신규 한국군 캐릭터",
+      "DMZ가 단순 복귀 아님 — 결정판 익스트랙션 슈터 지향(Arc Raiders형), Hajin Exclusion Zone · 내러티브 미션 + 동적 오퍼레이션",
+      "신규 건플레이 엔진 기반 무기 · 로드아웃 전면 재설계",
+      "프리오더 = 얼리 액세스 구조로 베타 참여 유도"
+    ],
+    "concerns": [
+      "직전작 Black Ops 7(2025)이 시리즈 2008년 이래 최악의 연간 판매 순위 기록",
+      "GTA 6(11.19) 약 한 달 전 출시 — 소비 지출 경합",
+      "Game Pass 데이원 제외(약 1년 후 합류) — 마케팅 포인트화",
+      "구세대 콘솔 제외"
+    ],
+    "note": "Infinity Ward 개발 · Activision(Microsoft) 퍼블리싱. 10.23 출시 예정, PS5 · Xbox Series X|S · Steam · Battle.net · Switch 2 지원. [8.21] Call of Duty: NEXT 및 Early Access Beta 시작, [8.28~9.01] Open Beta, [10.16] 캠페인 Early Access 예정. DMZ 계열 익스트랙션 모드와 신규 건플레이 / 로드아웃 구조가 Project S 관점의 핵심 경쟁 포인트.",
+    "sources": [
+      "https://support.activision.com/modern-warfare-4/articles/modern-warfare-4-open-beta",
+      "https://www.callofduty.com/blog/2026/05/modernwarfare4-fob"
+    ]
   },
-  { id:3, name:"Halo: Campaign Evolved", tier:"AAA", genre:"싱글·캠페인", genreDetail:"캠페인 FPS 리메이크 / Co-op", dev:"Halo Studios", pub:"Xbox Game Studios (Microsoft)", platform:"PC · Xbox · PS5", release:"2026.07.28", bm:"B2P $49.99~", status:"출시 완료", followers:45337, wishlist:222184, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"Halo 4 (2012), Halo 5 (2015), Halo Infinite (2021), Halo: MCC",
-    tags:"Action, FPS, Singleplayer, Shooter, Co-op, Adventure, Sci-fi, First-Person, Story Rich, Space",
-    milestones:[{text:"티저: Halo World Championships (2024.10)"},{text:"티저: Xbox Showcase (2025.06)"},{text:"공개 + 게임플레이 데모: Halo World Championships (2025.10)"},{text:"프리오더 오픈 (2026.06)"},{text:"Early Access (2026.07.23)"},{text:"정식 출시 완료 (2026.07.28)",current:true}],
-    steamData:{rating:"약 67% (1,000+건, 2026.08 초) — Mixed", ath:"19,992 (2026.07.24)", wishlist:"222,184", followers:"45,337"},
-    evaluation:"출시 초기 Steam 평가는 Mixed 수준. Halo: CE 캠페인의 UE5 리메이크와 PS5 동시 출시는 전략적으로 의미가 있으나, 서버 로그인 · 충돌 · 최적화와 계정 연동 관련 불만이 초기 평가를 끌어내림. PvP 경쟁작은 아니며 캠페인 · Co-op · 플랫폼 확장 사례로 관찰.",
-    pros:["Halo: CE 캠페인 UE5 완전 리메이크","PS5 · XSX · PC 동시 출시, Game Pass 데이원","신규 3미션 Operation: METEORITE 포함, 물리 디스크 · 마키니마 모드 지원"],
-    concerns:["출시 초기 서버 로그인 · 충돌 · 최적화 · 계정 연동 불만","가격 계층 분화(스탠다드 $49.99 / 프리미엄 $59.99~69.99 / 컬렉터스 $199.99)","PvP 경쟁작 아님 — 직접 경쟁도 낮음"],
-    note:"캠페인 / Co-op / 멀티플랫폼 전략 관찰용 레퍼런스.",
-    sources:["https://store.steampowered.com/app/2806050/Halo_Campaign_Evolved/","https://steamdb.info/app/2806050/charts/"]
+  {
+    "id": 3,
+    "name": "Halo: Campaign Evolved",
+    "tier": "AAA",
+    "genre": "싱글·캠페인",
+    "genreDetail": "캠페인 FPS 리메이크 / Co-op",
+    "dev": "Halo Studios",
+    "pub": "Xbox Game Studios (Microsoft)",
+    "platform": "PC · Xbox · PS5",
+    "release": "2026.07.28",
+    "bm": "B2P $49.99~",
+    "status": "출시 완료",
+    "followers": 56007,
+    "wishlist": 222410,
+    "stage": "출시 완료",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "Halo 4 (2012), Halo 5 (2015), Halo Infinite (2021), Halo: MCC",
+    "tags": "Action, FPS, Singleplayer, Shooter, Co-op, Adventure, Sci-fi, First-Person, Story Rich, Space",
+    "milestones": [
+      {
+        "text": "티저: Halo World Championships (2024.10)"
+      },
+      {
+        "text": "티저: Xbox Showcase (2025.06)"
+      },
+      {
+        "text": "공개 + 게임플레이 데모: Halo World Championships (2025.10)"
+      },
+      {
+        "text": "프리오더 오픈 (2026.06)"
+      },
+      {
+        "text": "Early Access (2026.07.23)"
+      },
+      {
+        "text": "정식 출시 (2026.07.28)"
+      },
+      {
+        "text": "첫 주요 패치 (2026.07.29)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "63.1% (11,915건, 2026.08.10)",
+      "ath": "19,992 (2026.07.24)",
+      "wishlist": "222,410",
+      "followers": "56,007",
+      "peak24h": "5,134 (2026.08.10)"
+    },
+    "evaluation": "출시 초기 Steam 평가는 Mixed 수준. Halo: CE 캠페인의 UE5 리메이크와 PS5 동시 출시는 전략적으로 의미가 있으나, 서버 로그인 · 충돌 · 최적화와 계정 연동 관련 불만이 초기 평가를 끌어내림. 7.29 첫 주요 패치에서 멀티플랫폼 안정성, 적 AI 행동, PC 성능 및 진행 · 게임플레이 관련 다수 문제를 수정. 8.10 기준 24시간 피크 5,134명, 누적 리뷰 11,915건 · 긍정률 63.1%. PvP 경쟁작은 아니며 캠페인 · Co-op · 플랫폼 확장 사례로 관찰.",
+    "pros": [
+      "Halo: CE 캠페인 UE5 완전 리메이크",
+      "PS5 · XSX · PC 동시 출시, Game Pass 데이원",
+      "신규 3미션 Operation: METEORITE 포함, 물리 디스크 · 마키니마 모드 지원"
+    ],
+    "concerns": [
+      "출시 초기 서버 로그인 · 충돌 · 최적화 · 계정 연동 불만",
+      "가격 계층 분화(스탠다드 $49.99 / 프리미엄 $59.99~69.99 / 컬렉터스 $199.99)",
+      "PvP 경쟁작 아님 — 직접 경쟁도 낮음"
+    ],
+    "note": "캠페인 / Co-op / 멀티플랫폼 전략 관찰용 레퍼런스.",
+    "sources": [
+      "https://store.steampowered.com/app/2806050/Halo_Campaign_Evolved/",
+      "https://steamdb.info/app/2806050/charts/"
+    ]
   },
-  { id:4, name:"Cinder City", tier:"AAA", genre:"오픈월드·MMO", genreDetail:"MMO 택티컬 슈터 / 오픈월드 시네마틱 TPS", dev:"빅파이어게임즈 (BigFire)", pub:"NCSoft", platform:"PC · 콘솔", release:"2026 H2", bm:"TBD", status:"북미 Pre-Alpha 모집 중", followers:4730, wishlist:null, stage:"Pre-Alpha 예정 (8.14~16)", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오. 전작 없음 (Project LLL → Cinder City가 첫 타이틀)",
-    tags:"Third-Person Shooter, Open World, Action, PvE, Online Co-Op, Multiplayer, Sci-fi, Post-apocalyptic, Cinematic",
-    milestones:[{text:"Project LLL 공개 → Cinder City 정식명 확정"},{text:"Gamescom Opening Night Live 공개 (2025.08)"},{text:"NVIDIA Gamescom 부스 · 프롤로그 시연"},{text:"GDC 부스 데모 (2026.03)"},{text:"Steam 페이지 오픈 (2026.06.30)"},{text:"북미 Pre-Alpha 모집 → 테스트 (2026.08.14~16)",current:true},{text:"2026 H2 PC · 콘솔 출시 목표"}],
-    steamData:{followers:"4,730"},
-    evaluation:"첫 외부 플레이테스트 단계 진입. Steam 설명상 오픈월드 시네마틱 3인칭 슈터이며, 싱글 미션과 온라인 협동, 필드 보스 · 던전 · 월드 레이드 구조를 결합. 실제 전투감 · 오픈월드 밀도 · MMO 요소의 결합 완성도가 핵심 검증 포인트.",
-    pros:["UE5 포스트아포칼립스 서울 배경 — 로컬 IP 자산","NCSoft 산하 신설 스튜디오 전략 타이틀","오픈월드 + 필드 보스 · 던전 · 월드 레이드 결합"],
-    concerns:["신설 스튜디오 첫 타이틀","공식 포지셔닝이 MMO 택티컬 슈터보다 오픈월드 시네마틱 TPS에 가까움 — 장르 정체성 모호","2026 H2 목표 대비 첫 외부 테스트가 8월"],
-    sources:["https://store.steampowered.com/app/4651830/CINDER_CITY/"]
+  {
+    "id": 4,
+    "name": "Cinder City",
+    "tier": "AAA",
+    "genre": "오픈월드·MMO",
+    "genreDetail": "오픈월드 시네마틱 3인칭 슈터 / 대규모 멀티플레이 PvE",
+    "dev": "빅파이어게임즈 (BigFire)",
+    "pub": "NCSoft",
+    "platform": "PC · 콘솔",
+    "release": "2026 H2",
+    "bm": "TBD",
+    "status": "북미 Pre-Alpha 모집 중 / 2026.08.14~16 테스트 예정",
+    "followers": 8476,
+    "wishlist": null,
+    "stage": "Pre-Alpha 예정 (8.14~16)",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (Project LLL → Cinder City가 첫 타이틀)",
+    "tags": "Third-Person Shooter, Open World, Action, PvE, Online Co-Op, Multiplayer, Sci-fi, Post-apocalyptic, Cinematic",
+    "milestones": [
+      {
+        "text": "Project LLL 공개 → Cinder City 정식명 확정"
+      },
+      {
+        "text": "Gamescom Opening Night Live 공개 (2025.08)"
+      },
+      {
+        "text": "NVIDIA Gamescom 부스 · 프롤로그 시연"
+      },
+      {
+        "text": "GDC 부스 데모 (2026.03)"
+      },
+      {
+        "text": "Steam 페이지 오픈 (2026.06.30)"
+      },
+      {
+        "text": "북미 Pre-Alpha 모집 → 테스트 (2026.08.14~16)",
+        "current": true
+      },
+      {
+        "text": "2026 H2 PC · 콘솔 출시 목표"
+      }
+    ],
+    "steamData": {
+      "followers": "8,476"
+    },
+    "evaluation": "첫 외부 플레이테스트 단계. 현재 공식 포지셔닝은 MMO 택티컬 슈터보다 오픈월드 시네마틱 3인칭 슈터에 가깝고, 싱글 미션과 온라인 협동, 필드 보스 · 던전 · 월드 레이드형 PvE 구조를 결합. 실제 전투감 · 오픈월드 밀도 · 대규모 멀티플레이 요소의 결합 완성도가 핵심 검증 포인트.",
+    "pros": [
+      "UE5 포스트아포칼립스 서울 배경 — 로컬 IP 자산",
+      "NCSoft 산하 신설 스튜디오 전략 타이틀",
+      "오픈월드 + 필드 보스 · 던전 · 월드 레이드 결합"
+    ],
+    "concerns": [
+      "신설 스튜디오 첫 타이틀",
+      "공식 포지셔닝이 MMO 택티컬 슈터보다 오픈월드 시네마틱 TPS에 가까움 — 장르 정체성 모호",
+      "2026 H2 목표 대비 첫 외부 테스트가 8월"
+    ],
+    "sources": [
+      "https://store.steampowered.com/app/4651830/CINDER_CITY/"
+    ]
   },
-  { id:5, name:"Exoborne", tier:"AAA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (오픈월드)", dev:"Sharkmob AB", pub:"Level Infinite (Tencent)", platform:"PC", release:"2026 (TBD)", bm:"TBD", status:"플레이테스트 완료 / 무소식", followers:38258, wishlist:246210, stage:"PT 완료 · 리스크 상향", stageGroup:"알파/베타", devPrevWorks:"Vampire: The Masquerade – Bloodhunt (2022, F2P 배틀로얄. 출시 1년 만에 개발 중단, 2026.04 서버 종료)",
-    tags:"Multiplayer, Extraction Shooter, Open World, Survival, Tactical, Action, Third-Person Shooter, Post-apocalyptic, Shooter, Third Person",
-    milestones:[{text:"최초 공개: The Game Awards (2023.12)"},{text:"게임플레이 예고편 (2024)"},{text:"플레이테스트 (2025.02)"},{text:"비공개 플레이테스트 (2025.09~10)",current:true}],
-    steamData:{rating:"플레이테스트 62% 긍정 (241/149) — Mixed", wishlist:"246,210", followers:"38,258", testData:"PT1 (2025.02): 540K+ 매치 · PT2 (2025.09~10): NDA 비공개"},
-    evaluation:"PT2 이후 무소식 지속 + Sharkmob 말뫼(Malmö) 스튜디오 감원(2025.11), 출시일 여전히 TBA. 리스크 신호 상향.",
-    pros:["건플레이 만족도","날씨 시스템 독보적 차별화","Exo-Rig 다양성, 오픈월드 수직성","SGF 2025 미디어 반응 우수"],
-    concerns:["Clunky 조작감 지적 다수 (Reddit)","62% 긍정 = 위험 수치","NDA 불신, PvE 코옵 요청 누적","PT2 이후 라디오 사일런스 + 스튜디오 감원","개발사 전작(Bloodhunt) 서비스 종료 이력"],
-    devResponse:"PT1 후 루팅 / 인벤토리 / 프로그레션 대폭 개편, 사망 시 Exo-Rig 유지로 변경. PT2 후 개발에 집중하겠다는 공지 후 소식 없음."
+  {
+    "id": 5,
+    "name": "Exoborne",
+    "tier": "AAA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (오픈월드)",
+    "dev": "Sharkmob AB",
+    "pub": "Level Infinite (Tencent)",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "TBD",
+    "status": "플레이테스트 완료 / 무소식",
+    "followers": 38318,
+    "wishlist": 246210,
+    "stage": "PT 완료 · 리스크 상향",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "Vampire: The Masquerade – Bloodhunt (2022, F2P 배틀로얄. 출시 1년 만에 개발 중단, 2026.04 서버 종료)",
+    "tags": "Multiplayer, Extraction Shooter, Open World, Survival, Tactical, Action, Third-Person Shooter, Post-apocalyptic, Shooter, Third Person",
+    "milestones": [
+      {
+        "text": "최초 공개: The Game Awards (2023.12)"
+      },
+      {
+        "text": "게임플레이 예고편 (2024)"
+      },
+      {
+        "text": "플레이테스트 (2025.02)"
+      },
+      {
+        "text": "비공개 플레이테스트 (2025.09~10)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "플레이테스트 62% 긍정 (241/149) — Mixed",
+      "wishlist": "246,210",
+      "followers": "38,318",
+      "testData": "PT1 (2025.02): 540K+ 매치 · PT2 (2025.09~10): NDA 비공개"
+    },
+    "evaluation": "PT2 이후 무소식 지속 + Sharkmob 말뫼(Malmö) 스튜디오 감원(2025.11), 출시일 여전히 TBA. 리스크 신호 상향.",
+    "pros": [
+      "건플레이 만족도",
+      "날씨 시스템 독보적 차별화",
+      "Exo-Rig 다양성, 오픈월드 수직성",
+      "SGF 2025 미디어 반응 우수"
+    ],
+    "concerns": [
+      "Clunky 조작감 지적 다수 (Reddit)",
+      "62% 긍정 = 위험 수치",
+      "NDA 불신, PvE 코옵 요청 누적",
+      "PT2 이후 라디오 사일런스 + 스튜디오 감원",
+      "개발사 전작(Bloodhunt) 서비스 종료 이력"
+    ],
+    "devResponse": "PT1 후 루팅 / 인벤토리 / 프로그레션 대폭 개편, 사망 시 Exo-Rig 유지로 변경. PT2 후 개발에 집중하겠다는 공지 후 소식 없음."
   },
-  { id:6, name:"Nakwon: Last Paradise", tier:"AAA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (서바이벌)", dev:"넥슨코리아 빅게임 본부 (구 MintRocket)", pub:"Nexon", platform:"PC", release:"2027", bm:"TBD", status:"알파 테스트 완료", followers:92455, wishlist:484882, stage:"알파 테스트 완료", stageGroup:"알파/베타", devPrevWorks:"민트로켓에서 시작, 2024.04 넥슨 빅게임 본부로 이관. 원 개발팀 전작: 데이브 더 다이버 (2023, 1,000만+ 판매)",
-    tags:"Extraction Shooter, Zombies, Multiplayer, RPG, Action, Post-apocalyptic, Online Co-Op, Survival, Action RPG, Shooter",
-    milestones:[{text:"사전 알파 테스트"},{text:"글로벌 클로즈드 알파 (2026.03.11~16)"},{text:"신규 맵 쇼핑몰 공개 — NAKWON Note 개발 블로그 (2026.06.22)",current:true},{text:"2027 출시 목표"}],
-    steamData:{wishlist:"484,882", followers:"92,455", testData:"글로벌 클로즈드 알파 (2026.03.11~16): 예상보다 긍정적, 연장 요구 발생"},
-    evaluation:"알파 반응 양호. 엠바크 협업 강조 기조 유지, 2027 목표. 6월 신규 맵 공개로 지역 확장 요구를 반영하며 익스트랙션 동선 · 탈출 방식을 재설계 중.",
-    pros:["ARC Raiders with Zombies — 알파 게임플레이 공개 후 첫 반응 긍정적","서울 재현도 + 한국적 디테일 호평","콘텐츠 규모 — Last Stand, 110 스킬 트레잇, 60 근접무기, 30 아머, 14 랜드마크, 160+ 퀘스트","디렉터 직접 소통","신규 맵 쇼핑몰 — 종로 외 첫 실내 · 수직 구조"],
-    concerns:["미출시로 상세 리뷰 데이터 부족","치터 / 트레이너 이미 등장","3인칭 호불호, 한국 배경 총기 다양성 제한","대규모 방향 전환 이력"]
+  {
+    "id": 6,
+    "name": "Nakwon: Last Paradise",
+    "tier": "AAA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (서바이벌)",
+    "dev": "넥슨코리아 빅게임 본부 (구 MintRocket)",
+    "pub": "Nexon",
+    "platform": "PC",
+    "release": "2027",
+    "bm": "TBD",
+    "status": "알파 테스트 완료",
+    "followers": 93616,
+    "wishlist": 484882,
+    "stage": "알파 테스트 완료",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "민트로켓에서 시작, 2024.04 넥슨 빅게임 본부로 이관. 원 개발팀 전작: 데이브 더 다이버 (2023, 1,000만+ 판매)",
+    "tags": "Extraction Shooter, Zombies, Multiplayer, RPG, Action, Post-apocalyptic, Online Co-Op, Survival, Action RPG, Shooter",
+    "milestones": [
+      {
+        "text": "사전 알파 테스트"
+      },
+      {
+        "text": "글로벌 클로즈드 알파 (2026.03.11~16)"
+      },
+      {
+        "text": "신규 맵 쇼핑몰 공개 — NAKWON Note 개발 블로그 (2026.06.22)",
+        "current": true
+      },
+      {
+        "text": "2027 출시 목표"
+      }
+    ],
+    "steamData": {
+      "wishlist": "484,882",
+      "followers": "93,616",
+      "testData": "글로벌 클로즈드 알파 (2026.03.11~16): 예상보다 긍정적, 연장 요구 발생"
+    },
+    "evaluation": "알파 반응 양호. 엠바크 협업 강조 기조 유지, 2027 목표. 6월 신규 맵 공개로 지역 확장 요구를 반영하며 익스트랙션 동선 · 탈출 방식을 재설계 중.",
+    "pros": [
+      "ARC Raiders with Zombies — 알파 게임플레이 공개 후 첫 반응 긍정적",
+      "서울 재현도 + 한국적 디테일 호평",
+      "콘텐츠 규모 — Last Stand, 110 스킬 트레잇, 60 근접무기, 30 아머, 14 랜드마크, 160+ 퀘스트",
+      "디렉터 직접 소통",
+      "신규 맵 쇼핑몰 — 종로 외 첫 실내 · 수직 구조"
+    ],
+    "concerns": [
+      "미출시로 상세 리뷰 데이터 부족",
+      "치터 / 트레이너 이미 등장",
+      "3인칭 호불호, 한국 배경 총기 다양성 제한",
+      "대규모 방향 전환 이력"
+    ]
   },
-  { id:7, name:"PUBG: Black Budget", tier:"AAA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터", dev:"PUBG Studios", pub:"Krafton", platform:"PC", release:"2026 (TBD)", bm:"TBD", status:"2차 클로즈드 알파 완료 / 차기 일정 미발표", followers:123148, wishlist:720441, stage:"2차 알파 완료", stageGroup:"알파/베타", devPrevWorks:"PUBG: Battlegrounds (2017, 배틀로얄 장르 개척. 7,500만+ 판매)",
-    tags:"Action, Extraction Shooter, Multiplayer, FPS, PvP, PvE, Conspiracy, Sci-fi, Open World, Gun Customization, Shooter",
-    milestones:[{text:"실적보고서 첫 언급 (2022)"},{text:"컨셉아트 리크 (2025.02)"},{text:"공개 + Steam 페이지 오픈 (2025.11.21)"},{text:"1차 비공개 알파 (2025.12.12~14 / 12.19~21)"},{text:"EU 커뮤니티 테스트 (2026.04.22~24)"},{text:"2차 Closed Alpha (2026.06.26~29)"},{text:"테스트 종료 · 피드백 반영 중",current:true}],
-    steamData:{wishlist:"720,441", followers:"123,148", testData:"2차 Closed Alpha (2026.06.26~29, EA · EU · NA, Steam, NDA 없음, 친구 2인 초대 가능)"},
-    evaluation:"1차 알파에서 건플레이 · 움직임 · 정체성이 혹평(평가 양극단). 2차 알파에서 반동 패턴을 전면 개편해 직접 대응했고 6.29 종료 후 피드백 반영 단계. 차기 테스트와 출시일 미발표. Project S 직접 경쟁도가 가장 높은 정통 FPP 익스트랙션.",
-    pros:["맵 밀도 높음, 튜토리얼 완성도, 비주얼 선명","인필 위치 선택 시스템, 베이스빌딩, 아노말리 하이브리드 메커닉","Insider Gaming: 아케이드 스타일 접근성 우수","2차 알파에서 반동 패턴 전면 개편 · 타임루프 강화 · 신규 정찰 장비(음파 펄스 · 열 감지 트랩)"],
-    concerns:["건플레이 심각한 비판 — 반동 극단적 · 랜덤 · 제어 불가, 히트레그 어긋남","움직임 clunky — 슬라이드 / 파쿠르 없음, 맵 이동이 노동","PUBG 정체성 부재 — 이름만 PUBG, ABI / CoD 복붙 지적","AI 적 부재, 추출 포인트 캠핑, 반복 피로감, 치터","GameLoop.gg (7/10): 정체성 위기가 있는 프로토타입"],
-    devResponse:"Week 2 매치메이킹 / 안티치트 강화. 공식적으로 combat perception, situational clarity, fatigue 이슈 인지 표명. 2차 알파에서 반동 패턴 전면 개편.",
-    sources:["https://steamcommunity.com/app/4077740/allnews/"]
+  {
+    "id": 7,
+    "name": "PUBG: Black Budget",
+    "tier": "AAA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터",
+    "dev": "PUBG Studios",
+    "pub": "Krafton",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "TBD",
+    "status": "2차 클로즈드 알파 완료 / 차기 일정 미발표",
+    "followers": 123409,
+    "wishlist": 720441,
+    "stage": "2차 알파 완료",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "PUBG: Battlegrounds (2017, 배틀로얄 장르 개척. 7,500만+ 판매)",
+    "tags": "Action, Extraction Shooter, Multiplayer, FPS, PvP, PvE, Conspiracy, Sci-fi, Open World, Gun Customization, Shooter",
+    "milestones": [
+      {
+        "text": "실적보고서 첫 언급 (2022)"
+      },
+      {
+        "text": "컨셉아트 리크 (2025.02)"
+      },
+      {
+        "text": "공개 + Steam 페이지 오픈 (2025.11.21)"
+      },
+      {
+        "text": "1차 비공개 알파 (2025.12.12~14 / 12.19~21)"
+      },
+      {
+        "text": "EU 커뮤니티 테스트 (2026.04.22~24)"
+      },
+      {
+        "text": "2차 Closed Alpha (2026.06.26~29)"
+      },
+      {
+        "text": "테스트 종료 · 피드백 반영 중",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "720,441",
+      "followers": "123,409",
+      "testData": "2차 Closed Alpha (2026.06.26~29, EA · EU · NA, Steam, NDA 없음, 친구 2인 초대 가능)"
+    },
+    "evaluation": "1차 알파에서 건플레이 · 움직임 · 정체성이 혹평(평가 양극단). 2차 알파에서 반동 패턴을 전면 개편해 직접 대응했고 6.29 종료 후 피드백 반영 단계. 차기 테스트와 출시일 미발표. Project S 직접 경쟁도가 가장 높은 정통 FPP 익스트랙션.",
+    "pros": [
+      "맵 밀도 높음, 튜토리얼 완성도, 비주얼 선명",
+      "인필 위치 선택 시스템, 베이스빌딩, 아노말리 하이브리드 메커닉",
+      "Insider Gaming: 아케이드 스타일 접근성 우수",
+      "2차 알파에서 반동 패턴 전면 개편 · 타임루프 강화 · 신규 정찰 장비(음파 펄스 · 열 감지 트랩)"
+    ],
+    "concerns": [
+      "건플레이 심각한 비판 — 반동 극단적 · 랜덤 · 제어 불가, 히트레그 어긋남",
+      "움직임 clunky — 슬라이드 / 파쿠르 없음, 맵 이동이 노동",
+      "PUBG 정체성 부재 — 이름만 PUBG, ABI / CoD 복붙 지적",
+      "AI 적 부재, 추출 포인트 캠핑, 반복 피로감, 치터",
+      "GameLoop.gg (7/10): 정체성 위기가 있는 프로토타입"
+    ],
+    "devResponse": "Week 2 매치메이킹 / 안티치트 강화. 공식적으로 combat perception, situational clarity, fatigue 이슈 인지 표명. 2차 알파에서 반동 패턴 전면 개편.",
+    "sources": [
+      "https://steamcommunity.com/app/4077740/allnews/"
+    ],
+    "note": "크래프톤 핵심 전략 타이틀, PUBG IP 익스트랙션 전환. Project Zeta보다 Project S 직접 경쟁도가 높은 정통 FPP 익스트랙션. [8.03] 2차 Closed Alpha는 6.29 종료되었고 반동 패턴 개편 · 타임루프 강화에 대한 피드백 반영 단계. 차기 테스트와 출시일은 미발표. 건플레이 개선 여부가 핵심 체크포인트."
   },
-  { id:8, name:"No Law", tier:"AA", genre:"싱글·캠페인", genreDetail:"오픈월드 FPS RPG / Immersive Shooter", dev:"Neon Giant", pub:"Krafton", platform:"PC", release:"2026 (TBD)", bm:"TBD", status:"개발 중 (공개)", followers:28728, wishlist:271110, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"The Ascent (2021, 사이버펑크 트윈스틱 슈터. 핵심 인력: ex-Wolfenstein, DOOM, Gears of War)",
-    tags:"RPG, Cyberpunk, Open World, Action, FPS, Singleplayer, Stealth, First-Person, Immersive Sim, Sci-fi",
-    milestones:[{text:"최초 공개: The Game Awards (2025.12.11)"},{text:"Unreal Fest — 도시 생성 기술 Density Over Scale 시연 (2026.06.17)"},{text:"Krafton Gamescom 2026 라인업 확정 (8.26~30)",current:true}],
-    steamData:{wishlist:"271,110", followers:"28,728"},
-    evaluation:"공식 소개상 엄격한 싱글플레이 오픈월드 FPS RPG. 플레이 방식과 퀘스트 해결법을 유저가 선택하는 immersive shooter 성격이 강하며, Co-op 타이틀로 분류하면 안 됨.",
-    pros:["ex-Wolfenstein / DOOM / Gears 핵심 인력","Krafton 퍼블리싱 + 사이버펑크 오픈월드","도시 생성 기술 Density Over Scale"],
-    concerns:["싱글플레이 중심 — PvP 직접 경쟁도 낮음","출시일 미발표"],
-    sources:["https://nolawthegame.com/"]
+  {
+    "id": 8,
+    "name": "No Law",
+    "tier": "AA",
+    "genre": "싱글·캠페인",
+    "genreDetail": "오픈월드 FPS RPG / Immersive Shooter",
+    "dev": "Neon Giant",
+    "pub": "Krafton",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "TBD",
+    "status": "개발 중 / Gamescom 2026 공개 시연 예정",
+    "followers": 28728,
+    "wishlist": 271110,
+    "stage": "Gamescom 2026 시연 예정",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "The Ascent (2021, 사이버펑크 트윈스틱 슈터. 핵심 인력: ex-Wolfenstein, DOOM, Gears of War)",
+    "tags": "RPG, Cyberpunk, Open World, Action, FPS, Singleplayer, Stealth, First-Person, Immersive Sim, Sci-fi",
+    "milestones": [
+      {
+        "text": "최초 공개: The Game Awards (2025.12.11)"
+      },
+      {
+        "text": "Unreal Fest — 도시 생성 기술 Density Over Scale 시연 (2026.06.17)"
+      },
+      {
+        "text": "Gamescom 2026 Playable Demo 예정 (2026.08.26~30)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "271,110",
+      "followers": "28,728"
+    },
+    "evaluation": "공식 소개상 엄격한 싱글플레이 오픈월드 FPS RPG. 플레이 방식과 퀘스트 해결법을 유저가 선택하는 immersive shooter 성격이 강하며, Co-op 타이틀로 분류하면 안 됨. TGA 2025 공개 후 Gamescom 2026(8.26~30)에서 플레이어 대상 공개 시연 예정.",
+    "pros": [
+      "ex-Wolfenstein / DOOM / Gears 핵심 인력",
+      "Krafton 퍼블리싱 + 사이버펑크 오픈월드",
+      "도시 생성 기술 Density Over Scale"
+    ],
+    "concerns": [
+      "싱글플레이 중심 — PvP 직접 경쟁도 낮음",
+      "출시일 미발표"
+    ],
+    "sources": [
+      "https://nolawthegame.com/"
+    ]
   },
-  { id:9, name:"4 LOOP", tier:"AA", genre:"Co-op·PvE", genreDetail:"아레나 FPS (PvPvE) / 4인 코옵 로그라이크", dev:"Bad Robot Games", pub:"PlayStation Publishing", platform:"PC · PS5", release:"2026 (TBD)", bm:"TBD", status:"CBT 진행 중", followers:9692, wishlist:149581, stage:"CBT 진행 중", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오. 전작 없음 (J.J. 에이브럼스 Bad Robot 산하. 4 LOOP가 첫 타이틀)",
-    tags:"Action, Roguelike, Shooter, Third-Person Shooter, Action Roguelike, Roguelite, Aliens, Atmospheric, Dystopian, Post-apocalyptic",
-    milestones:[{text:"최초 공개: The Game Awards (2025.12.11)"},{text:"게임플레이 영상: State of Play (2026.02)"},{text:"CBT 4.30부터 주말 웨이브 반복 (NA 우선)",current:true}],
-    steamData:{wishlist:"149,581", followers:"9,692"},
-    evaluation:"4인 코옵 로그라이크 PvE 슈터로 재포지셔닝. 신생 스튜디오이나 PlayStation 직접 퍼블리싱 시그널이 강점. 출시일 없음.",
-    pros:["J.J. 에이브럼스 Bad Robot Games","PlayStation 직접 퍼블리싱","코옵 로그라이크 재포지셔닝으로 장르 차별화"],
-    concerns:["신설 스튜디오 첫 타이틀","출시일 미발표, PvP 경쟁도 낮음"]
+  {
+    "id": 9,
+    "name": "4 LOOP",
+    "tier": "AA",
+    "genre": "Co-op·PvE",
+    "genreDetail": "아레나 FPS (PvPvE) / 4인 코옵 로그라이크",
+    "dev": "Bad Robot Games",
+    "pub": "PlayStation Publishing",
+    "platform": "PC · PS5",
+    "release": "2026 (TBD)",
+    "bm": "TBD",
+    "status": "CBT 진행 중",
+    "followers": 9692,
+    "wishlist": 149581,
+    "stage": "CBT 진행 중",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (J.J. 에이브럼스 Bad Robot 산하. 4 LOOP가 첫 타이틀)",
+    "tags": "Action, Roguelike, Shooter, Third-Person Shooter, Action Roguelike, Roguelite, Aliens, Atmospheric, Dystopian, Post-apocalyptic",
+    "milestones": [
+      {
+        "text": "최초 공개: The Game Awards (2025.12.11)"
+      },
+      {
+        "text": "게임플레이 영상: State of Play (2026.02)"
+      },
+      {
+        "text": "CBT 4.30부터 주말 웨이브 반복 (NA 우선)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "149,581",
+      "followers": "9,692"
+    },
+    "evaluation": "4인 코옵 로그라이크 PvE 슈터로 재포지셔닝. 신생 스튜디오이나 PlayStation 직접 퍼블리싱 시그널이 강점. 출시일 없음.",
+    "pros": [
+      "J.J. 에이브럼스 Bad Robot Games",
+      "PlayStation 직접 퍼블리싱",
+      "코옵 로그라이크 재포지셔닝으로 장르 차별화"
+    ],
+    "concerns": [
+      "신설 스튜디오 첫 타이틀",
+      "출시일 미발표, PvP 경쟁도 낮음"
+    ]
   },
-  { id:10, name:"Fate Trigger", tier:"AA", genre:"배틀 로얄", genreDetail:"히어로 슈터 / 배틀로얄 (애니메)", dev:"Saroasis Studios", pub:"Saroasis (Tencent 계열)", platform:"PC · PS5 · Xbox", release:"TBD (EA 후 무기한 연기)", bm:"F2P", status:"무기한 연기 (PT 완료)", followers:53809, wishlist:276293, stage:"무기한 연기", stageGroup:"연기/미정", devPrevWorks:"신설 스튜디오. 전작 없음 (텐센트 자회사. 슈터 15년+ 경험 팀)",
-    tags:"Shooter, Battle Royale, Anime, Survival, Hero Shooter, Action, MOBA, Third-Person Shooter, Free to Play, Real Time Tactics",
-    milestones:[{text:"공개: Gamescom Opening Night Live (2025.08)"},{text:"비공개 베타 테스트 (2025.07)"},{text:"State of Play (2025.11)"},{text:"Steam Next Fest 플레이테스트 (2026.02)"},{text:"EA 무기한 연기 공지 (2026.04)",current:true}],
-    steamData:{ath:"8,797 (Next Fest 오픈 테스트)", wishlist:"276,293", followers:"53,809"},
-    evaluation:"Next Fest 테스트 피크 8,797로 저조. 봇 비율 · 최적화 · 장르 혁신 부족 지적 후 EA 무기한 연기(2026.04). 품질 기준 미달과 콘텐츠 볼륨 부족을 인정했으며 사실상 2026 H2 이후 전망.",
-    pros:["애니메 비주얼 독보적 (UE5)","히어로별 능력 차별화 인상적","게임 모드 다양성 — 배틀로얄 · TDM · Rapid Trial · 랭크"],
-    concerns:["최적화 미완 — 프레임 드랍, 텍스처 로딩, Intel 13/14세대 크래시","아머 무의미 + 힐 부족","맵 과대 + 봇 비율 과다","장르 혁신 부족 — 성공 요소들의 짜깁기 평가","아시안 멀티플레이어 수명 우려 (Farlight 84, Super People 패턴)"],
-    devResponse:"CBT 데이터 전수 분석 후 무기 스왑 속도 · 밸런스 · 최적화 · 경량 튜토리얼 · 서버 틱레이트 개선 공개. EA 연기 후 Awakener Trials 급 신규 모드 개발 착수, 완성 후 커뮤니티 플레이테스트 재개 예정."
+  {
+    "id": 10,
+    "name": "Fate Trigger",
+    "tier": "AA",
+    "genre": "배틀 로얄",
+    "genreDetail": "히어로 슈터 / 배틀로얄 (애니메)",
+    "dev": "Saroasis Studios",
+    "pub": "Saroasis (Tencent 계열)",
+    "platform": "PC · PS5 · Xbox",
+    "release": "2026 (EA 일정 재조정)",
+    "bm": "F2P",
+    "status": "EA 일정 재조정 / 2026 출시 목표",
+    "followers": 54019,
+    "wishlist": 277579,
+    "stage": "EA 일정 재조정",
+    "stageGroup": "연기/미정",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (텐센트 자회사. 슈터 15년+ 경험 팀)",
+    "tags": "Shooter, Battle Royale, Anime, Survival, Hero Shooter, Action, MOBA, Third-Person Shooter, Free to Play, Real Time Tactics",
+    "milestones": [
+      {
+        "text": "공개: Gamescom Opening Night Live (2025.08)"
+      },
+      {
+        "text": "비공개 베타 테스트 (2025.07)"
+      },
+      {
+        "text": "State of Play (2025.11)"
+      },
+      {
+        "text": "Steam Next Fest 플레이테스트 (2026.02)"
+      },
+      {
+        "text": "기존 Q1 Early Access 계획 철회 · 일정 재조정 (2026.04)"
+      },
+      {
+        "text": "신규 모드 / 콘텐츠 보강 및 후속 플레이테스트 준비",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "ath": "8,797 (Next Fest 오픈 테스트)",
+      "wishlist": "277,579",
+      "followers": "54,019"
+    },
+    "evaluation": "애니메 비주얼과 히어로별 능력 차별화는 강점이지만, 최적화 · 봇 비율 · 콘텐츠 볼륨 · 장르 차별성에 대한 우려가 지속. Steam Next Fest 이후 개발사가 기존 Q1 Early Access 계획을 철회하고 일정 재조정에 들어갔으며, Awakener Trials 등 신규 콘텐츠를 보강한 뒤 커뮤니티 플레이테스트를 재개하는 방향. '무기한 연기'보다는 'EA 일정 재조정'으로 표현하는 것이 정확함.",
+    "pros": [
+      "애니메 비주얼 독보적 (UE5)",
+      "히어로별 능력 차별화 인상적",
+      "게임 모드 다양성 — 배틀로얄 · TDM · Rapid Trial · 랭크"
+    ],
+    "concerns": [
+      "최적화 미완 — 프레임 드랍, 텍스처 로딩, Intel 13/14세대 크래시",
+      "아머 무의미 + 힐 부족",
+      "맵 과대 + 봇 비율 과다",
+      "장르 혁신 부족 — 성공 요소들의 짜깁기 평가",
+      "아시안 멀티플레이어 수명 우려 (Farlight 84, Super People 패턴)"
+    ],
+    "devResponse": "CBT 데이터 전수 분석 후 무기 스왑 속도 · 밸런스 · 최적화 · 경량 튜토리얼 · 서버 틱레이트 개선 공개. EA 연기 후 Awakener Trials 급 신규 모드 개발 착수, 완성 후 커뮤니티 플레이테스트 재개 예정.",
+    "note": "Tencent 계열 Saroasis 개발. 2026.04 기존 Q1 EA 계획을 철회했으나 프로젝트 자체의 무기한 연기를 선언한 것은 아니며, Steam은 2026 출시 목표를 유지."
   },
-  { id:11, name:"Rules of Engagement: The Grey State", tier:"AA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (호러)", dev:"Grey State Studio", pub:"Tencent", platform:"PC", release:"2026 (TBD)", bm:"F2P", status:"개발 중 (공개)", followers:49768, wishlist:399733, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오. 전작 없음 (구 Aurora Studio. 텐센트 자회사)",
-    tags:"Free to Play, FPS, Horror, Multiplayer, Extraction Shooter, PvP, Sci-fi, Supernatural, PvE, Looter Shooter",
-    milestones:[{text:"공개 + 예고편 (2025.10)"},{text:"중국 모바일 승인 · 러시아어 추가 · 차기 CBT 임박설 (2026.07.02, 미확인)",current:true}],
-    steamData:{wishlist:"399,733", followers:"49,768"},
-    evaluation:"러브크래프트 호러 + 익스트랙션, F2P, Horrorverse 컨셉. 7.02 관련 정보는 저신뢰 출처(Aroged)이며 공식 확인 전까지 보류.",
-    pros:["러브크래프트 호러 + 익스트랙션 조합","텐센트 자본 · F2P 대량 유입 구조","위시리스트 약 40만으로 인지도 확보"],
-    concerns:["신설 스튜디오 첫 타이틀","테스트 일정 · 출시일 미발표","최근 정보가 미확인 출처 기반"]
+  {
+    "id": 11,
+    "name": "Rules of Engagement: The Grey State",
+    "tier": "AA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (호러)",
+    "dev": "Grey State Studio",
+    "pub": "Tencent",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "F2P",
+    "status": "개발 중 (공개)",
+    "followers": 49768,
+    "wishlist": 399921,
+    "stage": "개발 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (구 Aurora Studio. 텐센트 자회사)",
+    "tags": "Free to Play, FPS, Horror, Multiplayer, Extraction Shooter, PvP, Sci-fi, Supernatural, PvE, Looter Shooter",
+    "milestones": [
+      {
+        "text": "공개 + 예고편 (2025.10)"
+      },
+      {
+        "text": "중국 모바일 승인 · 러시아어 추가 · 차기 CBT 임박설 (2026.07.02, 미확인)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "399,921",
+      "followers": "49,768"
+    },
+    "evaluation": "러브크래프트 호러 + 익스트랙션, F2P, Horrorverse 컨셉. 7.02 관련 정보는 저신뢰 출처(Aroged)이며 공식 확인 전까지 보류.",
+    "pros": [
+      "러브크래프트 호러 + 익스트랙션 조합",
+      "텐센트 자본 · F2P 대량 유입 구조",
+      "위시리스트 약 40만으로 인지도 확보"
+    ],
+    "concerns": [
+      "신설 스튜디오 첫 타이틀",
+      "테스트 일정 · 출시일 미발표",
+      "최근 정보가 미확인 출처 기반"
+    ]
   },
-  { id:12, name:"Time Takers", tier:"AA", genre:"히어로·TPS", genreDetail:"3인칭 팀 기반 생존 히어로 슈터", dev:"Mistil Games", pub:"NCSoft", platform:"PC · 콘솔", release:"2026 (TBD)", bm:"F2P", status:"2차 베타 완료 / 개발 중", followers:6139, wishlist:44957, stage:"2차 베타 완료", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오. 전작 없음 (NCSoft 산하)",
-    tags:"Free to Play, Action, Multiplayer, Shooter, Battle Royale, Hero Shooter, Strategy, PvP, Team-Based, Third-Person Shooter",
-    milestones:[{text:"G-CON / G-Star 공개 (2023)"},{text:"최초 공개: Gamescom Opening Night Live (2025.08)"},{text:"개발 영상 공개 (2025.08.25)"},{text:"비공개 베타 신청 (2026.02)"},{text:"1차 CBT (2026.03.13~21)"},{text:"2차 베타 (2026.06.26~28)",current:true}],
-    steamData:{wishlist:"44,957", followers:"6,139"},
-    evaluation:"FPS가 아닌 3인칭 팀 기반 생존 / 히어로 슈터. 2026 글로벌 출시(PC · 콘솔) 목표. Cinder City · Bonfire와 함께 NCSoft 슈터 포트폴리오의 별도 축.",
-    pros:["NCSoft 슈터 포트폴리오 다각화","1 · 2차 베타를 통한 반복 검증"],
-    concerns:["신설 스튜디오 첫 타이틀","위시리스트 · 팔로워 수 낮음","FPS 아님 — 직접 경쟁도 제한적"]
+  {
+    "id": 12,
+    "name": "Time Takers",
+    "tier": "AA",
+    "genre": "히어로·TPS",
+    "genreDetail": "3인칭 팀 기반 생존 히어로 슈터",
+    "dev": "Mistil Games",
+    "pub": "NCSoft",
+    "platform": "PC · 콘솔",
+    "release": "2026 (TBD)",
+    "bm": "F2P",
+    "status": "2차 베타 완료 / 개발 중",
+    "followers": 6143,
+    "wishlist": 44703,
+    "stage": "2차 베타 완료",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (NCSoft 산하)",
+    "tags": "Free to Play, Action, Multiplayer, Shooter, Battle Royale, Hero Shooter, Strategy, PvP, Team-Based, Third-Person Shooter",
+    "milestones": [
+      {
+        "text": "G-CON / G-Star 공개 (2023)"
+      },
+      {
+        "text": "최초 공개: Gamescom Opening Night Live (2025.08)"
+      },
+      {
+        "text": "개발 영상 공개 (2025.08.25)"
+      },
+      {
+        "text": "비공개 베타 신청 (2026.02)"
+      },
+      {
+        "text": "1차 CBT (2026.03.13~21)"
+      },
+      {
+        "text": "2차 베타 (2026.06.26~28)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "44,703",
+      "followers": "6,143"
+    },
+    "evaluation": "FPS가 아닌 3인칭 팀 기반 생존 / 히어로 슈터. 2026 글로벌 출시(PC · 콘솔) 목표. Cinder City · Bonfire와 함께 NCSoft 슈터 포트폴리오의 별도 축.",
+    "pros": [
+      "NCSoft 슈터 포트폴리오 다각화",
+      "1 · 2차 베타를 통한 반복 검증"
+    ],
+    "concerns": [
+      "신설 스튜디오 첫 타이틀",
+      "위시리스트 · 팔로워 수 낮음",
+      "FPS 아님 — 직접 경쟁도 제한적"
+    ]
   },
-  { id:13, name:"Project Spectrum", tier:"AA", genre:"기타", genreDetail:"비대칭 PvPvE 택티컬 슈터", dev:"Team Jade", pub:"Tencent", platform:"PC", release:"2026 (TBD)", bm:"F2P", status:"데모 공개", followers:null, wishlist:null, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오. 전작 없음 (텐센트 내부)",
-    milestones:[{text:"최초 공개: Gamescom Opening Night Live (2025.08)"},{text:"GDC 부스 (2026.03)",current:true}],
-    evaluation:"텐센트 직계 Team Jade 개발, 비대칭 PvPvE 택티컬 슈터 F2P. 2025.08 공개 · GDC 부스(2026.03) 이후 베타 일정 미정.",
-    pros:["텐센트 직계 개발 조직","비대칭 PvPvE 설계"],
-    concerns:["Steam 페이지 없음 — 지표 확인 불가","베타 일정 미정"]
+  {
+    "id": 13,
+    "name": "Project Spectrum",
+    "tier": "AA",
+    "genre": "기타",
+    "genreDetail": "비대칭 PvPvE 택티컬 슈터",
+    "dev": "Team Jade",
+    "pub": "Tencent",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "F2P",
+    "status": "데모 공개",
+    "followers": null,
+    "wishlist": null,
+    "stage": "데모 공개",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (텐센트 내부)",
+    "milestones": [
+      {
+        "text": "최초 공개: Gamescom Opening Night Live (2025.08)"
+      },
+      {
+        "text": "GDC 부스 (2026.03)",
+        "current": true
+      }
+    ],
+    "evaluation": "텐센트 직계 Team Jade 개발, 비대칭 PvPvE 택티컬 슈터 F2P. 2025.08 공개 · GDC 부스(2026.03) 이후 베타 일정 미정.",
+    "pros": [
+      "텐센트 직계 개발 조직",
+      "비대칭 PvPvE 설계"
+    ],
+    "concerns": [
+      "Steam 페이지 없음 — 지표 확인 불가",
+      "베타 일정 미정"
+    ]
   },
-  { id:14, name:"스페셜포스 리마스터", tier:"AA", genre:"순수 PvP", genreDetail:"택티컬 FPS (리마스터)", dev:"Dragonfly", pub:"Dragonfly", platform:"PC", release:"2026.03.24 (EA)", bm:"F2P", status:"EA 종료 / 서비스 일시 중단 / 정식 출시 준비", followers:802, wishlist:null, stage:"EA 종료 · 장기 점검", stageGroup:"연기/미정", devPrevWorks:"스페셜포스 (2004, 90개국 서비스, 1억+ 누적 유저), SF2, SF Legion of Monsters (2024, 부정적)",
-    tags:"FPS, PvP, Action, Multiplayer, Military, Tactical, Team-Based, Competitive, Gun Customization, Shooter",
-    milestones:[{text:"개발 영상 (2025.05)"},{text:"홍보영상 + 사전예약 (2026.02)"},{text:"한국 출시 예정 (2026.03.18) → 플랫폼 검수 문제로 연기"},{text:"Steam Early Access (2026.03.24)"},{text:"EA 종료 · 장기 점검 (2026.07.16)",current:true}],
-    steamData:{rating:"27.7% (347건, 2026.07)", launch1w:"290 (2026.03.30)", ath:"753 (2026.03.25)", peak24h:"37 (2026.06.01)", review1w:"23% (273건)", followers:"802"},
-    evaluation:"초기 ATH 753명과 20%대 긍정률로 흥행 · 품질 모두 부진. 개발사는 EA를 종료하고 정식 출시 전 장기 점검에 들어갔으며, 시즌제 랭크와 신규 서버 인프라를 예고했으나 정식 출시일은 미정.",
-    pros:["22년 IP — 90개국 서비스, 누적 1억+ 유저","정식판에 시즌제 랭크 · 신규 서버 인프라 도입 예고"],
-    concerns:["ATH 753명 · 리뷰 27%대 — 흥행과 품질 동시 실패","EA 종료 후 서비스 일시 중단, 정식 출시일 미정","전작 SF Legion of Monsters(2024) 부정적 평가"],
-    note:"IP 파워만으로는 글로벌 스팀 시장에서 초기 동접을 만들 수 없다는 반면교사 사례.",
-    sources:["https://steamcommunity.com/app/4261320/allnews/","https://steamdb.info/app/4261320/charts/"]
+  {
+    "id": 14,
+    "name": "스페셜포스 리마스터",
+    "tier": "AA",
+    "genre": "순수 PvP",
+    "genreDetail": "택티컬 FPS (리마스터)",
+    "dev": "Dragonfly",
+    "pub": "Dragonfly",
+    "platform": "PC",
+    "release": "2026.03.24 (EA)",
+    "bm": "F2P",
+    "status": "EA 종료 / 서비스 일시 중단 / 정식 출시 준비",
+    "followers": 806,
+    "wishlist": null,
+    "stage": "EA 종료 · 장기 점검",
+    "stageGroup": "연기/미정",
+    "devPrevWorks": "스페셜포스 (2004, 90개국 서비스, 1억+ 누적 유저), SF2, SF Legion of Monsters (2024, 부정적)",
+    "tags": "FPS, PvP, Action, Multiplayer, Military, Tactical, Team-Based, Competitive, Gun Customization, Shooter",
+    "milestones": [
+      {
+        "text": "개발 영상 (2025.05)"
+      },
+      {
+        "text": "홍보영상 + 사전예약 (2026.02)"
+      },
+      {
+        "text": "한국 출시 예정 (2026.03.18) → 플랫폼 검수 문제로 연기"
+      },
+      {
+        "text": "Steam Early Access (2026.03.24)"
+      },
+      {
+        "text": "EA 종료 · 장기 점검 (2026.07.16)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "23.1% (346건, 2026.08.10)",
+      "launch1w": "290 (2026.03.30)",
+      "ath": "753 (2026.03.25)",
+      "peak24h": "1 (2026.08.10)",
+      "review1w": "23% (273건)",
+      "followers": "806"
+    },
+    "evaluation": "초기 ATH 753명과 20%대 긍정률로 흥행 · 품질 모두 부진. 개발사는 EA를 종료하고 정식 출시 전 장기 점검에 들어갔으며, 시즌제 랭크와 신규 서버 인프라를 예고했으나 정식 출시일은 미정. 8.10 기준 24시간 피크 1명, 누적 리뷰 346건 · 긍정률 23.1%.",
+    "pros": [
+      "22년 IP — 90개국 서비스, 누적 1억+ 유저",
+      "정식판에 시즌제 랭크 · 신규 서버 인프라 도입 예고"
+    ],
+    "concerns": [
+      "ATH 753명 · 리뷰 27%대 — 흥행과 품질 동시 실패",
+      "EA 종료 후 서비스 일시 중단, 정식 출시일 미정",
+      "전작 SF Legion of Monsters(2024) 부정적 평가"
+    ],
+    "note": "IP 파워만으로는 글로벌 스팀 시장에서 초기 동접을 만들 수 없다는 반면교사 사례.",
+    "sources": [
+      "https://steamcommunity.com/app/4261320/allnews/",
+      "https://steamdb.info/app/4261320/charts/"
+    ]
   },
-  { id:15, name:"John Carpenter's Toxic Commando", tier:"AA", genre:"Co-op·PvE", genreDetail:"코옵 호드 슈터", dev:"Saber Interactive", pub:"Focus Entertainment", platform:"PC · PS5 · Xbox", release:"2026.03.12", bm:"B2P", status:"출시 완료", followers:52375, wishlist:343599, stage:"출시 완료", stageGroup:"출시 완료", devPrevWorks:"World War Z (2019), Warhammer 40K: Space Marine 2 (2024), Halo: CE Anniversary 공동개발",
-    tags:"Zombies, Online Co-Op, Shooter, FPS, PvE, Action, Adventure, Looter Shooter, Action-Adventure, First-Person",
-    milestones:[{text:"최초 공개: Summer Game Fest (2023)"},{text:"게임플레이: Gamescom Opening Night Live (2025.08)"},{text:"출시일 발표: The Game Awards (2025.12)"},{text:"데모 (2026.02)"},{text:"출시 (2026.03.12)"},{text:"대형 업데이트 · Public Test Server 도입 (2026.06)",current:true}],
-    steamData:{rating:"72.6% (7,000+건, 2026.07 말)", launch1w:"6,702 (2026.03.19)", ath:"17,158 (2026.03.14)", peak24h:"259 (2026.07 말)", review1w:"77.9% (4,225건)", review1m:"77.2% (5,927건)", wishlist:"343,599", followers:"52,375"},
-    evaluation:"런칭 ATH 17,158명에서 7월 말 24시간 피크 약 259명으로 급락. 리뷰는 70%대 초반을 유지하지만 4인 코옵 매칭 기반과 라이브 서비스 지속성이 핵심 리스크. PTS 도입으로 개선 의지는 확인되나 유저 회복 신호는 제한적.",
-    pros:["Saber Swarm Engine 기반 4인 코옵 호드 FPS","Focus Entertainment의 AA 퍼블리싱 역량","6월 대형 콘텐츠 업데이트 + Public Test Server 도입"],
-    concerns:["ATH 17,158 → 7월 말 24시간 피크 약 259 — 급락","리뷰 77.9% → 72.6% 하락","코옵 매칭 기반 게임의 동접 붕괴 리스크"],
-    sources:["https://steamcommunity.com/app/2157830/announcements/","https://steamdb.info/app/2157830/charts/"]
+  {
+    "id": 15,
+    "name": "John Carpenter's Toxic Commando",
+    "tier": "AA",
+    "genre": "Co-op·PvE",
+    "genreDetail": "코옵 호드 슈터",
+    "dev": "Saber Interactive",
+    "pub": "Focus Entertainment",
+    "platform": "PC · PS5 · Xbox",
+    "release": "2026.03.12",
+    "bm": "B2P",
+    "status": "출시 완료",
+    "followers": 52421,
+    "wishlist": 341688,
+    "stage": "출시 완료",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "World War Z (2019), Warhammer 40K: Space Marine 2 (2024), Halo: CE Anniversary 공동개발",
+    "tags": "Zombies, Online Co-Op, Shooter, FPS, PvE, Action, Adventure, Looter Shooter, Action-Adventure, First-Person",
+    "milestones": [
+      {
+        "text": "최초 공개: Summer Game Fest (2023)"
+      },
+      {
+        "text": "게임플레이: Gamescom Opening Night Live (2025.08)"
+      },
+      {
+        "text": "출시일 발표: The Game Awards (2025.12)"
+      },
+      {
+        "text": "데모 (2026.02)"
+      },
+      {
+        "text": "출시 (2026.03.12)"
+      },
+      {
+        "text": "대형 업데이트 · Public Test Server 도입 (2026.06)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "74.1% (7,108건, 2026.08.10)",
+      "launch1w": "6,702 (2026.03.19)",
+      "ath": "17,158 (2026.03.14)",
+      "peak24h": "243 (2026.08.10)",
+      "review1w": "77.9% (4,225건)",
+      "review1m": "77.2% (5,927건)",
+      "wishlist": "341,688",
+      "followers": "52,421"
+    },
+    "evaluation": "런칭 ATH 17,158명에서 8.10 기준 24시간 피크 243명까지 급락. 리뷰는 74.1%(7,108건)로 70%대를 유지하지만 4인 코옵 매칭 기반과 라이브 서비스 지속성이 핵심 리스크. PTS 도입으로 개선 의지는 확인되나 유저 회복 신호는 제한적.",
+    "pros": [
+      "Saber Swarm Engine 기반 4인 코옵 호드 FPS",
+      "Focus Entertainment의 AA 퍼블리싱 역량",
+      "6월 대형 콘텐츠 업데이트 + Public Test Server 도입"
+    ],
+    "concerns": [
+      "ATH 17,158 → 7월 말 24시간 피크 약 259 — 급락",
+      "리뷰 77.9% → 72.6% 하락",
+      "코옵 매칭 기반 게임의 동접 붕괴 리스크"
+    ],
+    "sources": [
+      "https://steamcommunity.com/app/2157830/announcements/",
+      "https://steamdb.info/app/2157830/charts/"
+    ]
   },
-  { id:16, name:"Hell Let Loose: Vietnam", tier:"AA", genre:"밀리터리", genreDetail:"택티컬 밀심 (50v50)", dev:"Expression Games", pub:"Team17", platform:"PC · PS5 · Xbox", release:"2026.08.13", bm:"B2P", status:"크로스플레이 테스트 완료 / 출시 임박", followers:61297, wishlist:345697, stage:"출시 예정 (8.13)", stageGroup:"알파/베타", devPrevWorks:"신설 스튜디오. 전작 없음 (Team17 산하)",
-    tags:"Action, Simulation, Strategy, Shooter, FPS, First-Person, Realistic, Massive Multiplayer, Historical, Military",
-    milestones:[{text:"공개: Gamescom (2025.08)"},{text:"게임플레이 예고편 (2026.02)"},{text:"출시일 2026.06.18 발표 → 2026.08.13으로 연기"},{text:"크로스플레이 플레이테스트 (2026.07.24~27)",current:true},{text:"출시 예정 (2026.08.13)"}],
-    steamData:{wishlist:"345,697", followers:"61,297", testData:"크로스플레이 플레이테스트 (2026.07.24~27): 25만+ 참가"},
-    evaluation:"7월 크로스플레이 테스트에 25만 명 이상이 참여하며 출시 전 수요를 재확인. 대규모 50v50 전투, 헬기 · 터널 · 경비정 등 비대칭 전장 설계가 강점이며, 출시 시 서버 · 보이스 · 팀 밸런스 안정성이 핵심.",
-    pros:["크로스플레이 테스트 25만+ 참가 — 출시 전 수요 확인","원작 HLL 팬덤 승계 + UE5 50v50","헬기 · 터널 · 경비정 등 비대칭 전장 설계"],
-    concerns:["신설 스튜디오 첫 타이틀","출시 6.18 → 8.13 연기 이력","대규모 매칭 · 보이스 · 팀 밸런스 안정성 미검증"],
-    sources:["https://www.hellletloose.com/blog"]
+  {
+    "id": 16,
+    "name": "Hell Let Loose: Vietnam",
+    "tier": "AA",
+    "genre": "밀리터리",
+    "genreDetail": "택티컬 밀심 (50v50)",
+    "dev": "Expression Games",
+    "pub": "Team17",
+    "platform": "PC · PS5 · Xbox",
+    "release": "2026.08.13",
+    "bm": "B2P",
+    "status": "크로스플레이 테스트 완료 / 출시 임박",
+    "followers": 62067,
+    "wishlist": 345828,
+    "stage": "출시 예정 (8.13)",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (Team17 산하)",
+    "tags": "Action, Simulation, Strategy, Shooter, FPS, First-Person, Realistic, Massive Multiplayer, Historical, Military",
+    "milestones": [
+      {
+        "text": "공개: Gamescom (2025.08)"
+      },
+      {
+        "text": "게임플레이 예고편 (2026.02)"
+      },
+      {
+        "text": "출시일 2026.06.18 발표 → 2026.08.13으로 연기"
+      },
+      {
+        "text": "크로스플레이 플레이테스트 (2026.07.24~27)",
+        "current": true
+      },
+      {
+        "text": "출시 예정 (2026.08.13)"
+      }
+    ],
+    "steamData": {
+      "wishlist": "345,828",
+      "followers": "62,067",
+      "testData": "크로스플레이 플레이테스트 (2026.07.24~27): 25만+ 참가"
+    },
+    "evaluation": "7월 크로스플레이 테스트에 25만 명 이상이 참여하며 출시 전 수요를 재확인. 대규모 50v50 전투, 헬기 · 터널 · 경비정 등 비대칭 전장 설계가 강점이며, 출시 시 서버 · 보이스 · 팀 밸런스 안정성이 핵심.",
+    "pros": [
+      "크로스플레이 테스트 25만+ 참가 — 출시 전 수요 확인",
+      "원작 HLL 팬덤 승계 + UE5 50v50",
+      "헬기 · 터널 · 경비정 등 비대칭 전장 설계"
+    ],
+    "concerns": [
+      "신설 스튜디오 첫 타이틀",
+      "출시 6.18 → 8.13 연기 이력",
+      "대규모 매칭 · 보이스 · 팀 밸런스 안정성 미검증"
+    ],
+    "sources": [
+      "https://www.hellletloose.com/blog"
+    ]
   },
-  { id:17, name:"Active Matter", tier:"AA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (PvPvE)", dev:"Matter Team", pub:"Gaijin Entertainment", platform:"PC · Xbox", release:"2026 후반 (Steam)", bm:"B2P", status:"데모 공개 / Gaijin 스토어 얼리 버전 서비스 중", followers:33105, wishlist:288581, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오. 전작 없음 (Gaijin 산하)",
-    tags:"Multiplayer, Horror, Online Co-Op, FPS, Atmospheric, PvP, PvE, Shooter, First-Person, 3D",
-    milestones:[{text:"공개: Gamescom (2025.08)"},{text:"얼리 버전 출시 (Gaijin Store, 2025.10)"},{text:"Steam Next Fest 데모 (2026)"},{text:"개발자 Q&A — 크로스플레이 계획 · 소유권 이관 (2026.07.01)",current:true}],
-    steamData:{wishlist:"288,581", followers:"33,105"},
-    evaluation:"Gaijin 스토어 얼리 버전은 라이브, 스팀판은 2026 후반. SCP 이상현상과 무기 60종+ 기반 리얼리스틱 익스트랙션.",
-    pros:["PvP 전투 재미","SCP 아노말리 독특 (중력 변형, 천장 이동, 포털)","무기 60종+, 공정한 경제","PvP 전용 Nexus 모드 — 장비 손실 없이 순수 건플레이 연습"],
-    concerns:["솔로 PvE 과도, 최적화 미완","얼리 버전 콘텐츠 제한","$80 에디션 구매 후 Steam 출시 전 잠금 불만"],
-    devResponse:"정기 업데이트(쿼드바이크, 신규 맵, 보스), 개발자 Q&A 시리즈 운영. Gaijin 스토어 → Steam 소유권 이관 계획 공개."
+  {
+    "id": 17,
+    "name": "Active Matter",
+    "tier": "AA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (PvPvE)",
+    "dev": "Matter Team",
+    "pub": "Gaijin Entertainment",
+    "platform": "PC · Xbox",
+    "release": "2026 후반 (Steam)",
+    "bm": "B2P",
+    "status": "데모 공개 / Gaijin 스토어 얼리 버전 서비스 중",
+    "followers": 33105,
+    "wishlist": 288581,
+    "stage": "데모 공개",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (Gaijin 산하)",
+    "tags": "Multiplayer, Horror, Online Co-Op, FPS, Atmospheric, PvP, PvE, Shooter, First-Person, 3D",
+    "milestones": [
+      {
+        "text": "공개: Gamescom (2025.08)"
+      },
+      {
+        "text": "얼리 버전 출시 (Gaijin Store, 2025.10)"
+      },
+      {
+        "text": "Steam Next Fest 데모 (2026)"
+      },
+      {
+        "text": "개발자 Q&A — 크로스플레이 계획 · 소유권 이관 (2026.07.01)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "288,581",
+      "followers": "33,105"
+    },
+    "evaluation": "Gaijin 스토어 얼리 버전은 라이브, 스팀판은 2026 후반. SCP 이상현상과 무기 60종+ 기반 리얼리스틱 익스트랙션.",
+    "pros": [
+      "PvP 전투 재미",
+      "SCP 아노말리 독특 (중력 변형, 천장 이동, 포털)",
+      "무기 60종+, 공정한 경제",
+      "PvP 전용 Nexus 모드 — 장비 손실 없이 순수 건플레이 연습"
+    ],
+    "concerns": [
+      "솔로 PvE 과도, 최적화 미완",
+      "얼리 버전 콘텐츠 제한",
+      "$80 에디션 구매 후 Steam 출시 전 잠금 불만"
+    ],
+    "devResponse": "정기 업데이트(쿼드바이크, 신규 맵, 보스), 개발자 Q&A 시리즈 운영. Gaijin 스토어 → Steam 소유권 이관 계획 공개."
   },
-  { id:18, name:"Wardogs", tier:"AA", genre:"밀리터리", genreDetail:"대규모 택티컬 FPS (100인)", dev:"BULKHEAD", pub:"Team17", platform:"PC", release:"2026 EA (날짜 미발표)", bm:"B2P (EA)", status:"Closed Alpha 예정 / EA 출시일 미발표", followers:71994, wishlist:249239, stage:"Closed Alpha 예정 (8.7~9)", stageGroup:"알파/베타", devPrevWorks:"The Turing Test (2016), Battalion 1944 (2019, WW2 경쟁 FPS. 혼합 평가)",
-    tags:"Early Access, Action, Tactical, Multiplayer, PvP, FPS, Military, Class-Based, Simulation, Combat",
-    milestones:[{text:"공개 + 예고편 (2026.02)"},{text:"개발자 플레이테스트 · 참가 모집"},{text:"Closed Alpha (2026.08.07~09 예정)",current:true},{text:"Steam Early Access 2026 목표"}],
-    steamData:{wishlist:"249,239", followers:"71,994"},
-    evaluation:"100인 3팀 대규모 전술 FPS의 첫 대규모 외부 검증을 앞둔 단계. 8.7~9 Closed Alpha에서 서버 안정성, 맵 이동 밀도, 파괴 · 건설 시스템과 실제 동접 수용력이 핵심 검증 포인트. 9월 초 EA설은 공식 확정 정보가 아님.",
-    pros:["100인 3팀 · 256km² 맵 · 파괴 + 건설","ex-Battalion 1944 BULKHEAD 개발 · Team17 퍼블리싱","위시리스트 약 25만 · 팔로워 7.2만으로 관심도 확보"],
-    concerns:["전작 Battalion 1944 혼합 평가","EA 날짜 미발표","대규모 서버 안정성 · 동접 수용력 미검증"],
-    sources:["https://www.youtube.com/watch?v=EKbCf7tUTmU"]
+  {
+    "id": 18,
+    "name": "Wardogs",
+    "tier": "AA",
+    "genre": "밀리터리",
+    "genreDetail": "대규모 택티컬 FPS (100인)",
+    "dev": "BULKHEAD",
+    "pub": "Team17",
+    "platform": "PC",
+    "release": "2026 EA (날짜 미발표)",
+    "bm": "B2P (EA)",
+    "status": "Closed Alpha 종료 / 피드백 반영 중 / EA 2026 예정",
+    "followers": 74379,
+    "wishlist": 249239,
+    "stage": "Closed Alpha 종료 (8.7~9)",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "The Turing Test (2016), Battalion 1944 (2019, WW2 경쟁 FPS. 혼합 평가)",
+    "tags": "Early Access, Action, Tactical, Multiplayer, PvP, FPS, Military, Class-Based, Simulation, Combat",
+    "milestones": [
+      {
+        "text": "공개 + 예고편 (2026.02)"
+      },
+      {
+        "text": "개발자 플레이테스트 · 참가 모집"
+      },
+      {
+        "text": "Closed Alpha (2026.08.07~09)"
+      },
+      {
+        "text": "테스트 종료 · 피드백 반영 중",
+        "current": true
+      },
+      {
+        "text": "Steam Early Access 2026 목표"
+      }
+    ],
+    "steamData": {
+      "wishlist": "249,239",
+      "followers": "74,379"
+    },
+    "evaluation": "100인 3팀 대규모 전술 FPS의 첫 대규모 외부 Closed Alpha가 8.7~9 진행된 뒤 종료. 서버 안정성, 맵 이동 밀도, 파괴 · 건설 시스템, 실제 대규모 동접 수용력에 대한 피드백 반영 단계이며 Steam Early Access 일정은 아직 확정되지 않음.",
+    "pros": [
+      "100인 3팀 · 256km² 맵 · 파괴 + 건설",
+      "ex-Battalion 1944 BULKHEAD 개발 · Team17 퍼블리싱",
+      "위시리스트 약 25만 · 팔로워 7.2만으로 관심도 확보"
+    ],
+    "concerns": [
+      "전작 Battalion 1944 혼합 평가",
+      "EA 날짜 미발표",
+      "대규모 서버 안정성 · 동접 수용력 미검증"
+    ],
+    "sources": [
+      "https://www.youtube.com/watch?v=EKbCf7tUTmU"
+    ]
   },
-  { id:19, name:"DEFECT", tier:"AA", genre:"순수 PvP", genreDetail:"아레나 슈터 (4v4v4v4 PvPvE)", dev:"emptyvessel", pub:"NC America", platform:"PC", release:"2026 (TBD)", bm:"TBD", status:"개발 중 / 플레이테스트 모집 중", followers:22055, wishlist:164923, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오. 전작 없음 (NC America 퍼블리싱)",
-    tags:"Action, Shooter, FPS, First-Person, Comic Book, Realistic, Tactical, PvP, Combat, Moddable",
-    milestones:[{text:"공개 예고편 (2024.08, 190만 조회)"},{text:"NCSoft 전략투자 (2025.05)"},{text:"시리즈A $11M (2025.06)"},{text:"게임플레이 공개 (2025.10)"},{text:"NC America 퍼블리싱 계약 (2026.03)",current:true}],
-    steamData:{wishlist:"164,923", followers:"22,055"},
-    evaluation:"사이버펑크 택티컬 FPS, 4v4v4v4 PvPvE UE5 신규 IP. NCSoft 2025년 전략투자 → 2026.03 글로벌 퍼블리싱 계약. 개발 중, 날짜 없음.",
-    pros:["4v4v4v4 PvPvE 멀티팀 구조 — 차별화 설계","NCSoft 전략투자 + NC America 글로벌 퍼블리싱","공개 예고편 190만 조회 — 초기 관심 확보"],
-    concerns:["신설 스튜디오 첫 타이틀","출시일 · 테스트 일정 미발표"]
+  {
+    "id": 19,
+    "name": "DEFECT",
+    "tier": "AA",
+    "genre": "순수 PvP",
+    "genreDetail": "아레나 슈터 (4v4v4v4 PvPvE)",
+    "dev": "emptyvessel",
+    "pub": "NC America",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "TBD",
+    "status": "개발 중 / 플레이테스트 모집 중",
+    "followers": 22055,
+    "wishlist": 164923,
+    "stage": "개발 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (NC America 퍼블리싱)",
+    "tags": "Action, Shooter, FPS, First-Person, Comic Book, Realistic, Tactical, PvP, Combat, Moddable",
+    "milestones": [
+      {
+        "text": "공개 예고편 (2024.08, 190만 조회)"
+      },
+      {
+        "text": "NCSoft 전략투자 (2025.05)"
+      },
+      {
+        "text": "시리즈A $11M (2025.06)"
+      },
+      {
+        "text": "게임플레이 공개 (2025.10)"
+      },
+      {
+        "text": "NC America 퍼블리싱 계약 (2026.03)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "164,923",
+      "followers": "22,055"
+    },
+    "evaluation": "사이버펑크 택티컬 FPS, 4v4v4v4 PvPvE UE5 신규 IP. NCSoft 2025년 전략투자 → 2026.03 글로벌 퍼블리싱 계약. 개발 중, 날짜 없음.",
+    "pros": [
+      "4v4v4v4 PvPvE 멀티팀 구조 — 차별화 설계",
+      "NCSoft 전략투자 + NC America 글로벌 퍼블리싱",
+      "공개 예고편 190만 조회 — 초기 관심 확보"
+    ],
+    "concerns": [
+      "신설 스튜디오 첫 타이틀",
+      "출시일 · 테스트 일정 미발표"
+    ]
   },
-  { id:20, name:"'83", tier:"AA", genre:"밀리터리", genreDetail:"택티컬 밀심 (냉전)", dev:"Blue Dot Games", pub:"Blue Dot Games", platform:"PC", release:"2026.04.23 (EA)", bm:"B2P (EA)", status:"Early Access 진행 중", followers:26976, wishlist:125723, stage:"Early Access 중", stageGroup:"출시 완료", devPrevWorks:"신설 스튜디오. 전작 없음 (Antimatter Games 권리 인수. 핵심 인력: Rising Storm 시리즈)",
-    tags:"Action, Cold War, Violent, FPS, Gore, Simulation, Realistic, Early Access, War, Military",
-    milestones:[{text:"발표 (2019)"},{text:"개발 중단 / 부활 (2023)"},{text:"Steam Next Fest 데모 (2025)"},{text:"얼리 액세스 연기 (2025.11)"},{text:"Steam Early Access 출시 (2026.04.23)"},{text:"EA 운영 중",current:true}],
-    steamData:{rating:"약 65% (1,000+건, 2026.08 초)", ath:"813", peak24h:"7 (2026.08 초)", wishlist:"125,723", followers:"26,976"},
-    evaluation:"40v40 냉전 밀심으로 출시했지만 ATH 813명에 그쳤고 8월 초 24시간 피크가 한 자릿수까지 하락. 대규모 PvP 게임의 매칭 · 지역 서버 · 콘텐츠 지속성이 사실상 붕괴 위험 수준이며, 초기 리뷰도 Mixed.",
-    pros:["ex-Antimatter(Rising Storm) 핵심 인력","40v40 냉전 대체역사 — 니치 포지셔닝"],
-    concerns:["ATH 813 → 8월 초 24시간 피크 약 7 — 사실상 매칭 붕괴","리뷰 약 65% Mixed","개발 중단 / 부활 이력, 소규모 스튜디오"],
-    note:"대규모 PvP 인디 타이틀의 초기 동접 실패 사례 — 매칭 임계치 미달 시 회복이 거의 불가능함을 보여줌.",
-    sources:["https://83thegame.com/early-access-launch-date/","https://steamdb.info/app/1059220/charts/"]
+  {
+    "id": 20,
+    "name": "'83",
+    "tier": "AA",
+    "genre": "밀리터리",
+    "genreDetail": "택티컬 밀심 (냉전)",
+    "dev": "Blue Dot Games",
+    "pub": "Blue Dot Games",
+    "platform": "PC",
+    "release": "2026.04.23 (EA)",
+    "bm": "B2P (EA)",
+    "status": "Early Access 진행 중",
+    "followers": 26972,
+    "wishlist": 125723,
+    "stage": "Early Access 중",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (Antimatter Games 권리 인수. 핵심 인력: Rising Storm 시리즈)",
+    "tags": "Action, Cold War, Violent, FPS, Gore, Simulation, Realistic, Early Access, War, Military",
+    "milestones": [
+      {
+        "text": "발표 (2019)"
+      },
+      {
+        "text": "개발 중단 / 부활 (2023)"
+      },
+      {
+        "text": "Steam Next Fest 데모 (2025)"
+      },
+      {
+        "text": "얼리 액세스 연기 (2025.11)"
+      },
+      {
+        "text": "Steam Early Access 출시 (2026.04.23)"
+      },
+      {
+        "text": "EA 운영 중",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "66.9% (1,246건, 2026.08.10)",
+      "ath": "813",
+      "peak24h": "9 (2026.08.10)",
+      "wishlist": "125,723",
+      "followers": "26,972"
+    },
+    "evaluation": "40v40 냉전 밀심으로 출시했지만 ATH 813명에 그쳤고 8.10 기준 24시간 피크가 9명까지 하락. 대규모 PvP 게임의 매칭 · 지역 서버 · 콘텐츠 지속성이 사실상 붕괴 위험 수준이며, 리뷰도 66.9%(1,246건)로 Mixed.",
+    "pros": [
+      "ex-Antimatter(Rising Storm) 핵심 인력",
+      "40v40 냉전 대체역사 — 니치 포지셔닝"
+    ],
+    "concerns": [
+      "ATH 813 → 8월 초 24시간 피크 약 7 — 사실상 매칭 붕괴",
+      "리뷰 약 65% Mixed",
+      "개발 중단 / 부활 이력, 소규모 스튜디오"
+    ],
+    "note": "대규모 PvP 인디 타이틀의 초기 동접 실패 사례 — 매칭 임계치 미달 시 회복이 거의 불가능함을 보여줌.",
+    "sources": [
+      "https://83thegame.com/early-access-launch-date/",
+      "https://steamdb.info/app/1059220/charts/"
+    ]
   },
-  { id:21, name:"Gallipoli", tier:"AA", genre:"밀리터리", genreDetail:"택티컬 밀심 (WW1)", dev:"BlackMill Games", pub:"BlackMill Games", platform:"PC · PS5 · Xbox", release:"2026.08.20", bm:"B2P $29.99", status:"2026.08.20 출시 예정", followers:10011, wishlist:63826, stage:"출시 예정 (8.20)", stageGroup:"개발 중", devPrevWorks:"Verdun (2015), Tannenberg (2019), Isonzo (2022) — WW1 밀심 FPS 시리즈",
-    tags:"Simulation, World War I, Historical, Military, Strategy, FPS, Multiplayer, Massive Multiplayer, Realistic, Indie",
-    milestones:[{text:"출시 예정 (2026.05.21) → 치명적 이슈로 연기"},{text:"신규 출시일 확정 (2026.08.20)",current:true}],
-    steamData:{wishlist:"63,826", followers:"10,011"},
-    evaluation:"5.21 출시 직전 연기 후 8.20으로 재확정. Verdun · Tannenberg · Isonzo 계열의 검증된 니치 팬덤이 강점이지만, 기술 이슈 재발 여부와 최대 50인 매칭 규모가 출시 초기 핵심.",
-    pros:["시리즈 누적 400만+ 판매 — 검증된 니치 팬덤","최대 50인 · 크로스플레이 · $29.99 진입 장벽 낮음"],
-    concerns:["출시 직전 치명적 이슈로 연기한 이력","니치 장르 규모 한계"],
-    sources:["https://store.steampowered.com/app/3065940/Gallipoli/"]
+  {
+    "id": 21,
+    "name": "Gallipoli",
+    "tier": "AA",
+    "genre": "밀리터리",
+    "genreDetail": "택티컬 밀심 (WW1)",
+    "dev": "BlackMill Games",
+    "pub": "BlackMill Games",
+    "platform": "PC · PS5 · Xbox",
+    "release": "2026.08.20",
+    "bm": "B2P $29.99",
+    "status": "2026.08.20 출시 예정",
+    "followers": 10011,
+    "wishlist": 63826,
+    "stage": "출시 예정 (8.20)",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "Verdun (2015), Tannenberg (2019), Isonzo (2022) — WW1 밀심 FPS 시리즈",
+    "tags": "Simulation, World War I, Historical, Military, Strategy, FPS, Multiplayer, Massive Multiplayer, Realistic, Indie",
+    "milestones": [
+      {
+        "text": "출시 예정 (2026.05.21) → 치명적 이슈로 연기"
+      },
+      {
+        "text": "신규 출시일 확정 (2026.08.20)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "63,826",
+      "followers": "10,011"
+    },
+    "evaluation": "5.21 출시 직전 연기 후 8.20으로 재확정. Verdun · Tannenberg · Isonzo 계열의 검증된 니치 팬덤이 강점이지만, 기술 이슈 재발 여부와 최대 50인 매칭 규모가 출시 초기 핵심.",
+    "pros": [
+      "시리즈 누적 400만+ 판매 — 검증된 니치 팬덤",
+      "최대 50인 · 크로스플레이 · $29.99 진입 장벽 낮음"
+    ],
+    "concerns": [
+      "출시 직전 치명적 이슈로 연기한 이력",
+      "니치 장르 규모 한계"
+    ],
+    "sources": [
+      "https://store.steampowered.com/app/3065940/Gallipoli/"
+    ]
   },
-  { id:22, name:"Last Flag", tier:"A", genre:"히어로·TPS", genreDetail:"히어로 슈터 / CTF (3인칭)", dev:"Night Street Games", pub:"Night Street Games", platform:"PC · PS5 · Xbox", release:"2026.04.14", bm:"F2P", status:"콘텐츠 업데이트 중단 (서비스 축소)", followers:9256, wishlist:123802, stage:"출시 완료 · 서비스 축소", stageGroup:"출시 완료", devPrevWorks:"신설 스튜디오. 전작 없음 (Imagine Dragons 창업. 디렉터: ex-Blizzard 10년, Diablo 3)",
-    tags:"Third Person, PvP, MOBA, Hero Shooter, Multiplayer, Funny, Team-Based, Colorful, Arena Shooter, Family Friendly",
-    milestones:[{text:"데모: Steam Next Fest (2025.12)"},{text:"오픈 베타: Steam Next Fest (2026.02~03)"},{text:"출시 완료 (2026.04.14)"},{text:"예정 패치 외 신규 콘텐츠 개발 중단 (2026.05.01)",current:true}],
-    steamData:{rating:"72.7% (694건, 2026.07 말)", launch1w:"290 (2026.04.21)", ath:"558 (2026.04.15)", peak24h:"1 (2026.07 말)", review1w:"72.29% (555건)", wishlist:"123,802", followers:"9,256"},
-    evaluation:"저조한 동접으로 예정된 패치 외 신규 콘텐츠 개발이 중단됐고 커뮤니티 · 상시 로비 중심으로 전환. ATH 558명에서 7월 말 24시간 피크 1명 수준까지 하락해 공개 매칭 기반은 사실상 소멸.",
-    pros:["Imagine Dragons 형제 설립 · 디렉터 ex-Blizzard (Diablo 3)","5v5 CTF 히어로 슈터 — 캐주얼 진입 장벽 낮음"],
-    concerns:["ATH 558 → 24시간 피크 1명 — 공개 매칭 소멸","출시 2주 만에 신규 콘텐츠 개발 중단","위시리스트 12만 대비 실제 전환 극히 저조"],
-    note:"위시리스트가 동접으로 전환되지 않은 대표 사례 — PvP F2P의 초기 임계 동접 확보 실패.",
-    sources:["https://lastflag.com/news/a-message-from-night-street-games","https://steamdb.info/app/2721340/charts/"]
+  {
+    "id": 22,
+    "name": "Last Flag",
+    "tier": "A",
+    "genre": "히어로·TPS",
+    "genreDetail": "히어로 슈터 / CTF (3인칭)",
+    "dev": "Night Street Games",
+    "pub": "Night Street Games",
+    "platform": "PC · PS5 · Xbox",
+    "release": "2026.04.14",
+    "bm": "F2P",
+    "status": "콘텐츠 업데이트 중단 (서비스 축소)",
+    "followers": 9260,
+    "wishlist": 123829,
+    "stage": "출시 완료 · 서비스 축소",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (Imagine Dragons 창업. 디렉터: ex-Blizzard 10년, Diablo 3)",
+    "tags": "Third Person, PvP, MOBA, Hero Shooter, Multiplayer, Funny, Team-Based, Colorful, Arena Shooter, Family Friendly",
+    "milestones": [
+      {
+        "text": "데모: Steam Next Fest (2025.12)"
+      },
+      {
+        "text": "오픈 베타: Steam Next Fest (2026.02~03)"
+      },
+      {
+        "text": "출시 완료 (2026.04.14)"
+      },
+      {
+        "text": "예정 패치 외 신규 콘텐츠 개발 중단 (2026.05.01)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "76.3% (699건, 2026.08.10)",
+      "launch1w": "290 (2026.04.21)",
+      "ath": "558 (2026.04.15)",
+      "peak24h": "9 (2026.08.10)",
+      "review1w": "72.29% (555건)",
+      "wishlist": "123,829",
+      "followers": "9,260"
+    },
+    "evaluation": "저조한 동접으로 예정된 패치 외 신규 콘텐츠 개발이 중단됐고 커뮤니티 · 상시 로비 중심으로 전환. ATH 558명에서 8.10 기준 24시간 피크 9명 수준으로, 공개 매칭 기반은 사실상 소멸. 리뷰는 76.3%(699건).",
+    "pros": [
+      "Imagine Dragons 형제 설립 · 디렉터 ex-Blizzard (Diablo 3)",
+      "5v5 CTF 히어로 슈터 — 캐주얼 진입 장벽 낮음"
+    ],
+    "concerns": [
+      "ATH 558 → 24시간 피크 1명 — 공개 매칭 소멸",
+      "출시 2주 만에 신규 콘텐츠 개발 중단",
+      "위시리스트 12만 대비 실제 전환 극히 저조"
+    ],
+    "note": "위시리스트가 동접으로 전환되지 않은 대표 사례 — PvP F2P의 초기 임계 동접 확보 실패.",
+    "sources": [
+      "https://lastflag.com/news/a-message-from-night-street-games",
+      "https://steamdb.info/app/2721340/charts/"
+    ]
   },
-  { id:23, name:"The Bornless", tier:"A", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (호러 / Web3)", dev:"Cathedral Studios", pub:"Cathedral Studios", platform:"PC · Xbox", release:"2026 (TBD)", bm:"B2P", status:"데모 공개", followers:23443, wishlist:198399, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오. 전작 없음 (UK 인디 Web3)",
-    tags:"Horror, FPS, Multiplayer, Shooter, Action, Survival Horror, Demons, Atmospheric, Adventure, Action-Adventure",
-    milestones:[{text:"비공개 플레이테스트 (2021~)"},{text:"Steam Scream Fest 데모 (2025.10)"},{text:"Fractured Souls 플레이테스트 (2025.06)"},{text:"Steam Next Fest 데모 (2025.06)",current:true}],
-    steamData:{wishlist:"198,399", followers:"23,443"},
-    evaluation:"호러 + 익스트랙션 조합은 독보적이며 Xbox 인디 프로그램에 진입했으나, Web3 역풍과 플레이어 베이스 부족이 구조적 리스크. EA 2026 목표이나 날짜 없음.",
-    pros:["호러 + 익스트랙션 조합 독보적, 데몬 플레이 · Black Magick 시스템","IGN · GamesBeat 등 미디어 호평","레이트레이싱 + Nanite 적용, Xbox 인디 프로그램 진입"],
-    concerns:["Web3 / 블록체인 불신 역풍","소규모 스튜디오(~20명), 플레이어 베이스 부족","Web3 파트너십 30+개의 실제 유저 전환 미지수"],
-    devResponse:"블록체인 완전 옵션 분리. 게임 먼저, Web3는 검증 후 기조."
+  {
+    "id": 23,
+    "name": "The Bornless",
+    "tier": "A",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (호러 / Web3)",
+    "dev": "Cathedral Studios",
+    "pub": "Cathedral Studios",
+    "platform": "PC · Xbox",
+    "release": "2026 (TBD)",
+    "bm": "B2P",
+    "status": "데모 공개",
+    "followers": 23443,
+    "wishlist": 198399,
+    "stage": "데모 공개",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (UK 인디 Web3)",
+    "tags": "Horror, FPS, Multiplayer, Shooter, Action, Survival Horror, Demons, Atmospheric, Adventure, Action-Adventure",
+    "milestones": [
+      {
+        "text": "비공개 플레이테스트 (2021~)"
+      },
+      {
+        "text": "Steam Scream Fest 데모 (2025.10)"
+      },
+      {
+        "text": "Fractured Souls 플레이테스트 (2025.06)"
+      },
+      {
+        "text": "Steam Next Fest 데모 (2025.06)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "198,399",
+      "followers": "23,443"
+    },
+    "evaluation": "호러 + 익스트랙션 조합은 독보적이며 Xbox 인디 프로그램에 진입했으나, Web3 역풍과 플레이어 베이스 부족이 구조적 리스크. EA 2026 목표이나 날짜 없음.",
+    "pros": [
+      "호러 + 익스트랙션 조합 독보적, 데몬 플레이 · Black Magick 시스템",
+      "IGN · GamesBeat 등 미디어 호평",
+      "레이트레이싱 + Nanite 적용, Xbox 인디 프로그램 진입"
+    ],
+    "concerns": [
+      "Web3 / 블록체인 불신 역풍",
+      "소규모 스튜디오(~20명), 플레이어 베이스 부족",
+      "Web3 파트너십 30+개의 실제 유저 전환 미지수"
+    ],
+    "devResponse": "블록체인 완전 옵션 분리. 게임 먼저, Web3는 검증 후 기조."
   },
-  { id:24, name:"Warhammer 40K: Boltgun 2", tier:"A", genre:"Co-op·PvE", genreDetail:"레트로 FPS (부머 슈터)", dev:"Auroch Digital", pub:"Big Fan Games (Devolver)", platform:"PC · PS5 · Xbox", release:"2026 (TBD)", bm:"B2P", status:"데모 공개 / 2026 출시 목표", followers:11731, wishlist:120637, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"Warhammer 40K: Boltgun (2023, Metacritic 76), Dark Future: Blood Red States",
-    tags:"Action, Boomer Shooter, FPS, Retro, First-Person, Violent, Shooter, Gore, Singleplayer, Horror",
-    milestones:[{text:"공개: Warhammer Skulls (2025.05)"},{text:"키 아트 공개 (2026.02)"},{text:"Steam Demo 공개 (2026.05)",current:true}],
-    steamData:{wishlist:"120,637", followers:"11,731"},
-    evaluation:"레트로 / 부머 싱글 FPS, 브랜칭 캠페인. 직접 경쟁도는 낮으나 원작 팬덤 후속작으로 관찰.",
-    pros:["Boltgun(2023, Metacritic 76) 후속작 팬덤","Devolver(Big Fan Games) 퍼블리싱","위시리스트 12만 — 니치 대비 양호"],
-    concerns:["싱글 중심 — PvP 직접 경쟁도 낮음","출시일 미발표"]
+  {
+    "id": 24,
+    "name": "Warhammer 40K: Boltgun 2",
+    "tier": "A",
+    "genre": "Co-op·PvE",
+    "genreDetail": "레트로 FPS (부머 슈터)",
+    "dev": "Auroch Digital",
+    "pub": "Big Fan Games (Devolver)",
+    "platform": "PC · PS5 · Xbox",
+    "release": "2026 (TBD)",
+    "bm": "B2P",
+    "status": "데모 공개 / 2026 출시 목표",
+    "followers": 12003,
+    "wishlist": 120637,
+    "stage": "데모 공개",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "Warhammer 40K: Boltgun (2023, Metacritic 76), Dark Future: Blood Red States",
+    "tags": "Action, Boomer Shooter, FPS, Retro, First-Person, Violent, Shooter, Gore, Singleplayer, Horror",
+    "milestones": [
+      {
+        "text": "공개: Warhammer Skulls (2025.05)"
+      },
+      {
+        "text": "키 아트 공개 (2026.02)"
+      },
+      {
+        "text": "Steam Demo 공개 (2026.05)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "120,637",
+      "followers": "12,003"
+    },
+    "evaluation": "레트로 / 부머 싱글 FPS, 브랜칭 캠페인. 직접 경쟁도는 낮으나 원작 팬덤 후속작으로 관찰.",
+    "pros": [
+      "Boltgun(2023, Metacritic 76) 후속작 팬덤",
+      "Devolver(Big Fan Games) 퍼블리싱",
+      "위시리스트 12만 — 니치 대비 양호"
+    ],
+    "concerns": [
+      "싱글 중심 — PvP 직접 경쟁도 낮음",
+      "출시일 미발표"
+    ]
   },
-  { id:25, name:"SiN: Reloaded", tier:"A", genre:"Co-op·PvE", genreDetail:"레트로 FPS (리마스터)", dev:"Nightdive Studios", pub:"Atari", platform:"PC · PS5 · Xbox · Switch", release:"2026 (TBD)", bm:"B2P", status:"Demo 공개 / 정식 출시일 미발표", followers:5476, wishlist:34840, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"System Shock Remake (2023), Quake 리마스터, Blood: Fresh Supply (2019), Turok 리마스터 — 클래식 FPS 리마스터 전문",
-    tags:"Action, Shooter, FPS, Action-Adventure, Character Action Game, Shoot 'Em Up, First-Person, 3D, Gore, Violent",
-    milestones:[{text:"발표 (2020)"},{text:"재발표 + 예고편 (2026.03)"},{text:"Steam Demo 공개 (2026.06.14)",current:true}],
-    steamData:{rating:"Demo Mostly Positive (정식판 평가 없음)", wishlist:"34,840", followers:"5,476"},
-    evaluation:"1998년 SiN의 KEX 엔진 리마스터. 2026 출시 목표이나 공식 출시일은 TBA이며 기존 late 2026 확정 표현은 삭제.",
-    pros:["Nightdive — 클래식 FPS 리마스터 전문성","PC + 전 콘솔 동시 대응","Demo Mostly Positive"],
-    concerns:["오래된 IP, 팔로워 · 위시리스트 낮음","정식 출시일 미발표"],
-    sources:["https://store.steampowered.com/app/632950/SiN_Reloaded/"]
+  {
+    "id": 25,
+    "name": "SiN: Reloaded",
+    "tier": "A",
+    "genre": "Co-op·PvE",
+    "genreDetail": "레트로 FPS (리마스터)",
+    "dev": "Nightdive Studios",
+    "pub": "Atari",
+    "platform": "PC · PS5 · Xbox · Switch",
+    "release": "2026 (TBD)",
+    "bm": "B2P",
+    "status": "Demo 공개 / 정식 출시일 미발표",
+    "followers": 5476,
+    "wishlist": 34840,
+    "stage": "데모 공개",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "System Shock Remake (2023), Quake 리마스터, Blood: Fresh Supply (2019), Turok 리마스터 — 클래식 FPS 리마스터 전문",
+    "tags": "Action, Shooter, FPS, Action-Adventure, Character Action Game, Shoot 'Em Up, First-Person, 3D, Gore, Violent",
+    "milestones": [
+      {
+        "text": "발표 (2020)"
+      },
+      {
+        "text": "재발표 + 예고편 (2026.03)"
+      },
+      {
+        "text": "Steam Demo 공개 (2026.06.14)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "Demo Mostly Positive (정식판 평가 없음)",
+      "wishlist": "34,840",
+      "followers": "5,476"
+    },
+    "evaluation": "1998년 SiN의 KEX 엔진 리마스터. 2026 출시 목표이나 공식 출시일은 TBA이며 기존 late 2026 확정 표현은 삭제.",
+    "pros": [
+      "Nightdive — 클래식 FPS 리마스터 전문성",
+      "PC + 전 콘솔 동시 대응",
+      "Demo Mostly Positive"
+    ],
+    "concerns": [
+      "오래된 IP, 팔로워 · 위시리스트 낮음",
+      "정식 출시일 미발표"
+    ],
+    "sources": [
+      "https://store.steampowered.com/app/632950/SiN_Reloaded/"
+    ]
   },
-  { id:26, name:"ALARA Prime", tier:"A", genre:"순수 PvP", genreDetail:"택티컬 슈터 (4v4v4)", dev:"Fall Damage", pub:"Level Infinite (Tencent)", platform:"PC", release:"사실상 정체 / 취소", bm:"F2P", status:"개발사 파산 · 퍼블리싱 이탈", followers:4959, wishlist:35748, stage:"정체 · 취소 취급", stageGroup:"연기/미정", devPrevWorks:"신설 스튜디오. 전작 없음 (Level Infinite 퍼블리싱)",
-    tags:"FPS, Arena Shooter, PvP, First-Person, Competitive, Free to Play, Multiplayer, Tactical, Shooter, Team-Based",
-    milestones:[{text:"사전 알파 플레이테스트 다수 (2024~2025)"},{text:"개발사 파산 · Level Infinite 퍼블리싱 이탈",current:true}],
-    steamData:{wishlist:"35,748", followers:"4,959"},
-    evaluation:"F2P 4v4v4 택티컬 FPS(PC)였으나 개발사 파산과 Level Infinite 퍼블리싱 이탈로 사실상 정체 / 취소 취급.",
-    concerns:["개발사 파산","퍼블리셔 이탈 — 프로젝트 사실상 중단"]
+  {
+    "id": 26,
+    "name": "ALARA Prime",
+    "tier": "A",
+    "genre": "순수 PvP",
+    "genreDetail": "택티컬 슈터 (4v4v4)",
+    "dev": "Fall Damage",
+    "pub": "Level Infinite (Tencent)",
+    "platform": "PC",
+    "release": "사실상 정체 / 취소",
+    "bm": "F2P",
+    "status": "개발사 파산 · 퍼블리싱 이탈",
+    "followers": 4962,
+    "wishlist": 35748,
+    "stage": "정체 · 취소 취급",
+    "stageGroup": "연기/미정",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (Level Infinite 퍼블리싱)",
+    "tags": "FPS, Arena Shooter, PvP, First-Person, Competitive, Free to Play, Multiplayer, Tactical, Shooter, Team-Based",
+    "milestones": [
+      {
+        "text": "사전 알파 플레이테스트 다수 (2024~2025)"
+      },
+      {
+        "text": "개발사 파산 · Level Infinite 퍼블리싱 이탈",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "35,748",
+      "followers": "4,962"
+    },
+    "evaluation": "F2P 4v4v4 택티컬 FPS(PC)였으나 개발사 파산과 Level Infinite 퍼블리싱 이탈로 사실상 정체 / 취소 취급.",
+    "concerns": [
+      "개발사 파산",
+      "퍼블리셔 이탈 — 프로젝트 사실상 중단"
+    ]
   },
-  { id:27, name:"Brass Rain", tier:"A", genre:"Co-op·PvE", genreDetail:"코옵 WW2 슈터 (컴바인드암즈)", dev:"Yarnhub Animation Studios", pub:"Yarnhub Animation Studios", platform:"PC", release:"2026.12 (EA)", bm:"F2P", status:"EA 예정 / 데모 연기", followers:14453, wishlist:49084, stage:"EA 예정", stageGroup:"개발 중", devPrevWorks:"신설 게임 스튜디오. 전작 없음 (유튜브 밀리터리 채널 270만+ 구독자)",
-    tags:"Action, War, World War II, Military, Simulation, Free to Play, Historical, Shooter, FPS, Hero Shooter, 3D, Realistic",
-    milestones:[{text:"게임플레이 예고편 (2025.11)"},{text:"데모 예정 (2026.06) → 품질 미달로 연기",current:true},{text:"Steam Early Access 2026.12 예정"}],
-    steamData:{wishlist:"49,084", followers:"14,453"},
-    evaluation:"유튜브 애니메이션 스튜디오 Yarnhub(270만 구독)의 첫 게임, $2.9M 크라우드펀딩. 6월 예정 데모가 Operations 모드 품질 미달로 연기 — 데모 공개 전까지 검증 보류.",
-    pros:["유튜브 270만 구독 기반 자체 팬덤 · 마케팅 채널 보유","$2.9M 크라우드펀딩 확보","F2P WW2 코옵 / 컴바인드암즈"],
-    concerns:["게임 개발 신생 — 콘텐츠 · 넷코드 미검증","데모 품질 미달로 연기","유튜브 구독자 → 실제 플레이어 전환 미지수"]
+  {
+    "id": 27,
+    "name": "Brass Rain",
+    "tier": "A",
+    "genre": "Co-op·PvE",
+    "genreDetail": "코옵 WW2 슈터 (컴바인드암즈)",
+    "dev": "Yarnhub Animation Studios",
+    "pub": "Yarnhub Animation Studios",
+    "platform": "PC",
+    "release": "2026.12 (EA)",
+    "bm": "F2P",
+    "status": "EA 준비 중 / 후속 Community Playtest 일정 미확정",
+    "followers": 14453,
+    "wishlist": 49084,
+    "stage": "EA 준비 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "신설 게임 스튜디오. 전작 없음 (유튜브 밀리터리 채널 270만+ 구독자)",
+    "tags": "Action, War, World War II, Military, Simulation, Free to Play, Historical, Shooter, FPS, Hero Shooter, 3D, Realistic",
+    "milestones": [
+      {
+        "text": "게임플레이 예고편 (2025.11)"
+      },
+      {
+        "text": "데모 예정 (2026.06) → 품질 미달로 연기"
+      },
+      {
+        "text": "기술 기반 / 백엔드 재작업 · Operations Mode 재설계"
+      },
+      {
+        "text": "신규 Combined Arms 맵 프로토타입 · 후속 Community Playtest 준비",
+        "current": true
+      },
+      {
+        "text": "Steam Early Access 2026.12 예정"
+      }
+    ],
+    "steamData": {
+      "wishlist": "49,084",
+      "followers": "14,453"
+    },
+    "evaluation": "예정했던 데모를 품질 기준 미달로 연기한 뒤 기술 기반과 백엔드, Operations Mode를 재작업하는 단계. Combined Arms 맵 프로토타입과 후속 커뮤니티 플레이테스트를 준비 중이지만 8.10 현재 확정된 새 테스트 날짜는 확인되지 않음. EA 전 실제 플레이 품질 검증이 가장 큰 리스크.",
+    "pros": [
+      "유튜브 270만 구독 기반 자체 팬덤 · 마케팅 채널 보유",
+      "$2.9M 크라우드펀딩 확보",
+      "F2P WW2 코옵 / 컴바인드암즈"
+    ],
+    "concerns": [
+      "게임 개발 신생 — 콘텐츠 · 넷코드 미검증",
+      "데모 품질 미달로 연기",
+      "유튜브 구독자 → 실제 플레이어 전환 미지수"
+    ]
   },
-  { id:28, name:"METACRAFT: Arena", tier:"Indie", genre:"오픈월드·MMO", genreDetail:"온라인 액션 RPG / PvE · PvP · 클랜전", dev:"Solar Pixel", pub:"Solar Pixel", platform:"PC", release:"2026 (TBD)", bm:"F2P", status:"플레이테스트 모집 중", followers:462, wishlist:3886, stage:"PT 모집 중", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오. 전작 없음",
-    tags:"Massively Multiplayer, Action, Free to Play, Online PvP, Online Co-Op, RPG, PvE, Crafting, Trading, Character Customization",
-    milestones:[{text:"예고편 (2025.10)"},{text:"플레이테스트 (2025.12)"},{text:"게임 방향 개편 → Playtest 참가 신청 오픈",current:true}],
-    steamData:{wishlist:"3,886", followers:"462"},
-    evaluation:"기존 순수 PvP 아레나 FPS가 아니라 PvE 미션 · 레이드, PvP 토너먼트, 레벨링 · 빌드, 클랜전, 영지, 제작 · 거래를 포함한 온라인 액션 RPG / MMO형 구조로 공식 설명이 변경됨. 기존 인디 순수 PvP 아레나 FPS 분류는 삭제.",
-    concerns:["장르 재정의로 FPS 경쟁 라인업에서의 관련도 하락","위시리스트 3.9K · 팔로워 462 — 지표 미미"],
-    sources:["https://store.steampowered.com/app/3187960/METACRAFT_Arena/"]
+  {
+    "id": 28,
+    "name": "METACRAFT: Arena",
+    "tier": "Indie",
+    "genre": "오픈월드·MMO",
+    "genreDetail": "온라인 액션 RPG / PvE · PvP · 클랜전",
+    "dev": "Solar Pixel",
+    "pub": "Solar Pixel",
+    "platform": "PC",
+    "release": "2026 (TBD)",
+    "bm": "F2P",
+    "status": "플레이테스트 모집 중",
+    "followers": 462,
+    "wishlist": 3886,
+    "stage": "PT 모집 중",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "신설 스튜디오. 전작 없음",
+    "tags": "Massively Multiplayer, Action, Free to Play, Online PvP, Online Co-Op, RPG, PvE, Crafting, Trading, Character Customization",
+    "milestones": [
+      {
+        "text": "예고편 (2025.10)"
+      },
+      {
+        "text": "플레이테스트 (2025.12)"
+      },
+      {
+        "text": "게임 방향 개편 → Playtest 참가 신청 오픈",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "3,886",
+      "followers": "462"
+    },
+    "evaluation": "기존 순수 PvP 아레나 FPS가 아니라 PvE 미션 · 레이드, PvP 토너먼트, 레벨링 · 빌드, 클랜전, 영지, 제작 · 거래를 포함한 온라인 액션 RPG / MMO형 구조로 공식 설명이 변경됨. 기존 인디 순수 PvP 아레나 FPS 분류는 삭제.",
+    "concerns": [
+      "장르 재정의로 FPS 경쟁 라인업에서의 관련도 하락",
+      "위시리스트 3.9K · 팔로워 462 — 지표 미미"
+    ],
+    "sources": [
+      "https://store.steampowered.com/app/3187960/METACRAFT_Arena/"
+    ]
   },
-  { id:29, name:"GLORY TO THE HEROES", tier:"Indie", genre:"밀리터리", genreDetail:"밀심 (현대전)", dev:"Deaf Tone Games", pub:"Deaf Tone Games", platform:"PC", release:"2026 (EA)", bm:"B2P (EA)", status:"데모 공개 (EA 예정)", followers:33502, wishlist:192389, stage:"데모 공개", stageGroup:"데모/PT", devPrevWorks:"신설 스튜디오. 전작 없음 (인디)",
-    tags:"Early Access, Action, Simulation, Wargame, Shooter, FPS, Realistic, First-Person, War, Cinematic",
-    milestones:[{text:"Steam 데모 공개"},{text:"Early Access 2026 예정",current:true}],
-    steamData:{wishlist:"192,389", followers:"33,502"},
-    evaluation:"소규모 인디 열정 프로젝트 규모이나 위시리스트 19만 · 팔로워 3.3만으로 인디 대비 이례적 관심 확보. 러-우 전쟁 배경 밀심 FPS.",
-    pros:["인디 규모 대비 위시리스트 19만 — 높은 관심","현대전 밀심 니치 수요"],
-    concerns:["소규모 인디 개발 리소스","러시아-우크라이나 전쟁 소재 민감성","EA 날짜 미확정"]
+  {
+    "id": 29,
+    "name": "GLORY TO THE HEROES",
+    "tier": "Indie",
+    "genre": "밀리터리",
+    "genreDetail": "밀심 (현대전)",
+    "dev": "Deaf Tone Games",
+    "pub": "Deaf Tone Games",
+    "platform": "PC",
+    "release": "2026 (EA)",
+    "bm": "B2P (EA)",
+    "status": "데모 공개 (EA 예정)",
+    "followers": 33502,
+    "wishlist": 192389,
+    "stage": "데모 공개",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "신설 스튜디오. 전작 없음 (인디)",
+    "tags": "Early Access, Action, Simulation, Wargame, Shooter, FPS, Realistic, First-Person, War, Cinematic",
+    "milestones": [
+      {
+        "text": "Steam 데모 공개"
+      },
+      {
+        "text": "Early Access 2026 예정",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "192,389",
+      "followers": "33,502"
+    },
+    "evaluation": "소규모 인디 열정 프로젝트 규모이나 위시리스트 19만 · 팔로워 3.3만으로 인디 대비 이례적 관심 확보. 러-우 전쟁 배경 밀심 FPS.",
+    "pros": [
+      "인디 규모 대비 위시리스트 19만 — 높은 관심",
+      "현대전 밀심 니치 수요"
+    ],
+    "concerns": [
+      "소규모 인디 개발 리소스",
+      "러시아-우크라이나 전쟁 소재 민감성",
+      "EA 날짜 미확정"
+    ]
   },
-  { id:30, name:"Beautiful Light", tier:"Indie", genre:"익스트랙션", genreDetail:"24인 비대칭 익스트랙션 (오퍼레이터 18 + Anomaly 6)", dev:"Deep Worlds SA", pub:"Deep Worlds SA", platform:"PC", release:"2026.12 (EA)", bm:"TBD", status:"PT 진행 중 (EA 예정)", followers:68756, wishlist:461649, stage:"PT 진행 중", stageGroup:"데모/PT", devPrevWorks:"신생 소규모 스튜디오",
-    tags:"Early Access, Extraction Shooter, Horror, FPS, Multiplayer",
-    milestones:[{text:"Playtest 신청 오픈 · Discord 기반 정기 커뮤니티 플레이테스트"},{text:"Early Access 2026.12 예정 (맵 2 · 모드 1 · 무기 20+)",current:true}],
-    steamData:{wishlist:"461,649", followers:"68,756"},
-    evaluation:"미출시. 총 24인 구조로 3인 오퍼레이터 6개 분대(18명)와 플레이어 조작 Anomaly 6명이 동시에 참여하며, 비대칭 PvPvPvE 설계가 핵심 차별점. 인디임에도 위시리스트 46만으로 익스트랙션 수요 흡수 중.",
-    pros:["비대칭 PvPvPvE — 플레이어 조작 이상현상 차별화","위시리스트 46만 · 팔로워 6.9만 — 인디 최상위 지표","Discord 기반 정기 커뮤니티 플레이테스트 운영"],
-    concerns:["신생 소규모 스튜디오 — 라이브 운영 역량 미검증","EA 초기 스펙 제한적 (맵 2 · 모드 1)"],
-    sources:["https://store.steampowered.com/app/1313230/Beautiful_Light/"]
+  {
+    "id": 30,
+    "name": "Beautiful Light",
+    "tier": "Indie",
+    "genre": "익스트랙션",
+    "genreDetail": "24인 비대칭 익스트랙션 (오퍼레이터 18 + Anomaly 6)",
+    "dev": "Deep Worlds SA",
+    "pub": "Deep Worlds SA",
+    "platform": "PC",
+    "release": "2026.12 (EA)",
+    "bm": "TBD",
+    "status": "PT 진행 중 (EA 예정)",
+    "followers": 68756,
+    "wishlist": 461649,
+    "stage": "PT 진행 중",
+    "stageGroup": "데모/PT",
+    "devPrevWorks": "신생 소규모 스튜디오",
+    "tags": "Early Access, Extraction Shooter, Horror, FPS, Multiplayer",
+    "milestones": [
+      {
+        "text": "Playtest 신청 오픈 · Discord 기반 정기 커뮤니티 플레이테스트"
+      },
+      {
+        "text": "Early Access 2026.12 예정 (맵 2 · 모드 1 · 무기 20+)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "wishlist": "461,649",
+      "followers": "68,756"
+    },
+    "evaluation": "미출시. 총 24인 구조로 3인 오퍼레이터 6개 분대(18명)와 플레이어 조작 Anomaly 6명이 동시에 참여하며, 비대칭 PvPvPvE 설계가 핵심 차별점. 인디임에도 위시리스트 46만으로 익스트랙션 수요 흡수 중.",
+    "pros": [
+      "비대칭 PvPvPvE — 플레이어 조작 이상현상 차별화",
+      "위시리스트 46만 · 팔로워 6.9만 — 인디 최상위 지표",
+      "Discord 기반 정기 커뮤니티 플레이테스트 운영"
+    ],
+    "concerns": [
+      "신생 소규모 스튜디오 — 라이브 운영 역량 미검증",
+      "EA 초기 스펙 제한적 (맵 2 · 모드 1)"
+    ],
+    "sources": [
+      "https://store.steampowered.com/app/1313230/Beautiful_Light/"
+    ]
   },
-  { id:31, name:"블리자드 신작", tier:"AAA", genre:"오픈월드·MMO", genreDetail:"오픈월드 3인칭 슈터", dev:"Blizzard Entertainment", pub:"블리자드 엔터테인먼트", platform:"PC · 콘솔", release:"TBD", bm:"TBD", status:"개발 초기 (채용 단계)", followers:null, wishlist:null, stage:"개발 초기", stageGroup:"개발 중", devPrevWorks:"스타크래프트, 오버워치, 디아블로",
-    milestones:[{text:"개발 초기 — 채용 단계"},{text:"BlizzCon 2026 (9.12~13, 애너하임) 헤드라인 공개 유력",current:true}],
-    evaluation:"보도 기준 StarCraft 3인칭 슈터. 디렉터는 Dan Hay(ex-Ubisoft Far Cry). 취소된 Ghost · Ares에 이은 3번째 시도.",
-    pros:["블리자드 개발력 + StarCraft IP 가능성","BlizzCon 2026 헤드라인 공개 유력"],
-    concerns:["개발 초기 — 출시까지 수년","동일 컨셉 2회 취소 이력 (Ghost, Ares)","공식 발표 없음"]
+  {
+    "id": 31,
+    "name": "블리자드 신작",
+    "tier": "AAA",
+    "genre": "오픈월드·MMO",
+    "genreDetail": "오픈월드 3인칭 슈터",
+    "dev": "Blizzard Entertainment",
+    "pub": "블리자드 엔터테인먼트",
+    "platform": "PC · 콘솔",
+    "release": "TBD",
+    "bm": "TBD",
+    "status": "개발 초기 (채용 단계)",
+    "followers": null,
+    "wishlist": null,
+    "stage": "개발 초기",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "스타크래프트, 오버워치, 디아블로",
+    "milestones": [
+      {
+        "text": "개발 초기 — 채용 단계"
+      },
+      {
+        "text": "BlizzCon 2026 (9.12~13, 애너하임) 헤드라인 공개 유력",
+        "current": true
+      }
+    ],
+    "evaluation": "보도 기준 StarCraft 3인칭 슈터. 디렉터는 Dan Hay(ex-Ubisoft Far Cry). 취소된 Ghost · Ares에 이은 3번째 시도.",
+    "pros": [
+      "블리자드 개발력 + StarCraft IP 가능성",
+      "BlizzCon 2026 헤드라인 공개 유력"
+    ],
+    "concerns": [
+      "개발 초기 — 출시까지 수년",
+      "동일 컨셉 2회 취소 이력 (Ghost, Ares)",
+      "공식 발표 없음"
+    ]
   },
-  { id:32, name:"Deadlock", tier:"AAA", genre:"히어로·TPS", genreDetail:"MOBA + 3인칭 히어로 슈터", dev:"Valve", pub:"Valve", platform:"PC", release:"EA 진행중 (2024.08~)", bm:"F2P", status:"EA 진행 중 / Standard · Ranked 매치메이킹 분리", followers:418889, wishlist:2001370, stage:"EA 진행 중", stageGroup:"출시 완료", devPrevWorks:"CS2, Dota 2, Half-Life, Portal, TF2",
-    tags:"MOBA, Third-Person Shooter, Multiplayer, Hero Shooter, Team-Based, Competitive, Shooter, Third Person, Action, Early Access",
-    milestones:[{text:"Early Access 초대 기반 시작 (2024.08~)"},{text:"Old Gods, New Blood 이후 피크 반등 (2026.01.23)"},{text:"Unstable Rift 대형 개편 (2026.06.30)"},{text:"히어로 13종 밸런스 (2026.07.09)"},{text:"Standard · Ranked 큐 분리 · 정식 Ranked Mode 도입 (2026.07.30)",current:true}],
-    steamData:{ath:"171,490 (2024.09.02)", wishlist:"2,001,370", followers:"418,889"},
-    evaluation:"커뮤니티 반응은 전반적으로 긍정적. 7.30 정식 랭크 모드와 매치메이킹 개편으로 라이브 운영 단계가 진전됐으나, 초기 배치 · 매치 품질 안정화가 필요.",
-    pros:["Valve 개발력 + MOBA × TPS 장르 혁신","초대 전용 EA에도 위시리스트 200만 · 팔로워 41.9만","정식 Ranked Mode 도입 — 최소 3개 영웅 15승 시 랭크 해금"],
-    concerns:["정식 출시 시점 미정","랭크 초기 매치 품질 불안정 (Valve 자체 경고)"],
-    sources:["https://www.pcgamer.com/games/moba/valve-finally-gives-deadlock-a-proper-ranked-mode-warns-that-matches-will-be-very-rocky-to-start/"]
+  {
+    "id": 32,
+    "name": "Deadlock",
+    "tier": "AAA",
+    "genre": "히어로·TPS",
+    "genreDetail": "MOBA + 3인칭 히어로 슈터",
+    "dev": "Valve",
+    "pub": "Valve",
+    "platform": "PC",
+    "release": "EA 진행중 (2024.08~)",
+    "bm": "F2P",
+    "status": "EA 진행 중 / Standard · Ranked 매치메이킹 분리",
+    "followers": 419837,
+    "wishlist": 2001370,
+    "stage": "EA 진행 중",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "CS2, Dota 2, Half-Life, Portal, TF2",
+    "tags": "MOBA, Third-Person Shooter, Multiplayer, Hero Shooter, Team-Based, Competitive, Shooter, Third Person, Action, Early Access",
+    "milestones": [
+      {
+        "text": "Early Access 초대 기반 시작 (2024.08~)"
+      },
+      {
+        "text": "Old Gods, New Blood 이후 피크 반등 (2026.01.23)"
+      },
+      {
+        "text": "Unstable Rift 대형 개편 (2026.06.30)"
+      },
+      {
+        "text": "히어로 13종 밸런스 (2026.07.09)"
+      },
+      {
+        "text": "Standard · Ranked 큐 분리 · 정식 Ranked Mode 도입 (2026.07.30)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "ath": "171,490 (2024.09.02)",
+      "wishlist": "2,001,370",
+      "followers": "419,837",
+      "peak24h": "87,642 (2026.08.10)"
+    },
+    "evaluation": "커뮤니티 반응은 전반적으로 긍정적. 7.30 정식 랭크 모드와 매치메이킹 개편으로 라이브 운영 단계가 진전됐으나, 초기 배치 · 매치 품질 안정화가 필요. 8.10 기준 24시간 피크 87,642명으로 EA 타이틀 중 최상위권 동접 유지.",
+    "pros": [
+      "Valve 개발력 + MOBA × TPS 장르 혁신",
+      "초대 전용 EA에도 위시리스트 200만 · 팔로워 41.9만",
+      "정식 Ranked Mode 도입 — 최소 3개 영웅 15승 시 랭크 해금"
+    ],
+    "concerns": [
+      "정식 출시 시점 미정",
+      "랭크 초기 매치 품질 불안정 (Valve 자체 경고)"
+    ],
+    "sources": [
+      "https://www.pcgamer.com/games/moba/valve-finally-gives-deadlock-a-proper-ranked-mode-warns-that-matches-will-be-very-rocky-to-start/"
+    ]
   },
-  { id:33, name:"Disney Extraction Shooter", tier:"AAA", genre:"익스트랙션", genreDetail:"익스트랙션 슈터 (미발표)", dev:"Epic Games", pub:"Epic Games", platform:"PC · 콘솔", release:"2026.11 (비공식)", bm:"F2P 추정", status:"개발 중 (미발표)", followers:null, wishlist:null, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"Fortnite, Unreal Tournament",
-    milestones:[{text:"Bloomberg 보도 (2026.04.10)",current:true}],
-    evaluation:"Disney $1.5B 투자 기반, Epic 개발 · 퍼블리싱(Disney는 IP · 투자자). Arc Raiders 스타일 익스트랙션, F2P(Fortnite식 시즌 패스) · UE PvPvE 추정. 타이틀명 미정이며 독립 게임인지 포트나이트 모드인지도 미확정.",
-    pros:["Disney IP + Epic 개발력 · Fortnite 유통망","F2P 시즌 패스 구조 시 폭발적 유입 가능"],
-    concerns:["내부적으로 메커닉 독창성 우려 보도","Epic 1,000명 감원 후 반등작 위치 — 리스크 큼","2 · 3번째 게임 계획은 진행 불투명 (후속 1종 리소스 재배치)"]
+  {
+    "id": 33,
+    "name": "Disney Extraction Shooter",
+    "tier": "AAA",
+    "genre": "익스트랙션",
+    "genreDetail": "익스트랙션 슈터 (미발표)",
+    "dev": "Epic Games",
+    "pub": "Epic Games",
+    "platform": "PC · 콘솔",
+    "release": "2026.11 (비공식)",
+    "bm": "F2P 추정",
+    "status": "개발 중 (미발표)",
+    "followers": null,
+    "wishlist": null,
+    "stage": "개발 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "Fortnite, Unreal Tournament",
+    "milestones": [
+      {
+        "text": "Bloomberg 보도 (2026.04.10)",
+        "current": true
+      }
+    ],
+    "evaluation": "Disney $1.5B 투자 기반, Epic 개발 · 퍼블리싱(Disney는 IP · 투자자). Arc Raiders 스타일 익스트랙션, F2P(Fortnite식 시즌 패스) · UE PvPvE 추정. 타이틀명 미정이며 독립 게임인지 포트나이트 모드인지도 미확정.",
+    "pros": [
+      "Disney IP + Epic 개발력 · Fortnite 유통망",
+      "F2P 시즌 패스 구조 시 폭발적 유입 가능"
+    ],
+    "concerns": [
+      "내부적으로 메커닉 독창성 우려 보도",
+      "Epic 1,000명 감원 후 반등작 위치 — 리스크 큼",
+      "2 · 3번째 게임 계획은 진행 불투명 (후속 1종 리소스 재배치)"
+    ]
   },
-  { id:34, name:"Fragmentary Order", tier:"AAA", genre:"익스트랙션", genreDetail:"전투 시뮬레이터 (하드 SF)", dev:"Rant Gaming Studios (신설, 약 130명)", pub:"Cor3 (신설)", platform:"PC", release:"TBD (1차 알파 2026 말 목표)", bm:"TBD", status:"정식 공개 / 알파 2026 말 목표", followers:null, wishlist:null, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신설 스튜디오 (Buyanov는 Battlestate Games에서 Escape from Tarkov 시리즈 2016~현재)",
-    milestones:[{text:"CGI 시네마틱 트레일러 + 정식 공개 (2026.04.12)"},{text:"Buyanov가 Rant Gaming 신설 확인 (2026.04.13)"},{text:"Aaron Beck(ex-CoD) 리드 컨셉 아티스트 공개 (2026.04.24)"},{text:"Buyanov IGN 인터뷰 — 기본 메커닉 · 첫 로케이션 거의 완성 (2026.07.01~02)",current:true},{text:"1차 알파 프로토타입 2026 말 목표"}],
-    evaluation:"Tarkov 창시자 Buyanov의 신작. 하드 SF 전투 시뮬레이터(배경 2251년), UE 기반, 맵 규모는 Tarkov 대비 4~5배. 추출 슈터 명칭을 거부하며 Arc Raiders의 반대 방향을 지향.",
-    pros:["Escape from Tarkov 창시자 + ex-CoD 리드 컨셉 아티스트","맵 규모 Tarkov 대비 4~5배, 하드코어 · 실수 비관용 지향","클래식 인필 / 엑스필을 탈피한 여러 생존 방식 예고"],
-    concerns:["신설 스튜디오 · 신설 퍼블리셔","게임플레이 영상 · BM · 콘솔 대응 모두 미정","1차 알파가 2026 말 목표 — 출시까지 장기"]
+  {
+    "id": 34,
+    "name": "Fragmentary Order",
+    "tier": "AAA",
+    "genre": "익스트랙션",
+    "genreDetail": "전투 시뮬레이터 (하드 SF)",
+    "dev": "Rant Gaming Studios (신설, 약 130명)",
+    "pub": "Cor3 (신설)",
+    "platform": "PC",
+    "release": "TBD (1차 알파 2026 말 목표)",
+    "bm": "TBD",
+    "status": "정식 공개 / 알파 2026 말 목표",
+    "followers": null,
+    "wishlist": null,
+    "stage": "개발 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "신설 스튜디오 (Buyanov는 Battlestate Games에서 Escape from Tarkov 시리즈 2016~현재)",
+    "milestones": [
+      {
+        "text": "CGI 시네마틱 트레일러 + 정식 공개 (2026.04.12)"
+      },
+      {
+        "text": "Buyanov가 Rant Gaming 신설 확인 (2026.04.13)"
+      },
+      {
+        "text": "Aaron Beck(ex-CoD) 리드 컨셉 아티스트 공개 (2026.04.24)"
+      },
+      {
+        "text": "Buyanov IGN 인터뷰 — 기본 메커닉 · 첫 로케이션 거의 완성 (2026.07.01~02)",
+        "current": true
+      },
+      {
+        "text": "1차 알파 프로토타입 2026 말 목표"
+      }
+    ],
+    "evaluation": "Tarkov 창시자 Buyanov의 신작. 하드 SF 전투 시뮬레이터(배경 2251년), UE 기반, 맵 규모는 Tarkov 대비 4~5배. 추출 슈터 명칭을 거부하며 Arc Raiders의 반대 방향을 지향.",
+    "pros": [
+      "Escape from Tarkov 창시자 + ex-CoD 리드 컨셉 아티스트",
+      "맵 규모 Tarkov 대비 4~5배, 하드코어 · 실수 비관용 지향",
+      "클래식 인필 / 엑스필을 탈피한 여러 생존 방식 예고"
+    ],
+    "concerns": [
+      "신설 스튜디오 · 신설 퍼블리셔",
+      "게임플레이 영상 · BM · 콘솔 대응 모두 미정",
+      "1차 알파가 2026 말 목표 — 출시까지 장기"
+    ]
   },
-  { id:35, name:"Terminal War", tier:"Indie", genre:"순수 PvP", genreDetail:"4v4 팀 기반 3인칭 전술 PvP 슈터", dev:"Albatross Interactive", pub:"Albatross Interactive", platform:"PC (추후 PS5 · XSX)", release:"Steam EA 2026 하반기", bm:"B2P (EA)", status:"출시 전 / Steam Early Access 예정", followers:4030, wishlist:4448, stage:"EA 예정", stageGroup:"개발 중", devPrevWorks:"공개적으로 확인되는 이전 상업 히트작 없음. Terminal War가 사실상 첫 메인 Steam 프로젝트",
-    tags:"PvP, Multiplayer, Third-Person Shooter, Tactical, 1990's, Action, Post-apocalyptic, Shooter, Stealth, Resource Management, Team-Based, Early Access",
-    milestones:[{text:"Steam 페이지 공개 (2026.05 전후)"},{text:"Future Games Show / FGS Live From Los Angeles 노출 (2026.06)"},{text:"신규 스크린샷 + 맵별 고유 날씨 / 조명 시스템 공개 (2026.06.30)",current:true},{text:"Steam Early Access 2026 하반기 예정 (EA 기간 12~18개월)"},{text:"향후 PS5 / Xbox Series X|S 출시 계획"}],
-    steamData:{wishlist:"4,448", followers:"4,030"},
-    evaluation:"1990년대 후반 대체역사 미국 배경의 4v4 3인칭 전술 PvP. 고속 아케이드 슈팅이 아니라 제한된 탄약 · 자원, 은신, 함정, 근접 처형, 팀 포지셔닝, 신중한 교전 판단이 핵심. GamesRadar는 The Last of Us 온라인 Factions와 유사한 긴장감을 언급. 대형 시장보다 Factions · SOCOM · Ghost Recon PvP 계열 니치 수요를 노리는 프로젝트.",
-    pros:["The Last of Us Factions 공백을 노리는 명확한 니치 포지셔닝","4v4 소규모 팀 전술 PvP + 자원 관리 · 잠입","맵별 고유 날씨 / 조명 시스템","저가 Early Access 전략 가능성"],
-    concerns:["개발사 공개 상업 히트작 레퍼런스 거의 없음","건플레이 · 넷코드 · 매치메이킹 · 밸런스 · 콘텐츠 볼륨 · 치트 대응 모두 미검증","PvP 전용 인디 슈터 — 초기 동접 실패 시 매칭 품질 급락 구조","EA 첫 2주 동접 · 리뷰 · Discord 반응이 생존 좌우"],
-    note:"후속 정보: 모바일판 가능성은 있으나 장기 과제, PC EA 우선 후 콘솔 재확인 (2026.07 초)."
+  {
+    "id": 35,
+    "name": "Terminal War",
+    "tier": "Indie",
+    "genre": "순수 PvP",
+    "genreDetail": "4v4 팀 기반 3인칭 전술 PvP 슈터",
+    "dev": "Albatross Interactive",
+    "pub": "Albatross Interactive",
+    "platform": "PC (추후 PS5 · XSX)",
+    "release": "Steam EA 2026 하반기",
+    "bm": "B2P (EA)",
+    "status": "출시 전 / Steam Early Access 예정",
+    "followers": 4336,
+    "wishlist": 4791,
+    "stage": "EA 예정",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "공개적으로 확인되는 이전 상업 히트작 없음. Terminal War가 사실상 첫 메인 Steam 프로젝트",
+    "tags": "PvP, Multiplayer, Third-Person Shooter, Tactical, 1990's, Action, Post-apocalyptic, Shooter, Stealth, Resource Management, Team-Based, Early Access",
+    "milestones": [
+      {
+        "text": "Steam 페이지 공개 (2026.05 전후)"
+      },
+      {
+        "text": "Future Games Show / FGS Live From Los Angeles 노출 (2026.06)"
+      },
+      {
+        "text": "신규 스크린샷 + 맵별 고유 날씨 / 조명 시스템 공개 (2026.06.30)",
+        "current": true
+      },
+      {
+        "text": "Steam Early Access 2026 하반기 예정 (EA 기간 12~18개월)"
+      },
+      {
+        "text": "향후 PS5 / Xbox Series X|S 출시 계획"
+      }
+    ],
+    "steamData": {
+      "wishlist": "4,791",
+      "followers": "4,336"
+    },
+    "evaluation": "1990년대 후반 대체역사 미국 배경의 4v4 3인칭 전술 PvP. 고속 아케이드 슈팅이 아니라 제한된 탄약 · 자원, 은신, 함정, 근접 처형, 팀 포지셔닝, 신중한 교전 판단이 핵심. GamesRadar는 The Last of Us 온라인 Factions와 유사한 긴장감을 언급. 대형 시장보다 Factions · SOCOM · Ghost Recon PvP 계열 니치 수요를 노리는 프로젝트.",
+    "pros": [
+      "The Last of Us Factions 공백을 노리는 명확한 니치 포지셔닝",
+      "4v4 소규모 팀 전술 PvP + 자원 관리 · 잠입",
+      "맵별 고유 날씨 / 조명 시스템",
+      "저가 Early Access 전략 가능성"
+    ],
+    "concerns": [
+      "개발사 공개 상업 히트작 레퍼런스 거의 없음",
+      "건플레이 · 넷코드 · 매치메이킹 · 밸런스 · 콘텐츠 볼륨 · 치트 대응 모두 미검증",
+      "PvP 전용 인디 슈터 — 초기 동접 실패 시 매칭 품질 급락 구조",
+      "EA 첫 2주 동접 · 리뷰 · Discord 반응이 생존 좌우"
+    ],
+    "note": "후속 정보: 모바일판 가능성은 있으나 장기 과제, PC EA 우선 후 콘솔 재확인 (2026.07 초)."
   },
-  { id:36, name:"Crossfire", tier:"AAA", genre:"싱글·캠페인", genreDetail:"싱글플레이 3인칭 전술 슈터 / 시네마틱 스릴러", dev:"That's No Moon", pub:"Smilegate / Team K1", platform:"PC · PS5 · Xbox", release:"TBD", bm:"B2P", status:"공개 완료 / 위시리스트 단계", followers:11257, wishlist:11075, stage:"개발 중", stageGroup:"개발 중", devPrevWorks:"신생 AAA 스튜디오. Naughty Dog, Infinity Ward, PlayStation, Bungie 출신 베테랑 중심 (The Last of Us, Uncharted, Call of Duty, God of War, Destiny 등)",
-    tags:"Action, Adventure, Stealth, Story Rich, Singleplayer, Third-Person Shooter, Military, Thriller, Tactical, Cinematic",
-    milestones:[{text:"스마일게이트, That's No Moon에 약 1억 달러 전략 투자 (2021.07)"},{text:"That's No Moon 설립 · AAA 내러티브 신작 개발 착수"},{text:"Summer Game Fest 2026 월드 프리미어 (2026.06.05)"},{text:"Steam / Epic Games Store 페이지 오픈 — PS5 · XSX · PC",current:true},{text:"출시일 미정"}],
-    steamData:{wishlist:"11,075", followers:"11,257"},
-    evaluation:"스마일게이트의 글로벌 IP Crossfire를 AAA 싱글플레이로 재해석. 온라인 FPS DNA를 직접 계승하기보다 적대 진영 두 요원 Layla와 Cross의 불안정한 동맹을 중심으로 한 시네마틱 전술 액션 어드벤처. 핵심 차별점은 Adaptive Cover — 고정 엄폐 포인트가 아니라 지형 · 적 시야 · 자세를 실시간 조정해 거의 모든 환경을 엄폐물로 활용. CoD · Marathon 직접 경쟁보다 Splinter Cell · The Last of Us · Ghost Recon 계열 프리미엄 싱글 수요를 노림.",
-    pros:["너티독 / 인피니티워드 / 번지 / PlayStation 출신 베테랑 개발진","UE5 기반 프리미엄 싱글플레이 — 현 AAA 시장에서 희소한 포지션","엄폐 슈터의 진화라는 명확한 후킹 (Adaptive Cover)"],
-    concerns:["Crossfire IP가 서구 콘솔 / PC 코어에 프리미엄 싱글 브랜드로 인식되지 않음 — 왜 오리지널 IP가 아닌가 반응","트레일러 기준 군사 SF / 엄폐 슈터로 다소 제네릭해 보일 위험","출시일 · 가격 · 플레이 루프 · 분량 · 최적화 · AI 파트너 · 스토리 모두 미검증"]
+  {
+    "id": 36,
+    "name": "Crossfire",
+    "tier": "AAA",
+    "genre": "싱글·캠페인",
+    "genreDetail": "싱글플레이 3인칭 전술 슈터 / 시네마틱 스릴러",
+    "dev": "That's No Moon",
+    "pub": "Smilegate / Team K1",
+    "platform": "PC · PS5 · Xbox",
+    "release": "TBD",
+    "bm": "B2P",
+    "status": "공개 완료 / 위시리스트 단계",
+    "followers": 11378,
+    "wishlist": 11075,
+    "stage": "개발 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "신생 AAA 스튜디오. Naughty Dog, Infinity Ward, PlayStation, Bungie 출신 베테랑 중심 (The Last of Us, Uncharted, Call of Duty, God of War, Destiny 등)",
+    "tags": "Action, Adventure, Stealth, Story Rich, Singleplayer, Third-Person Shooter, Military, Thriller, Tactical, Cinematic",
+    "milestones": [
+      {
+        "text": "스마일게이트, That's No Moon에 약 1억 달러 전략 투자 (2021.07)"
+      },
+      {
+        "text": "That's No Moon 설립 · AAA 내러티브 신작 개발 착수"
+      },
+      {
+        "text": "Summer Game Fest 2026 월드 프리미어 (2026.06.05)"
+      },
+      {
+        "text": "Steam / Epic Games Store 페이지 오픈 — PS5 · XSX · PC",
+        "current": true
+      },
+      {
+        "text": "출시일 미정"
+      }
+    ],
+    "steamData": {
+      "wishlist": "11,075",
+      "followers": "11,378"
+    },
+    "evaluation": "스마일게이트의 글로벌 IP Crossfire를 AAA 싱글플레이로 재해석. 온라인 FPS DNA를 직접 계승하기보다 적대 진영 두 요원 Layla와 Cross의 불안정한 동맹을 중심으로 한 시네마틱 전술 액션 어드벤처. 핵심 차별점은 Adaptive Cover — 고정 엄폐 포인트가 아니라 지형 · 적 시야 · 자세를 실시간 조정해 거의 모든 환경을 엄폐물로 활용. CoD · Marathon 직접 경쟁보다 Splinter Cell · The Last of Us · Ghost Recon 계열 프리미엄 싱글 수요를 노림.",
+    "pros": [
+      "너티독 / 인피니티워드 / 번지 / PlayStation 출신 베테랑 개발진",
+      "UE5 기반 프리미엄 싱글플레이 — 현 AAA 시장에서 희소한 포지션",
+      "엄폐 슈터의 진화라는 명확한 후킹 (Adaptive Cover)"
+    ],
+    "concerns": [
+      "Crossfire IP가 서구 콘솔 / PC 코어에 프리미엄 싱글 브랜드로 인식되지 않음 — 왜 오리지널 IP가 아닌가 반응",
+      "트레일러 기준 군사 SF / 엄폐 슈터로 다소 제네릭해 보일 위험",
+      "출시일 · 가격 · 플레이 루프 · 분량 · 최적화 · AI 파트너 · 스토리 모두 미검증"
+    ]
   },
-  { id:37, name:"GTA 6", tier:"AAA", genre:"오픈월드·MMO", genreDetail:"오픈월드 액션 어드벤처", dev:"Rockstar Games", pub:"Rockstar Games / Take-Two", platform:"PS5 · Xbox Series X|S (PC 미발표)", release:"2026.11.19", bm:"B2P", status:"콘솔 출시 예정", followers:null, wishlist:null, stage:"출시 예정 (11.19)", stageGroup:"개발 중", devPrevWorks:"GTA V (2013, 2.3억+ 판매), GTA 시리즈, RDR 시리즈",
-    milestones:[{text:"1차 트레일러 (2023.12)"},{text:"2차 트레일러 (2025.05)"},{text:"출시 연기 → 2026.11.19 확정 (2025.11)"},{text:"Take-Two 재확인 (2026.05.21)",current:true}],
-    evaluation:"2026.11.19 PS5 · Xbox Series X|S 출시 예정. PC / Steam 일정은 미발표이므로 Steam 직접 경쟁작은 아니지만 10~11월 콘솔 · 미디어 관심과 소비 지출을 압도할 가능성이 높음. 8.3 기준 Trailer 3는 미공개이며 관련 날짜 관측은 확인되지 않은 추정.",
-    concerns:["10~11월 전체 게임 출시 캘린더를 압박하는 최대 외부 변수","마케팅 · 스트리밍 관심 독점 우려"],
-    note:"Steam 직접 경쟁은 아니나 론칭 캘린더 회피 대상으로 상시 모니터링 필요.",
-    sources:["https://www.rockstargames.com/VI"]
+  {
+    "id": 37,
+    "name": "GTA 6",
+    "tier": "AAA",
+    "genre": "오픈월드·MMO",
+    "genreDetail": "오픈월드 액션 어드벤처",
+    "dev": "Rockstar Games",
+    "pub": "Rockstar Games / Take-Two",
+    "platform": "PS5 · Xbox Series X|S (PC 미발표)",
+    "release": "2026.11.19",
+    "bm": "B2P",
+    "status": "콘솔 출시 예정",
+    "followers": null,
+    "wishlist": null,
+    "stage": "출시 예정 (11.19)",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "GTA V (2013, 2.3억+ 판매), GTA 시리즈, RDR 시리즈",
+    "milestones": [
+      {
+        "text": "1차 트레일러 (2023.12)"
+      },
+      {
+        "text": "2차 트레일러 (2025.05)"
+      },
+      {
+        "text": "출시 연기 → 2026.11.19 확정 (2025.11)"
+      },
+      {
+        "text": "Take-Two 재확인 (2026.05.21)",
+        "current": true
+      }
+    ],
+    "evaluation": "2026.11.19 PS5 · Xbox Series X|S 출시 예정. PC / Steam 일정은 미발표이므로 Steam 직접 경쟁작은 아니지만 10~11월 콘솔 · 미디어 관심과 소비 지출을 압도할 가능성이 높음. 8.3 기준 Trailer 3는 미공개이며 관련 날짜 관측은 확인되지 않은 추정.",
+    "concerns": [
+      "10~11월 전체 게임 출시 캘린더를 압박하는 최대 외부 변수",
+      "마케팅 · 스트리밍 관심 독점 우려"
+    ],
+    "note": "Steam 직접 경쟁은 아니나 론칭 캘린더 회피 대상으로 상시 모니터링 필요.",
+    "sources": [
+      "https://www.rockstargames.com/VI"
+    ]
   },
-  { id:38, name:"Project Zeta", tier:"AA", genre:"히어로·TPS", genreDetail:"3인칭 히어로 아레나 (4팀 × 3인)", dev:"Nirvanana", pub:"Krafton", platform:"PC", release:"TBD (2026 H2 EA 목표)", bm:"TBD", status:"글로벌 테스트 완료 / Coming Soon", followers:1803, wishlist:9233, stage:"글로벌 테스트 완료", stageGroup:"알파/베타", devPrevWorks:"공개 전작 없음",
-    tags:"Third Person, Action, PvP, MOBA, Tactical, Multiplayer, Team-Based, Arena Shooter, Hero Shooter, Controller, Online PvP",
-    milestones:[{text:"Steam 페이지 공개"},{text:"글로벌 플레이테스트 (2026.06.25~28)",current:true},{text:"Gamescom 2026 출품 확정"},{text:"Early Access 2026 H2 목표"}],
-    steamData:{wishlist:"9,233", followers:"1,803"},
-    evaluation:"4팀 × 3인 3인칭 Multi-team Tactical Arena — Prisms 확보 경쟁 PvP, Fighter / Marksman / Assassin / Mage 4역할. FPS · 배틀로얄 · MOBA가 아니라고 직접 포지셔닝. Project S 직접 경쟁보다 크래프톤 PvP / 히어로 아레나 포트폴리오 관찰용.",
-    pros:["Krafton 퍼블리싱 + 풀 컨트롤러 지원 · Krafton ID 연동","글로벌 테스트에서 신규 히어로 Mika Mist 데뷔, 14히어로 4클래스","Gamescom 2026 출품 확정"],
-    concerns:["위시리스트 9.2K · 팔로워 1.8K — 지표 낮음","EA 날짜 미확정"]
+  {
+    "id": 38,
+    "name": "Project Zeta",
+    "tier": "AA",
+    "genre": "히어로·TPS",
+    "genreDetail": "3인칭 히어로 아레나 (4팀 × 3인)",
+    "dev": "Nirvanana",
+    "pub": "Krafton",
+    "platform": "PC",
+    "release": "TBD (2026 H2 EA 목표)",
+    "bm": "TBD",
+    "status": "글로벌 테스트 완료 / Gamescom 2026 공개 시연 예정 / EA H2 2026 목표",
+    "followers": 1803,
+    "wishlist": 9278,
+    "stage": "Gamescom 2026 시연 예정",
+    "stageGroup": "알파/베타",
+    "devPrevWorks": "공개 전작 없음",
+    "tags": "Third Person, Action, PvP, MOBA, Tactical, Multiplayer, Team-Based, Arena Shooter, Hero Shooter, Controller, Online PvP",
+    "milestones": [
+      {
+        "text": "Steam 페이지 공개"
+      },
+      {
+        "text": "글로벌 플레이테스트 (2026.06.25~28) → 종료"
+      },
+      {
+        "text": "Gamescom 2026 Playable 전시 예정 (2026.08.26~30)",
+        "current": true
+      },
+      {
+        "text": "Early Access 2026 H2 목표"
+      }
+    ],
+    "steamData": {
+      "wishlist": "9,278",
+      "followers": "1,803"
+    },
+    "evaluation": "4팀 × 3인 3인칭 Multi-team Tactical Arena — Prisms 확보 경쟁 PvP, 14히어로 · 4클래스 구조. 6.25~28 글로벌 테스트 종료 후 Gamescom 2026에서 플레이어 대상 공개 시연 예정이며 H2 2026 EA 목표 유지. Project S 직접 경쟁보다 크래프톤 PvP / 히어로 아레나 포트폴리오 관찰용.",
+    "pros": [
+      "Krafton 퍼블리싱 + 풀 컨트롤러 지원 · Krafton ID 연동",
+      "글로벌 테스트에서 신규 히어로 Mika Mist 데뷔, 14히어로 4클래스",
+      "Gamescom 2026 출품 확정"
+    ],
+    "concerns": [
+      "위시리스트 9.2K · 팔로워 1.8K — 지표 낮음",
+      "EA 날짜 미확정"
+    ]
   },
-  { id:39, name:"본파이어 (Bonfire)", tier:"AAA", genre:"기타", genreDetail:"신규 IP FPS (미공개)", dev:"NCSoft", pub:"NCSoft", platform:"PC · 콘솔", release:"TBA", bm:"TBD", status:"개발 중 / 미공개", followers:null, wishlist:null, stage:"미공개 개발 중", stageGroup:"개발 중", devPrevWorks:"NCSoft 내부 신규 개발실",
-    milestones:[{text:"채용공고 확인 (2025.12~)"},{text:"NC 채용블로그 Bonfire 개발실 인터뷰 공개 (2026.03~04)",current:true},{text:"개발 중 / 미공개"}],
-    evaluation:"NCSoft 내부 개발 미공개 신규 FPS. 채용블로그 · TD 인터뷰에서 FPS 장르 Bonfire로 확인. 차세대 FPS · 신규 IP · UE5 · PC / 콘솔 타깃. Steam 페이지 · 트레일러 · 출시일 · BM · PvP / PvE 구조 모두 미공개이며 Cinder City와는 별도 프로젝트.",
-    concerns:["정보 전무 — 트레일러 · 페이지 · 일정 모두 미공개","NCSoft 슈터 포트폴리오 내 우선순위 불명"]
+  {
+    "id": 39,
+    "name": "본파이어 (Bonfire)",
+    "tier": "AAA",
+    "genre": "기타",
+    "genreDetail": "신규 IP FPS (미공개)",
+    "dev": "NCSoft",
+    "pub": "NCSoft",
+    "platform": "PC · 콘솔",
+    "release": "TBA",
+    "bm": "TBD",
+    "status": "개발 중 / 미공개",
+    "followers": null,
+    "wishlist": null,
+    "stage": "미공개 개발 중",
+    "stageGroup": "개발 중",
+    "devPrevWorks": "NCSoft 내부 신규 개발실",
+    "milestones": [
+      {
+        "text": "채용공고 확인 (2025.12~)"
+      },
+      {
+        "text": "NC 채용블로그 Bonfire 개발실 인터뷰 공개 (2026.03~04)",
+        "current": true
+      },
+      {
+        "text": "개발 중 / 미공개"
+      }
+    ],
+    "evaluation": "NCSoft 내부 개발 미공개 신규 FPS. 채용블로그 · TD 인터뷰에서 FPS 장르 Bonfire로 확인. 차세대 FPS · 신규 IP · UE5 · PC / 콘솔 타깃. Steam 페이지 · 트레일러 · 출시일 · BM · PvP / PvE 구조 모두 미공개이며 Cinder City와는 별도 프로젝트.",
+    "concerns": [
+      "정보 전무 — 트레일러 · 페이지 · 일정 모두 미공개",
+      "NCSoft 슈터 포트폴리오 내 우선순위 불명"
+    ]
   },
-  { id:40, name:"Sudden Attack Zero Point", tier:"AA", genre:"순수 PvP", genreDetail:"택티컬 FPS (폭파 미션 / TDM 리마스터)", dev:"넥슨게임즈 (NEXON Games)", pub:"Nexon", platform:"PC", release:"2026.07.30 (EA)", bm:"F2P", status:"Steam Early Access 서비스 중", followers:13776, wishlist:35486, stage:"Early Access 서비스 중", stageGroup:"출시 완료", devPrevWorks:"서든어택 (2005, 국내 대박 · 1억+ 유저), 서든어택2 (2016, 논란 속 2개월 만에 종료)",
-    tags:"Free to Play, Action, FPS, Gun Customization, Multiplayer, Tactical, Shooter, PvP, First-Person, Team-Based, Violent",
-    milestones:[{text:"쇼케이스 최초 공개 (2025.03)"},{text:"Steam Next Fest 데모 (2025.10)"},{text:"파이널 CBT (2026.07.09~13)"},{text:"Steam Early Access 시작 (2026.07.30)",current:true}],
-    steamData:{rating:"Mostly Negative (1,000+건, 2026.08 초)", wishlist:"35,486", followers:"13,776"},
-    evaluation:"F2P Early Access 출시 직후 Steam 평가는 Mostly Negative. 원작 감성과 총기 커스터마이징은 관심을 얻었으나, 지역 서버 · 높은 핑, 로비 · 맵 선택 제약, 최적화와 운영 편의성 불만이 초기 평가를 악화시킴. EA 기간은 약 6개월 계획.",
-    pros:["2005년 서든어택 IP 글로벌 타깃 리마스터","총기 커스터마이징 · 원작 감성"],
-    concerns:["출시 직후 Steam 평가 Mostly Negative (1K+)","지역 서버 · 높은 핑, 로비 · 맵 선택 제약","국내 지역락 · 한국어 미지원 — 해외 우선 서비스"],
-    note:"한국 IP의 글로벌 스팀 EA 진입 사례로, 초기 서버 · 로컬라이제이션 준비 부족이 평가에 직결된 케이스.",
-    sources:["https://store.steampowered.com/app/3576070/Sudden_Attack_Zero_Point/","https://live-jp.nexon.com/news/135939"]
+  {
+    "id": 40,
+    "name": "Sudden Attack Zero Point",
+    "tier": "AA",
+    "genre": "순수 PvP",
+    "genreDetail": "택티컬 FPS (폭파 미션 / TDM 리마스터)",
+    "dev": "넥슨게임즈 (NEXON Games)",
+    "pub": "Nexon",
+    "platform": "PC",
+    "release": "2026.07.30 (EA)",
+    "bm": "F2P",
+    "status": "Steam Early Access 서비스 중",
+    "followers": 13840,
+    "wishlist": 35499,
+    "stage": "Early Access 서비스 중",
+    "stageGroup": "출시 완료",
+    "devPrevWorks": "서든어택 (2005, 국내 대박 · 1억+ 유저), 서든어택2 (2016, 논란 속 2개월 만에 종료)",
+    "tags": "Free to Play, Action, FPS, Gun Customization, Multiplayer, Tactical, Shooter, PvP, First-Person, Team-Based, Violent",
+    "milestones": [
+      {
+        "text": "쇼케이스 최초 공개 (2025.03)"
+      },
+      {
+        "text": "Steam Next Fest 데모 (2025.10)"
+      },
+      {
+        "text": "파이널 CBT (2026.07.09~13)"
+      },
+      {
+        "text": "Steam Early Access 시작 (2026.07.30)",
+        "current": true
+      }
+    ],
+    "steamData": {
+      "rating": "Mostly Negative (1,000+건, 2026.08 초)",
+      "wishlist": "35,499",
+      "followers": "13,840",
+      "review1w": "30.2% (1,222건)",
+      "peak24h": "2,764 (2026.08.10)"
+    },
+    "evaluation": "F2P Early Access 출시 직후 Steam 평가는 Mostly Negative. 원작 감성과 총기 커스터마이징은 관심을 얻었으나, 지역 서버 · 높은 핑, 로비 · 맵 선택 제약, 최적화와 운영 편의성 불만이 초기 평가를 악화시킴. 8.10 기준 24시간 피크 2,764명, 리뷰 +1주 30.2%(1,222건). EA 기간은 약 6개월 계획.",
+    "pros": [
+      "2005년 서든어택 IP 글로벌 타깃 리마스터",
+      "총기 커스터마이징 · 원작 감성"
+    ],
+    "concerns": [
+      "출시 직후 Steam 평가 Mostly Negative (1K+)",
+      "지역 서버 · 높은 핑, 로비 · 맵 선택 제약",
+      "국내 지역락 · 한국어 미지원 — 해외 우선 서비스"
+    ],
+    "note": "한국 IP의 글로벌 스팀 EA 진입 사례로, 초기 서버 · 로컬라이제이션 준비 부족이 평가에 직결된 케이스.",
+    "sources": [
+      "https://store.steampowered.com/app/3576070/Sudden_Attack_Zero_Point/",
+      "https://live-jp.nexon.com/news/135939"
+    ]
   }
 ];
 
@@ -1579,7 +3304,7 @@ function createGameCardHTML(game, tierConfig) {
     : '';
 
   const wishlistChip = game.wishlist
-    ? `<span class="meta-chip chip-followers" title="Estimated Wishlist (Raijin, 8/3 기준)">WL ${formatFollowers(game.wishlist)}</span>`
+    ? `<span class="meta-chip chip-followers" title="Estimated Wishlist (Raijin, 8/10 기준)">WL ${formatFollowers(game.wishlist)}</span>`
     : '';
 
   const stageBadge = `<span class="stage-badge ${getStageClass(game.stageGroup)}">${game.stage}</span>`;
@@ -1714,8 +3439,8 @@ function openDetailPanel(gameId) {
       <div class="panel-meta-item"><div class="panel-meta-label">출시 일정</div><div class="panel-meta-value">${game.release}</div></div>
       <div class="panel-meta-item"><div class="panel-meta-label">BM 모델</div><div class="panel-meta-value">${game.bm}</div></div>
       <div class="panel-meta-item"><div class="panel-meta-label">현재 상태</div><div class="panel-meta-value">${game.status}</div></div>
-      <div class="panel-meta-item"><div class="panel-meta-label">Steam 팔로워 (8/3)</div><div class="panel-meta-value" style="color:var(--cyan)">${followersDisplay}</div></div>
-      <div class="panel-meta-item"><div class="panel-meta-label">추정 위시리스트 (8/3)</div><div class="panel-meta-value" style="color:var(--purple)">${wishlistDisplay}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">Steam 팔로워 (8/10)</div><div class="panel-meta-value" style="color:var(--cyan)">${followersDisplay}</div></div>
+      <div class="panel-meta-item"><div class="panel-meta-label">추정 위시리스트 (8/10)</div><div class="panel-meta-value" style="color:var(--purple)">${wishlistDisplay}</div></div>
       <div class="panel-meta-item"><div class="panel-meta-label">개발 단계</div><div class="panel-meta-value">${game.stage}</div></div>
     </div>
   `;
@@ -1730,12 +3455,12 @@ function openDetailPanel(gameId) {
           Steam 실적 데이터
         </div>
         <div class="steam-data-grid">
-          ${sd.rating ? `<div class="steam-stat"><div class="steam-stat-label">현재 리뷰 (긍정률/건수)</div><div class="steam-stat-value ${ratingClass(sd.rating)}">${sd.rating}</div></div>` : ''}
+          ${sd.rating ? `<div class="steam-stat"><div class="steam-stat-label">현재 리뷰 (8/10, 긍정률/건수)</div><div class="steam-stat-value ${ratingClass(sd.rating)}">${sd.rating}</div></div>` : ''}
           ${sd.review1w ? `<div class="steam-stat"><div class="steam-stat-label">리뷰 +1주</div><div class="steam-stat-value">${sd.review1w}</div></div>` : ''}
           ${sd.review1m ? `<div class="steam-stat"><div class="steam-stat-label">리뷰 +1개월</div><div class="steam-stat-value">${sd.review1m}</div></div>` : ''}
           ${sd.launch1w ? `<div class="steam-stat"><div class="steam-stat-label">론칭 +1주 PCCU</div><div class="steam-stat-value">${sd.launch1w}</div></div>` : ''}
           ${sd.ath ? `<div class="steam-stat"><div class="steam-stat-label">All Time High PCCU</div><div class="steam-stat-value">${sd.ath}</div></div>` : ''}
-          ${sd.peak24h ? `<div class="steam-stat"><div class="steam-stat-label">최근 24h 피크</div><div class="steam-stat-value stat-yellow">${sd.peak24h}</div></div>` : ''}
+          ${sd.peak24h ? `<div class="steam-stat"><div class="steam-stat-label">24h 피크 (8/10)</div><div class="steam-stat-value stat-yellow">${sd.peak24h}</div></div>` : ''}
           ${sd.peak ? `<div class="steam-stat"><div class="steam-stat-label">동시접속 피크</div><div class="steam-stat-value">${sd.peak}</div></div>` : ''}
           ${sd.wishlist ? `<div class="steam-stat"><div class="steam-stat-label">추정 위시리스트 (Raijin)</div><div class="steam-stat-value">${sd.wishlist}</div></div>` : ''}
           ${sd.followers ? `<div class="steam-stat"><div class="steam-stat-label">Steam 팔로워 (SteamDB)</div><div class="steam-stat-value">${sd.followers}</div></div>` : ''}
@@ -1915,7 +3640,7 @@ const RELEASE_DATES = {
   7:  { date: "2026",       label: "2026 TBD", exact: false },
   8:  { date: "2026",       label: "2026 TBD", exact: false },
   9:  { date: "2026",       label: "2026 TBD", exact: false },
-  10: { date: null,         label: "무기한 연기", exact: false },
+  10: { date: "2026",       label: "2026 (EA 일정 재조정)", exact: false },
   11: { date: "2026",       label: "2026 TBD", exact: false },
   12: { date: "2026",       label: "2026 TBD", exact: false },
   13: { date: "2026",       label: "2026 TBD", exact: false },
